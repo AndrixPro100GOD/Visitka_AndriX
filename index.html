@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <!-- Версия релиза для согласованности с cache-busting в PROJECT_RULES.md -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Портфолио — Full-Stack .NET</title>
+    <meta
+      name="description"
+      content="Full-Stack .NET: TMS, Blazor, real-time (SignalR, Redis), миграции на .NET 8, Docker. Опыт, образование, рекомендации."
+    />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23142c4a'/%3E%3Cpath fill='%23ffffff' d='M8 10h3v12H8V10zm5 0h5c3 0 5 1.6 5 4.2 0 1.7-.9 3-2.4 3.6L23 22h-3.4l-2.1-3.6h-1.5V22H13V10zm3 2.4v3.6h2c1.1 0 1.8-.6 1.8-1.8 0-1.1-.7-1.8-1.8-1.8h-2z'/%3E%3C/svg%3E" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./index.css?v=20260512-5" />
+  </head>
+  <body>
+    <header class="site-header" id="top">
+      <div class="container nav-wrap">
+        <a class="brand" href="#top" aria-label="На главную">
+          <span class="brand-mark" aria-hidden="true">&lt;/&gt;</span>
+          <span>Портфолио</span>
+        </a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+          Меню
+        </button>
+        <nav class="main-nav" id="site-nav" aria-label="Основная навигация">
+          <a href="#about">Обо мне</a>
+          <a href="#skills">Навыки</a>
+          <a href="#experience">Опыт</a>
+          <a href="#education">Образование</a>
+          <a href="#references">Рекомендации</a>
+          <a href="#projects">Проекты</a>
+          <a class="nav-cta" href="#contact">Связаться</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="home" aria-labelledby="hero-title">
+        <div class="container hero-grid">
+          <div class="reveal">
+            <span class="hero-badge">Full-Stack · .NET</span>
+            <h1 id="hero-title">Full-Stack .NET: продукты, real-time и миграции без простоя</h1>
+            <p class="hero-lead">
+              Более 3 лет коммерческого опыта на C# и ASP.NET Core. Последние 2 года — TMS для
+              контейнерной логистики с нуля до продаж внешним компаниям: Blazor, SignalR, Redis,
+              Docker и миграция legacy на .NET 8.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#experience">Опыт и детали</a>
+              <a
+                class="btn btn-ghost"
+                href="https://hh.ru/resume/a0eadeb5ff0b5df5220039ed1f746176715033"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Резюме на hh.ru</a
+              >
+            </div>
+          </div>
+          <div class="hero-visual reveal reveal-delay-1">
+            <figure>
+              <!-- Фото из визуальных материалов портфолио; путь версионируйте при замене файла. -->
+              <img
+                class="hero-photo"
+                src="./images/photo.png?v=20260512-1"
+                width="560"
+                height="560"
+                alt="Профессиональное фото для портфолио"
+              />
+              <span class="hero-photo-ring" aria-hidden="true"></span>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--alt" id="about" aria-labelledby="about-title">
+        <div class="container">
+          <div class="section-head reveal">
+            <h2 id="about-title">Обо мне</h2>
+            <p>Сжатая выжимка; развёрнутое резюме — на hh.ru.</p>
+          </div>
+          <div class="about-prose reveal reveal-delay-1">
+            <p>
+              Full-Stack .NET разработчик с более чем 3 годами коммерческого опыта. Специализируюсь на
+              сложных backend-системах, real-time сценариях и миграции legacy на современный стек без
+              потери бизнес-логики.
+            </p>
+            <p>
+              За последний год с нуля разработал и вывел в коммерческую эксплуатацию TMS — систему
+              управления грузовыми контейнерами и логистикой: полный цикл заявок, обновления в
+              реальном времени (SignalR и Redis), интерактивная схема терминала, миграция старой
+              системы на .NET 8, контейнеризация и поставка клиентам через Docker.
+            </p>
+            <p>
+              Ранее более двух лет занимался Unity: коммерческие казуальные игры с нуля и свыше 200
+              часов занятий по C# и Unity — более 10 учеников выпустили первые полноценные проекты.
+            </p>
+            <p>
+              Сильные стороны: ASP.NET Core, EF Core, PostgreSQL, оптимизация производительности,
+              чистый код. Уверенно работаю с Docker, Git, REST и real-time. Ищу роль Full-Stack /
+              Backend .NET в продуктовой команде.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="skills" aria-labelledby="skills-title">
+        <div class="container">
+          <div class="section-head reveal">
+            <h2 id="skills-title">Навыки</h2>
+            <p>
+              В современном мире технологии и требования к разработчикам меняются очень быстро — важно
+              не отставать и постоянно укреплять практику. Ниже мой стек: навыки, отточенные на
+              реальных задачах и коммерческих продуктах.
+            </p>
+          </div>
+          <!-- Два одинаковых сегмента внутри дорожки создаёт JS для бесшовной CSS-анимации. -->
+          <div class="skills-marquee-wrap reveal reveal-delay-1" role="region" id="skills-marquee-root">
+            <div class="skills-marquee-viewport">
+              <div class="skills-marquee-track" id="skills-marquee-track"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--alt" id="experience" aria-labelledby="exp-title">
+        <div class="container">
+          <div class="section-head reveal">
+            <h2 id="exp-title">Опыт работы</h2>
+            <p>Ключевые результаты по роли Full-Stack .NET в продукте TMS (логистика контейнеров).</p>
+          </div>
+          <div class="timeline">
+            <article class="timeline-item reveal">
+              <header>
+                <h3>Full-Stack .NET Developer</h3>
+                <span class="timeline-meta">май 2024 — апрель 2026 · 2 года</span>
+              </header>
+              <p class="exp-meta-line">TMS — Transport Management System</p>
+              <p class="timeline-tagline">
+                Система управления грузовыми контейнерами и логистикой: от заявки до завершения, с
+                учётом стоков, ЖД-платформ и коммерческой поставки клиентам.
+              </p>
+              <ul>
+                <li>
+                  Разработка TMS с нуля на C# .NET 8, ASP.NET Core и Blazor (MudBlazor): полный
+                  end-to-end цикл обработки заявок.
+                </li>
+                <li>
+                  Real-time статусы контейнеров и заявок: gRPC, SignalR и Redis — изменения видны
+                  всем пользователям без перезагрузки.
+                </li>
+                <li>
+                  Интерактивная схема терминала (стоки, ЖД-платформы): собственный fork
+                  Z.Blazor.Diagrams и Canvas API.
+                </li>
+                <li>
+                  Миграция legacy на .NET 8 по ТЗ: библиотеки по сущностям, автоматическая синхронизация
+                  данных, переход без потери информации.
+                </li>
+                <li>
+                  Вывод в коммерцию: разделение сборок (внутренняя / клиентская), Docker-образы для
+                  внешних компаний, успешные продажи продукта.
+                </li>
+                <li>
+                  Практики поставки: Git и Docker, GitLab CI, нагрузочное тестирование K6,
+                  интеграционные тесты, в т.ч. связка Android-приложения с Backend API.
+                </li>
+                <li>
+                  Оптимизация EF Core и PostgreSQL, развитие REST API: быстрее обработка заявок, меньше
+                  ошибок в данных.
+                </li>
+              </ul>
+            </article>
+            <article class="timeline-item reveal reveal-delay-1">
+              <header>
+                <h3>Unity (C#) · игры и обучение</h3>
+                <span class="timeline-meta">до мая 2024</span>
+              </header>
+              <p class="timeline-tagline">
+                Коммерческие казуальные игры с нуля; индивидуальные и групповые занятия по C# и Unity
+                (200+ часов, 10+ учеников с первыми полноценными релизами).
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="education" aria-labelledby="edu-title">
+        <div class="container">
+          <div class="section-head reveal">
+            <h2 id="edu-title">Образование</h2>
+          </div>
+          <article class="edu-card reveal reveal-delay-1">
+            <h3>Программирование в компьютерных системах</h3>
+            <p class="edu-org">ПФ ГАПОУ СО УРТК им. А.С. Попова</p>
+            <p class="edu-meta">2021 · Среднее специальное</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section section--alt" id="references" aria-labelledby="ref-title">
+        <div class="container">
+          <div class="section-head reveal">
+            <h2 id="ref-title">Рекомендации</h2>
+            <p>
+              Рекомендация связана с проектом TMS — одним из ключевых этапов моего опыта: разработка
+              системы с нуля, вывод в коммерцию и работа в продуктовой команде. Письмо открывается по
+              ссылке ниже.
+            </p>
+          </div>
+          <article class="ref-card reveal reveal-delay-1">
+            <h3>Кокшаров Е.А.</h3>
+            <p>
+              Директор по информационным технологиям (CIO)
+              <span class="ref-role">Управление недвижимостью</span>
+            </p>
+            <!-- Файл скопирован из Downloads с латинским именем, чтобы URL стабильно открывался в браузере. -->
+            <a
+              class="btn btn-primary"
+              href="./documents/recommendation-koksharov.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Рекомендательное письмо (PDF)</a
+            >
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="projects" aria-labelledby="proj-title">
+        <div class="container">
+          <div class="section-head reveal">
+            <h2 id="proj-title">Избранные работы</h2>
+            <p>Открытые репозитории и коммерческие продукты; часть кода в приватных репозиториях.</p>
+          </div>
+          <div class="projects-grid">
+            <article class="project-card reveal">
+              <h3>TMS — логистика контейнеров</h3>
+              <div class="project-tags">
+                <span>.NET 8</span>
+                <span>Blazor</span>
+                <span>Real-time</span>
+              </div>
+              <p>Коммерческий продукт: заявки, терминал, миграции, Docker. Подробности — в блоке «Опыт».</p>
+              <a class="btn btn-ghost" href="#experience">К опыту</a>
+            </article>
+            <article class="project-card reveal reveal-delay-1">
+              <h3>Модульный real-time ERP</h3>
+              <div class="project-tags">
+                <span>.NET 9</span>
+                <span>Blazor</span>
+                <span>Self-hosted</span>
+              </div>
+              <p>
+                Коммерческий веб-продукт в активной разработке (не «статическая визитка»): модульная
+                архитектура, real-time сценарии, self-hosted Blazor. Исходный код в закрытых
+                репозиториях.
+              </p>
+              <a
+                class="btn btn-ghost"
+                href="https://github.com/AndrixPro100GOD"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Профиль GitHub</a
+              >
+            </article>
+            <article class="project-card reveal reveal-delay-2">
+              <h3>highload-realtime-signalr-demo</h3>
+              <div class="project-tags">
+                <span>SignalR</span>
+                <span>Redis</span>
+                <span>Нагрузка</span>
+              </div>
+              <p>
+                Демонстрация высокой нагрузки и real-time: масштабирование SignalR, Redis backplane,
+                observability, сценарии с темами и событиями (см. README в репозитории).
+              </p>
+              <a
+                class="btn btn-ghost"
+                href="https://github.com/AndrixPro100GOD/highload-realtime-signalr-demo"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Репозиторий</a
+              >
+            </article>
+            <article class="project-card reveal reveal-delay-3">
+              <h3>Другие репозитории</h3>
+              <div class="project-tags">
+                <span>C#</span>
+                <span>Open source</span>
+              </div>
+              <p>Например, форк Z.Blazor.Diagrams под TMS и другие публичные проекты на GitHub.</p>
+              <a
+                class="btn btn-ghost"
+                href="https://github.com/AndrixPro100GOD?tab=repositories"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Все репозитории</a
+              >
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--alt" id="contact" aria-labelledby="contact-title">
+        <div class="container">
+          <div class="contact-panel reveal">
+            <div>
+              <h2 id="contact-title">Контакты</h2>
+              <p>E-mail, телефон, Telegram и GitHub — для связи по вакансиям и проектам.</p>
+            </div>
+            <div class="contact-links">
+              <a href="mailto:kaidenkoandrey@gmail.com">kaidenkoandrey@gmail.com</a>
+              <a href="tel:+79041717411">+7 904 171-74-11</a>
+              <a href="https://t.me/AndriXPro100GodDamn" target="_blank" rel="noopener noreferrer">Telegram @AndriXPro100GodDamn</a>
+              <a href="https://github.com/AndrixPro100GOD" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>© <span id="y"></span> · Портфолио · Full-Stack .NET</p>
+      </div>
+    </footer>
+
+    <script>
+      // Год в подвале обновляется автоматически, чтобы не править каждый январь.
+      document.getElementById("y").textContent = new Date().getFullYear();
+      // Мобильное меню: переключаем класс на шапке — стили раскрывают .main-nav (см. index.css).
+      (function () {
+        var header = document.querySelector(".site-header");
+        var btn = document.querySelector(".nav-toggle");
+        var nav = document.getElementById("site-nav");
+        if (!header || !btn || !nav) return;
+        btn.addEventListener("click", function () {
+          var open = header.classList.toggle("nav-open");
+          btn.setAttribute("aria-expanded", open ? "true" : "false");
+        });
+        nav.querySelectorAll("a").forEach(function (link) {
+          link.addEventListener("click", function () {
+            header.classList.remove("nav-open");
+            btn.setAttribute("aria-expanded", "false");
+          });
+        });
+      })();
+
+      // Бегущая строка навыков: плоский список + два DOM-сегмента для бесшовного translateX(-50%).
+      (function initSkillsMarquee() {
+        var SKILLS_MARQUEE = [
+          "C#",
+          ".NET Core",
+          "ASP.NET",
+          "ASP.NET Core",
+          "REST API",
+          "Entity Framework",
+          "ORM",
+          "Redis",
+          "RabbitMQ",
+          "Очереди и брокеры сообщений",
+          "Docker",
+          "Git",
+          "Оптимизация производительности",
+          "SOLID",
+          "ООП",
+          "Многопоточность и асинхронность",
+          "Командная разработка",
+          "Английский язык",
+          "PostgreSQL",
+          "SQL",
+          "SQL Server",
+          "CI/CD",
+          "gRPC",
+          "Linux",
+        ];
+
+        var track = document.getElementById("skills-marquee-track");
+        if (!track) return;
+
+        function buildSegment() {
+          var seg = document.createElement("div");
+          seg.className = "skills-marquee-segment";
+          seg.setAttribute("aria-hidden", "true");
+          SKILLS_MARQUEE.forEach(function (text, index) {
+            if (index > 0) {
+              var sep = document.createElement("span");
+              sep.className = "skills-marquee-sep";
+              sep.textContent = "·";
+              seg.appendChild(sep);
+            }
+            var span = document.createElement("span");
+            span.className = "skills-marquee-item";
+            span.textContent = text;
+            seg.appendChild(span);
+          });
+          return seg;
+        }
+
+        track.appendChild(buildSegment());
+        track.appendChild(buildSegment());
+
+        var root = document.getElementById("skills-marquee-root");
+        if (root) {
+          root.setAttribute("aria-label", "Навыки: " + SKILLS_MARQUEE.join(", "));
+        }
+
+        // Длительность анимации от длины списка: длиннее список — медленнее, чтобы текст читался.
+        var seconds = Math.min(90, Math.max(36, Math.round(SKILLS_MARQUEE.length * 2.2)));
+        track.style.setProperty("--skills-marquee-duration", seconds + "s");
+      })();
+    </script>
+  </body>
+</html>
