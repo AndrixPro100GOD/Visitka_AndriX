@@ -1,423 +1,1832 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
   <head>
-    <!-- Версия релиза для согласованности с cache-busting в PROJECT_RULES.md -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Портфолио Андрея Алексеевича — Full-Stack .NET</title>
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#101113" />
+    <title>Андрей Кайденко — разработчик программного обеспечения</title>
     <meta
       name="description"
-      content="Full-Stack .NET: миграция legacy на современную архитектуру, TMS, Blazor, SignalR, Redis, Docker. Опыт, образование, рекомендации."
+      content="Андрей Кайденко, разработчик из Екатеринбурга. Бизнес-системы, веб-приложения и игры. Инженерный опыт, современные ИИ-инструменты и ответственность за результат."
     />
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23142c4a'/%3E%3Cpath fill='%23ffffff' d='M8 10h3v12H8V10zm5 0h5c3 0 5 1.6 5 4.2 0 1.7-.9 3-2.4 3.6L23 22h-3.4l-2.1-3.6h-1.5V22H13V10zm3 2.4v3.6h2c1.1 0 1.8-.6 1.8-1.8 0-1.1-.7-1.8-1.8-1.8h-2z'/%3E%3C/svg%3E" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="ru_RU" />
+    <meta
+      property="og:title"
+      content="Андрей Кайденко — разработчик программного обеспечения"
+    />
+    <meta
+      property="og:description"
+      content="От понимания задачи до работающего продукта. Опыт в TMS, ERP и Unity, разработка вместе с ИИ-агентами. Россия, Екатеринбург."
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='8' fill='%23101113'/%3E%3Cpath d='m9 28 9-17h4l9 17M13 22h14' fill='none' stroke='%23d9ae79' stroke-width='3'/%3E%3C/svg%3E"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./index.css?v=20260512-8" />
+    <link rel="stylesheet" href="./index.css?v=20261009-2" />
+    <link rel="stylesheet" href="./tms-demo.css?v=20261009-2" />
+    <script src="./js/site.js?v=20261009-2" defer></script>
+    <script src="./js/tms-demo.js?v=20261009-2" defer></script>
   </head>
-  <body>
-    <header class="site-header" id="top">
+  <body id="top">
+    <a class="skip-link" href="#main">Перейти к содержимому</a>
+    <svg
+      class="icon-library"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <symbol id="icon-arrow" viewBox="0 0 24 24">
+        <path d="M5 19 19 5M5 5h14v14" />
+      </symbol>
+      <symbol id="icon-down" viewBox="0 0 24 24">
+        <path d="M12 4v16m-6-6 6 6 6-6" />
+      </symbol>
+      <symbol id="icon-copy" viewBox="0 0 24 24">
+        <rect x="8" y="8" width="12" height="12" rx="2" />
+        <path d="M16 8V4H4v12h4" />
+      </symbol>
+      <symbol id="icon-play" viewBox="0 0 24 24">
+        <path d="m9 5 10 7-10 7V5Z" />
+      </symbol>
+      <symbol id="icon-file" viewBox="0 0 24 24">
+        <path d="M14 3H5v18h14V8l-5-5Zm0 0v5h5M8 12h8m-8 4h6" />
+      </symbol>
+    </svg>
+
+    <header class="site-header">
       <div class="container nav-wrap">
-        <a class="brand" href="#top" aria-label="На главную — Портфолио Андрея Алексеевича">
-          <span class="brand-mark" aria-hidden="true">&lt;/&gt;</span>
-          <span class="brand-title-fallback">Портфолио Андрея Алексеевича</span>
-          <!-- WebGL-заголовок: эффект «лупы» в js/brand-text-webgl.mjs (Three.js с CDN). -->
-          <canvas class="brand-title-canvas" id="brand-title-canvas" aria-hidden="true"></canvas>
+        <a
+          class="personal-name"
+          href="#top"
+          aria-label="Андрей Кайденко — к началу"
+        >
+          <span class="name-mark" aria-hidden="true">а<span>к</span></span>
+          <span>Андрей Кайденко<small>Разработчик ПО</small></span>
         </a>
-        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
-          Меню
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="site-nav"
+          hidden
+        >
+          <span>Меню</span><span class="menu-lines" aria-hidden="true"></span>
         </button>
         <nav class="main-nav" id="site-nav" aria-label="Основная навигация">
           <a href="#about">Обо мне</a>
-          <a href="#skills">Навыки</a>
-          <a href="#experience">Опыт</a>
-          <a href="#education">Образование</a>
-          <a href="#references">Рекомендации</a>
+          <a href="#approach">Подход</a>
           <a href="#projects">Проекты</a>
-          <a class="nav-cta" href="#contact">Связаться</a>
+          <a href="#experience">Опыт</a>
+          <a href="#skills">Технологии</a>
+          <a href="#contact">Контакты</a>
         </nav>
+        <a
+          class="header-resume"
+          href="https://hh.ru/resume/a0eadeb5ff0b5df5220039ed1f746176715033"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Резюме
+          <svg class="icon" aria-hidden="true"><use href="#icon-arrow" /></svg
+        ></a>
+      </div>
+      <div class="reading-progress" aria-hidden="true">
+        <span id="reading-progress"></span>
       </div>
     </header>
 
-    <main>
-      <section class="hero" id="home" aria-labelledby="hero-title">
-        <div class="container hero-grid">
-          <div class="reveal">
-            <span class="hero-badge">Full-Stack · .NET</span>
-            <h1 id="hero-title">
-              Full-Stack .NET: Переход legacy-систем на современную архитектуру с real-time
-            </h1>
-            <p class="hero-lead">
-              Более 3 лет коммерческого опыта на C# и ASP.NET Core. Последние 2 года — TMS для
-              контейнерной логистики с нуля до продаж внешним компаниям: Blazor, SignalR, Redis,
-              Docker и миграция legacy на .NET 8.
-            </p>
-            <div class="hero-actions">
-              <a class="btn btn-primary" href="#experience">Опыт и детали</a>
-              <a
-                class="btn btn-ghost"
-                href="https://hh.ru/resume/a0eadeb5ff0b5df5220039ed1f746176715033"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Резюме на hh.ru</a
-              >
-            </div>
+    <main id="main" tabindex="-1">
+      <section class="hero" aria-labelledby="hero-title" data-hero>
+        <div class="container">
+          <div class="hero-coordinate mono">
+            <span>Личная страница / Разработка ПО</span
+            ><span>Россия, Екатеринбург <span aria-hidden="true">↗</span></span>
           </div>
-          <div class="hero-visual reveal reveal-delay-1">
-            <figure>
-              <!-- Фото из визуальных материалов портфолио; путь версионируйте при замене файла. -->
-              <img
-                class="hero-photo"
-                src="./images/photo.png?v=20260512-1"
-                width="560"
-                height="560"
-                alt="Профессиональное фото для портфолио"
-              />
-              <span class="hero-photo-ring" aria-hidden="true"></span>
+          <div class="hero-grid">
+            <div class="hero-content" data-reveal>
+              <p class="eyebrow">
+                <span class="accent-line" aria-hidden="true"></span> От задачи
+                до работающего продукта
+              </p>
+              <h1 id="hero-title">
+                <span class="hero-firstname">Андрей</span
+                ><span class="hero-lastname"
+                  >Кайденко<span class="name-period">.</span></span
+                >
+              </h1>
+              <p class="hero-role">Разработчик. Думаю, проектирую, создаю.</p>
+              <p class="hero-lead">
+                Разбираюсь в задаче и довожу решение до продукта. Соединяю опыт
+                разработки с возможностями ИИ-агентов: выбираю инструменты,
+                направляю работу и отвечаю за результат.
+              </p>
+              <div class="hero-actions">
+                <a class="button button-primary" href="#contact"
+                  >Обсудить задачу
+                  <svg class="icon" aria-hidden="true">
+                    <use href="#icon-arrow" /></svg
+                ></a>
+                <a class="button button-text" href="#projects"
+                  >Смотреть проекты
+                  <svg class="icon" aria-hidden="true">
+                    <use href="#icon-down" /></svg
+                ></a>
+              </div>
+              <p class="hero-note">Бизнес-системы / Веб-приложения / Игры</p>
+            </div>
+            <figure
+              class="hero-visual"
+              data-reveal
+              style="--reveal-delay: 120ms"
+            >
+              <div class="hero-orbit" aria-hidden="true">
+                <span>+</span><span>+</span>
+              </div>
+              <div class="hero-photo-stack">
+                <div class="hero-photo-back" aria-hidden="true">
+                  <span class="mono">Задача → решение</span>
+                </div>
+                <div class="hero-media-frame">
+                  <img
+                    src="./images/hero-workspace-20261009.jpg?v=20261009-3"
+                    width="1712"
+                    height="1152"
+                    alt="Разработчик за рабочим столом: код и графики на основном мониторе, чат ИИ на втором"
+                    fetchpriority="high"
+                    decoding="async"
+                  />
+                  <div class="hero-media-shade" aria-hidden="true"></div>
+                  <span class="hero-media-index mono" aria-hidden="true"
+                    >ENGINEERING / HUMAN + AI</span
+                  >
+                </div>
+              </div>
+              <div class="hero-sticker" aria-hidden="true">
+                <span>Инструменты меняются.</span
+                ><strong>Мышление решает.</strong
+                ><svg class="icon"><use href="#icon-arrow" /></svg>
+              </div>
+              <figcaption>
+                <span class="hero-media-kicker mono">01 / Рабочий процесс</span>
+                <span>За каждым решением — человек.</span>
+              </figcaption>
             </figure>
           </div>
-        </div>
-      </section>
-
-      <section class="section section--alt" id="about" aria-labelledby="about-title">
-        <div class="container">
-          <div class="section-head reveal">
-            <h2 id="about-title">Обо мне</h2>
-            <p>Сжатая выжимка; развёрнутое резюме — на hh.ru.</p>
+          <div class="hero-bottom">
+            <p class="hero-bottom-note mono">
+              Опыт в разработке <span>×</span> Современные инструменты
+            </p>
+            <a class="scroll-cue mono" href="#about"
+              >Листайте дальше
+              <svg class="icon" aria-hidden="true">
+                <use href="#icon-down" /></svg
+            ></a>
           </div>
-          <div class="about-prose reveal reveal-delay-1">
-            <p>
-              Full-Stack .NET разработчик с более чем 3 годами коммерческого опыта. Специализируюсь на
-              сложных backend-системах, real-time сценариях и миграции legacy на современный стек без
-              потери бизнес-логики.
-            </p>
-            <p>
-              За последний год с нуля разработал и вывел в коммерческую эксплуатацию TMS — систему
-              управления грузовыми контейнерами и логистикой: полный цикл заявок, обновления в
-              реальном времени (SignalR и Redis), интерактивная схема терминала, миграция старой
-              системы на .NET 8, контейнеризация и поставка клиентам через Docker.
-            </p>
-            <p>
-              Ранее более двух лет занимался Unity: коммерческие казуальные игры с нуля и свыше 200
-              часов занятий по C# и Unity — более 10 учеников выпустили первые полноценные проекты.
-            </p>
-            <p>
-              Сильные стороны: ASP.NET Core, EF Core, PostgreSQL, оптимизация производительности,
-              чистый код. Уверенно работаю с Docker, Git, REST и real-time. Ищу роль Full-Stack /
-              Backend .NET в продуктовой команде.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="skills" aria-labelledby="skills-title">
-        <div class="container">
-          <div class="section-head reveal">
-            <h2 id="skills-title">Навыки</h2>
-            <p>
-              В современном мире технологии и требования к разработчикам меняются очень быстро — важно
-              не отставать и постоянно укреплять практику. Ниже мой стек: навыки, отточенные на
-              реальных задачах и коммерческих продуктах.
-            </p>
-          </div>
-          <!-- Два одинаковых сегмента внутри дорожки создаёт JS для бесшовной CSS-анимации. -->
-          <div class="skills-marquee-wrap reveal reveal-delay-1" role="region" id="skills-marquee-root">
-            <div class="skills-marquee-viewport">
-              <div class="skills-marquee-track" id="skills-marquee-track"></div>
+          <div class="metrics" role="group" aria-label="Опыт в цифрах">
+            <div class="metric" data-reveal>
+              <strong
+                >4<span class="metric-unit"> года</span> 3<span
+                  class="metric-unit"
+                >
+                  мес.</span
+                ></strong
+              ><span>Общий опыт работы</span>
+            </div>
+            <div class="metric" data-reveal style="--reveal-delay: 60ms">
+              <strong><span data-count="20">20</span></strong
+              ><span>Коммерческих игр на Unity</span>
+            </div>
+            <div class="metric" data-reveal style="--reveal-delay: 120ms">
+              <strong
+                ><span data-count="200">200</span
+                ><span class="metric-plus">+</span></strong
+              ><span>Часов преподавания</span>
+            </div>
+            <div class="metric" data-reveal style="--reveal-delay: 180ms">
+              <strong
+                ><span data-count="10">10</span
+                ><span class="metric-plus">+</span></strong
+              ><span>Учеников с первыми проектами</span>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="section section--alt" id="experience" aria-labelledby="exp-title">
-        <div class="container">
-          <div class="section-head reveal">
-            <h2 id="exp-title">Опыт работы</h2>
-            <p>Ключевые результаты по роли Full-Stack .NET в продукте TMS (логистика контейнеров).</p>
-          </div>
-          <div class="timeline">
-            <article class="timeline-item reveal">
-              <header>
-                <h3>Full-Stack .NET Developer</h3>
-                <span class="timeline-meta">май 2024 — апрель 2026 · 2 года</span>
-              </header>
-              <p class="exp-meta-line">TMS — Transport Management System</p>
-              <p class="timeline-tagline">
-                Система управления грузовыми контейнерами и логистикой: от заявки до завершения, с
-                учётом стоков, ЖД-платформ и коммерческой поставки клиентам.
-              </p>
-              <ul>
-                <li>
-                  Разработка TMS с нуля на C# .NET 8, ASP.NET Core и Blazor (MudBlazor): полный
-                  end-to-end цикл обработки заявок.
-                </li>
-                <li>
-                  Real-time статусы контейнеров и заявок: gRPC, SignalR и Redis — изменения видны
-                  всем пользователям без перезагрузки.
-                </li>
-                <li>
-                  Интерактивная схема терминала (стоки, ЖД-платформы): собственный fork
-                  Z.Blazor.Diagrams и Canvas API.
-                </li>
-                <li>
-                  Миграция legacy на .NET 8 по ТЗ: библиотеки по сущностям, автоматическая синхронизация
-                  данных, переход без потери информации.
-                </li>
-                <li>
-                  Вывод в коммерцию: разделение сборок (внутренняя / клиентская), Docker-образы для
-                  внешних компаний, успешные продажи продукта.
-                </li>
-                <li>
-                  Практики поставки: Git и Docker, GitLab CI, нагрузочное тестирование K6,
-                  интеграционные тесты, в т.ч. связка Android-приложения с Backend API.
-                </li>
-                <li>
-                  Оптимизация EF Core и PostgreSQL, развитие REST API: быстрее обработка заявок, меньше
-                  ошибок в данных.
-                </li>
-              </ul>
-            </article>
-            <article class="timeline-item reveal reveal-delay-1">
-              <header>
-                <h3>Unity (C#) · игры и обучение</h3>
-                <span class="timeline-meta">до мая 2024</span>
-              </header>
-              <p class="timeline-tagline">
-                Коммерческие казуальные игры с нуля; индивидуальные и групповые занятия по C# и Unity
-                (200+ часов, 10+ учеников с первыми полноценными релизами).
-              </p>
-            </article>
-          </div>
+      <div class="kinetic-band" aria-hidden="true">
+        <div class="kinetic-track">
+          <span>Сначала задача.</span><span class="kinetic-star">✳</span
+          ><span class="kinetic-outline">Затем инструменты.</span
+          ><span class="kinetic-star">✳</span><span>Сначала задача.</span>
         </div>
-      </section>
+      </div>
 
-      <section class="section" id="education" aria-labelledby="edu-title">
+      <section
+        class="section about-section"
+        id="about"
+        aria-labelledby="about-title"
+      >
         <div class="container">
-          <div class="section-head reveal">
-            <h2 id="edu-title">Образование</h2>
-          </div>
-          <article class="edu-card reveal reveal-delay-1">
-            <h3>Программирование в компьютерных системах</h3>
-            <p class="edu-org">ПФ ГАПОУ СО УРТК им. А.С. Попова</p>
-            <p class="edu-meta">2021 · Среднее специальное</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section section--alt" id="references" aria-labelledby="ref-title">
-        <div class="container">
-          <div class="section-head reveal">
-            <h2 id="ref-title">Рекомендации</h2>
-            <p>
-              Рекомендация связана с проектом TMS — одним из ключевых этапов моего опыта: разработка
-              системы с нуля, вывод в коммерцию и работа в продуктовой команде. Письмо открывается по
-              ссылке ниже.
-            </p>
-          </div>
-          <article class="ref-card reveal reveal-delay-1">
-            <h3>Кокшаров Е.А.</h3>
-            <p>
-              Директор по информационным технологиям (CIO)
-              <span class="ref-role">Управление недвижимостью</span>
-            </p>
-            <!-- Файл скопирован из Downloads с латинским именем, чтобы URL стабильно открывался в браузере. -->
-            <a
-              class="btn btn-primary"
-              href="./documents/recommendation-koksharov.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Рекомендательное письмо (PDF)</a
-            >
-          </article>
-        </div>
-      </section>
-
-      <section class="section" id="projects" aria-labelledby="proj-title">
-        <div class="container">
-          <div class="section-head reveal">
-            <h2 id="proj-title">Избранные работы</h2>
-            <p>Открытые репозитории и коммерческие продукты; часть кода в приватных репозиториях.</p>
-          </div>
-          <div class="projects-grid">
-            <article class="project-card reveal">
-              <h3>TMS — логистика контейнеров</h3>
-              <div class="project-tags">
-                <span>.NET 8</span>
-                <span>Blazor</span>
-                <span>Real-time</span>
-              </div>
-              <p>Коммерческий продукт: заявки, терминал, миграции, Docker. Подробности — в блоке «Опыт».</p>
-              <a class="btn btn-ghost" href="#experience">К опыту</a>
-            </article>
-            <article class="project-card reveal reveal-delay-1">
-              <h3>Модульный real-time ERP</h3>
-              <div class="project-tags">
-                <span>.NET 9</span>
-                <span>Blazor</span>
-                <span>Self-hosted</span>
-              </div>
-              <p>
-                Коммерческий веб-продукт в активной разработке: модульная
-                архитектура, real-time сценарии, self-hosted Blazor.
-              </p>
-              <a
-                class="btn btn-ghost"
-                href="https://github.com/AndrixPro100GOD"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Профиль GitHub</a
+          <div class="section-heading" data-reveal>
+            <p class="section-label"><span>01 /</span> Обо мне</p>
+            <h2 id="about-title">
+              Разбираюсь в сути.<br /><span class="text-muted"
+                >Выбираю, как сделать.</span
               >
-            </article>
-            <article class="project-card reveal reveal-delay-2">
-              <h3>highload-realtime-signalr-demo</h3>
-              <div class="project-tags">
-                <span>SignalR</span>
-                <span>Redis</span>
-                <span>Нагрузка</span>
-              </div>
-              <p>
-                Демонстрация высокой нагрузки и real-time: масштабирование SignalR, Redis backplane,
-                observability, сценарии с темами и событиями.
+            </h2>
+          </div>
+          <div class="about-grid personal-grid">
+            <div class="personal-details" data-reveal>
+              <span class="personal-asterisk" aria-hidden="true">✳</span>
+              <h3>Андрей Алексеевич<br />Кайденко</h3>
+              <dl class="bio-facts">
+                <div>
+                  <dt>Живу</dt>
+                  <dd>Россия, Екатеринбург</dd>
+                </div>
+                <div>
+                  <dt>Родился</dt>
+                  <dd><time datetime="2000-07-22">22 июля 2000</time></dd>
+                </div>
+                <div>
+                  <dt>На связи</dt>
+                  <dd>
+                    <a
+                      href="https://t.me/AndriXPro100GodDamn"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >Telegram <span aria-hidden="true">↗</span></a
+                    >
+                  </dd>
+                </div>
+              </dl>
+            </div>
+            <div class="prose" data-reveal style="--reveal-delay: 100ms">
+              <p class="about-statement">
+                Создаю программное обеспечение.<br />От логики и данных до
+                интерфейса и запуска.
               </p>
+              <p>
+                Моя база — практическая разработка на C#, .NET, ASP.NET Core,
+                Entity Framework Core и Unity ещё до работы с ИИ. За этим опытом
+                стоят бизнес-системы, выпущенные игры и обучение других
+                разработке.
+              </p>
+              <p>
+                Сегодня я не ограничиваюсь одним стеком. С ИИ-инструментами
+                осваиваю другие языки и фреймворки, разбираюсь в новых
+                предметных областях. Для незнакомой задачи сначала изучаю
+                контекст, проверяю подход и только потом строю решение.
+              </p>
+              <p class="about-conclusion">
+                В основе работы — понимание системы, её ограничений и того,
+                зачем она нужна людям.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="section approach-section"
+        id="approach"
+        aria-labelledby="approach-title"
+      >
+        <div class="container approach-layout">
+          <div class="approach-intro">
+            <p class="section-label"><span>02 /</span> Как я работаю с ИИ</p>
+            <h2 id="approach-title">
+              ИИ в команде.<br /><span class="text-lime"
+                >Ответственность<br />на мне.</span
+              >
+            </h2>
+            <p class="approach-lead">
+              Я задаю направление и критерии результата. Вместе с агентом
+              проектирую решение, проверяю его в работе и готовлю к релизу.
+            </p>
+            <div class="process-legend" aria-label="Участники процесса">
+              <span class="owner-human">Я</span
+              ><span class="owner-together">Я + агент</span
+              ><span class="owner-agent">Агент</span>
+            </div>
+            <div class="process-readout" aria-hidden="true">
+              <div class="process-dial">
+                <svg viewBox="0 0 120 120">
+                  <circle class="dial-track" cx="60" cy="60" r="52" />
+                  <circle
+                    class="dial-progress"
+                    cx="60"
+                    cy="60"
+                    r="52"
+                    pathLength="1"
+                  />
+                </svg>
+                <span class="process-number mono">01</span>
+              </div>
+              <div>
+                <span class="mono small-label"
+                  >Этап <span id="process-position">01 / 06</span></span
+                ><strong id="process-title">Постановка задачи</strong
+                ><span id="process-owner">Я задаю направление</span>
+              </div>
+            </div>
+            <p class="process-footnote">
+              Автоматизирую исполнение.<br />Сохраняю контроль над решениями.
+            </p>
+          </div>
+          <div class="process-flow">
+            <svg
+              class="process-connections"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <defs>
+                <marker
+                  id="flow-arrow"
+                  viewBox="0 0 8 8"
+                  refX="6"
+                  refY="4"
+                  markerWidth="7"
+                  markerHeight="7"
+                  orient="auto"
+                >
+                  <path
+                    d="M1 1 6 4 1 7"
+                    fill="none"
+                    stroke="context-stroke"
+                    stroke-width="1.2"
+                  />
+                </marker>
+              </defs>
+              <path class="flow-spine" />
+              <path class="flow-progress" pathLength="1" />
+              <path
+                class="flow-return return-code"
+                marker-end="url(#flow-arrow)"
+              />
+              <path
+                class="flow-return return-behavior"
+                marker-end="url(#flow-arrow)"
+              />
+            </svg>
+            <ol
+              class="process-steps"
+              aria-label="Шесть этапов разработки с ИИ-агентом"
+            >
+              <li
+                class="process-step owner-human"
+                id="process-task"
+                data-process-step
+                data-title="Постановка задачи"
+                data-owner="Я задаю направление"
+              >
+                <div class="process-step-top">
+                  <span class="mono">01 / НАПРАВЛЕНИЕ</span
+                  ><span class="owner-tag">Я</span>
+                </div>
+                <h3>Постановка задачи</h3>
+                <p>
+                  Определяю, какую проблему решаем, для кого и в каких границах.
+                  Задаю приоритеты и критерии готовности.
+                </p>
+                <span class="step-result"
+                  >Результат: понятная цель и требования</span
+                >
+              </li>
+              <li
+                class="process-step owner-together"
+                id="process-architecture"
+                data-process-step
+                data-title="Архитектура"
+                data-owner="Я + агент выбираем решение"
+              >
+                <div class="process-step-top">
+                  <span class="mono">02 / ПРОЕКТИРОВАНИЕ</span
+                  ><span class="owner-tag">Я + агент</span>
+                </div>
+                <h3>Архитектура</h3>
+                <p>
+                  Вместе рассматриваем варианты, выбираем стек, структуру и
+                  связи между компонентами. Я оцениваю компромиссы и принимаю
+                  решения.
+                </p>
+                <span class="step-result"
+                  >Результат: согласованный план реализации</span
+                >
+              </li>
+              <li
+                class="process-step owner-agent"
+                id="process-implementation"
+                data-process-step
+                data-title="Реализация"
+                data-owner="Агент пишет код"
+              >
+                <div class="process-step-top">
+                  <span class="mono">03 / РЕАЛИЗАЦИЯ</span
+                  ><span class="owner-tag">Агент</span>
+                </div>
+                <h3>Реализация</h3>
+                <p>
+                  Агент пишет код по согласованному плану: от отдельных
+                  компонентов до их интеграции. Учитывает контекст проекта и
+                  заданные ограничения.
+                </p>
+                <span class="step-result"
+                  >Результат: решение, готовое к проверке</span
+                >
+              </li>
+              <li
+                class="process-step owner-agent"
+                id="process-code"
+                data-process-step
+                data-title="Проверка кода"
+                data-owner="Агент проверяет и исправляет"
+              >
+                <div class="process-step-top">
+                  <span class="mono">04 / КАЧЕСТВО КОДА</span
+                  ><span class="owner-tag">Агент</span>
+                </div>
+                <h3>Проверка кода</h3>
+                <p>
+                  Агент проверяет изменения, запускает сборку и тесты, находит и
+                  исправляет ошибки. Проверка повторяется после доработки.
+                </p>
+                <a class="return-link" href="#process-implementation"
+                  ><span aria-hidden="true">↳</span> Есть ошибки → назад к
+                  реализации</a
+                >
+              </li>
+              <li
+                class="process-step owner-together"
+                id="process-behavior"
+                data-process-step
+                data-title="Проверка в работе"
+                data-owner="Я + агент проверяем результат"
+              >
+                <div class="process-step-top">
+                  <span class="mono">05 / ПОВЕДЕНИЕ СИСТЕМЫ</span
+                  ><span class="owner-tag">Я + агент</span>
+                </div>
+                <h3>Проверка в работе</h3>
+                <p>
+                  Вместе проверяем пользовательские сценарии, пограничные случаи
+                  и соответствие исходной задаче. Я оцениваю результат и задаю
+                  следующую итерацию, если она нужна.
+                </p>
+                <a class="return-link" href="#process-implementation"
+                  ><span aria-hidden="true">↳</span> Не решает задачу → на
+                  доработку</a
+                >
+              </li>
+              <li
+                class="process-step owner-together"
+                id="process-release"
+                data-process-step
+                data-title="Релиз"
+                data-owner="Я + агент выпускаем решение"
+              >
+                <div class="process-step-top">
+                  <span class="mono">06 / РЕЗУЛЬТАТ</span
+                  ><span class="owner-tag">Я + агент</span>
+                </div>
+                <h3>Релиз</h3>
+                <p>
+                  Вместе готовим и выполняем выкладку, проверяем работу после
+                  запуска. Решение о готовности и ответственность за результат
+                  остаются на мне.
+                </p>
+                <span class="step-result"
+                  >Результат: задача решена в работающем продукте</span
+                >
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="section projects-section"
+        id="projects"
+        aria-labelledby="projects-title"
+      >
+        <div class="container">
+          <div class="section-heading heading-split" data-reveal>
+            <div>
+              <p class="section-label"><span>03 /</span> Избранные проекты</p>
+              <h2 id="projects-title">
+                Код становится<br /><span class="text-muted"
+                  >рабочим продуктом.</span
+                >
+              </h2>
+            </div>
+            <p class="section-aside">
+              Бизнес-системы, в которых важны<br />данные, процессы и люди.
+            </p>
+          </div>
+          <article class="featured-project tms-project" data-reveal>
+            <div class="project-overview">
+              <div class="project-topline">
+                <span class="mono small-label">01 — Коммерческий продукт</span
+                ><span class="project-period mono">2024–2026</span>
+              </div>
+              <h3>
+                TMS<span class="text-muted"> /</span><br />Логистика контейнеров
+              </h3>
+              <p>
+                За два года собрана TMS — система управления грузовыми
+                контейнерами. Заявка проходит путь от создания до закрытия, а
+                терминал показан схемой со стоками и ЖД-платформами.
+              </p>
+              <p>
+                Сборки разделены на внутреннюю и клиентскую, образы лежат в
+                Docker. Продукт вышел в коммерческое использование у внешних
+                компаний.
+              </p>
+              <div class="tags">
+                <span>C# / .NET 8</span><span>Blazor</span><span>SignalR</span
+                ><span>Redis</span><span>PostgreSQL</span>
+              </div>
+              <a class="text-link" href="#experience-tms"
+                >Что сделано в проекте
+                <svg class="icon" aria-hidden="true">
+                  <use href="#icon-arrow" /></svg
+              ></a>
+            </div>
+            <section class="tms-demo" id="tms-demo" aria-labelledby="tms-title">
+              <div class="tms-toolbar">
+                <div>
+                  <p class="tms-eyebrow mono">Площадка → события → TMS</p>
+                  <h4 id="tms-title">Один контейнер. Весь путь заявки.</h4>
+                </div>
+                <div class="tms-controls" data-tms="controls" hidden>
+                  <button class="tms-play" type="button" data-tms="play">
+                    ▶ Смотреть историю
+                  </button>
+                  <button
+                    type="button"
+                    data-tms="next"
+                    aria-label="Перейти к следующему этапу"
+                    title="Следующий этап"
+                  >
+                    →
+                  </button>
+                  <button
+                    type="button"
+                    data-tms="restart"
+                    aria-label="Вернуть историю к началу"
+                    title="К началу"
+                  >
+                    ↺
+                  </button>
+                  <button
+                    type="button"
+                    data-tms="speed"
+                    aria-label="Скорость 1×. Переключить на 2×"
+                  >
+                    1×
+                  </button>
+                </div>
+              </div>
+              <div class="tms-playback-meta">
+                <span data-tms="playback-note"
+                  >Упрощённая история работы TMS</span
+                ><span class="mono"
+                  ><span data-tms="elapsed">00:00</span> / 01:03</span
+                >
+              </div>
+              <div class="tms-progress" aria-hidden="true"><span></span></div>
+              <div class="tms-narrative">
+                <span
+                  class="tms-chapter-number mono"
+                  data-tms="chapter-number"
+                  aria-hidden="true"
+                  >01</span
+                >
+                <div>
+                  <h5 data-tms="chapter-title">
+                    Грузовик прибывает на терминал
+                  </h5>
+                  <p data-tms="chapter-detail">
+                    КПП передаёт номер автомобиля. TMS фиксирует его прибытие в
+                    заявке.
+                  </p>
+                </div>
+              </div>
+
+              <div class="tms-workspace">
+                <div class="tms-yard" data-tms="yard">
+                  <div class="tms-surface-label">
+                    <span class="mono">01 / Физическая площадка</span
+                    ><span>Условная схема</span>
+                  </div>
+                  <svg
+                    class="tms-scene"
+                    viewBox="0 0 720 430"
+                    role="img"
+                    aria-labelledby="tms-scene-title tms-scene-desc"
+                  >
+                    <title id="tms-scene-title">
+                      Приём, хранение и выдача контейнера MOGU 133767
+                    </title>
+                    <desc id="tms-scene-desc">
+                      Грузовик привозит контейнер 40 футов, ISO 45G0. Ричстакер
+                      снимает его и размещает в Stock X1 Y1 Z1. Через три дня
+                      контейнер погружают на второй автомобиль и выдают.
+                    </desc>
+                    <defs>
+                      <pattern
+                        id="tms-paving"
+                        width="32"
+                        height="32"
+                        patternUnits="userSpaceOnUse"
+                      >
+                        <path
+                          d="M32 0H0V32"
+                          fill="none"
+                          stroke="#b4c4bc"
+                          stroke-opacity=".045"
+                        />
+                      </pattern>
+                      <pattern
+                        id="tms-ribs"
+                        width="12"
+                        height="76"
+                        patternUnits="userSpaceOnUse"
+                      >
+                        <path
+                          d="M6 3V73"
+                          stroke="#442b23"
+                          stroke-width="3"
+                          stroke-opacity=".35"
+                        />
+                      </pattern>
+                      <linearGradient id="tms-container-paint" x2="0" y2="1">
+                        <stop stop-color="#b86b4f" />
+                        <stop offset="1" stop-color="#875039" />
+                      </linearGradient>
+                      <linearGradient id="tms-ground-glow" x2="0" y2="1">
+                        <stop stop-color="#1f302a" />
+                        <stop offset="1" stop-color="#151c1d" />
+                      </linearGradient>
+                    </defs>
+                    <rect
+                      width="720"
+                      height="430"
+                      fill="url(#tms-ground-glow)"
+                    />
+                    <rect width="720" height="430" fill="url(#tms-paving)" />
+                    <!-- Distant container rows give the stock location context. -->
+                    <g opacity=".4" stroke="#74877d" stroke-width="1">
+                      <path
+                        d="M86 90V55h132v35Zm146 0V55h132v35Z"
+                        fill="#2d4640"
+                      />
+                      <path
+                        d="M96 62v21m13-21v21m13-21v21m13-21v21m13-21v21m13-21v21m13-21v21m13-21v21M244 62v21m13-21v21m13-21v21m13-21v21m13-21v21m13-21v21m13-21v21m13-21v21"
+                      />
+                    </g>
+                    <path d="M0 386H720" stroke="#6c7e7380" />
+                    <path
+                      d="M0 318H720"
+                      stroke="#54625860"
+                      stroke-dasharray="24 14"
+                    />
+                    <text class="tms-map-label" x="38" y="405">
+                      ПРИЁМ / ВЫДАЧА
+                    </text>
+                    <path
+                      d="M256 399h90m-12-5 12 5-12 5"
+                      stroke="#64766b"
+                      fill="none"
+                    />
+                    <g class="tms-stock-space">
+                      <path
+                        d="M390 135h228v115H390Z"
+                        fill="#bcde9720"
+                        stroke="#a3be87"
+                        stroke-dasharray="7 6"
+                      />
+                      <path
+                        d="M390 148v-13h13m202 0h13v13m0 89v13h-13m-202 0h-13v-13"
+                        stroke="#d6f484"
+                        stroke-width="2"
+                        fill="none"
+                      />
+                      <text x="390" y="109" class="tms-stock-name">Stock</text>
+                      <text
+                        x="618"
+                        y="109"
+                        text-anchor="end"
+                        class="tms-map-label"
+                      >
+                        МЕСТО ХРАНЕНИЯ
+                      </text>
+                      <text
+                        x="504"
+                        y="275"
+                        text-anchor="middle"
+                        class="tms-stock-address"
+                      >
+                        X1 · Y1 · Z1
+                      </text>
+                      <text
+                        x="504"
+                        y="294"
+                        text-anchor="middle"
+                        class="tms-map-small"
+                      >
+                        ряд · место · ярус
+                      </text>
+                    </g>
+                    <g class="tms-storage-clock">
+                      <rect
+                        x="49"
+                        y="136"
+                        width="253"
+                        height="103"
+                        rx="9"
+                        fill="#15231f"
+                        stroke="#596a4a"
+                      />
+                      <g transform="translate(67 158)">
+                        <circle
+                          cx="27"
+                          cy="27"
+                          r="25"
+                          fill="none"
+                          stroke="#acbe97"
+                          stroke-width="1.5"
+                        />
+                        <path
+                          d="M27 5v4m22 18h-4M27 49v-4M5 27h4"
+                          stroke="#acbe97"
+                        />
+                        <path
+                          data-tms="clock-hand"
+                          d="M27 27V12m0 15h11"
+                          stroke="#d6f484"
+                          stroke-width="2"
+                          fill="none"
+                        />
+                      </g>
+                      <text x="136" y="170" class="tms-map-label">
+                        ВРЕМЯ ХРАНЕНИЯ
+                      </text>
+                      <text x="136" y="195" class="tms-day" data-tms="day">
+                        0 суток
+                      </text>
+                      <text x="136" y="218" class="tms-map-small">
+                        +1 200 ₽ / сутки
+                      </text>
+                      <text
+                        x="194"
+                        y="130"
+                        class="tms-money-rise"
+                        data-tms="daily-fee"
+                      >
+                        +1 200 ₽
+                      </text>
+                    </g>
+                    <!-- Gate camera reads the arriving vehicle's plate. -->
+                    <g class="tms-gate-camera">
+                      <path
+                        d="M24 308V214h26"
+                        stroke="#7b9185"
+                        stroke-width="4"
+                        fill="none"
+                      />
+                      <path d="m43 205 28 9-5 14-29-9Z" fill="#b0bcad" />
+                      <circle cx="65" cy="219" r="3" fill="#d6f484" />
+                      <text x="15" y="193" class="tms-map-small">КПП</text>
+                    </g>
+                    <!-- Reachstacker: telescopic boom and top-lifting spreader. -->
+                    <g data-tms="stacker" transform="translate(575 345)">
+                      <ellipse
+                        cx="30"
+                        cy="12"
+                        rx="64"
+                        ry="10"
+                        fill="#050b0b"
+                        opacity=".4"
+                      />
+                      <path
+                        data-tms="boom"
+                        d="M10-47 -82-136"
+                        fill="none"
+                        stroke="#d6aa58"
+                        stroke-width="14"
+                        stroke-linecap="round"
+                      />
+                      <path
+                        data-tms="ram"
+                        d="M38-43 -53-105"
+                        fill="none"
+                        stroke="#cad1c8"
+                        stroke-width="4"
+                      />
+                      <g data-tms="spreader" transform="translate(-82 -136)">
+                        <path
+                          d="M-99 0H99M-92 0v9m184-9v9"
+                          stroke="#b7c1b4"
+                          stroke-width="6"
+                          fill="none"
+                        />
+                        <path d="M-98-5H98" stroke="#292f2c" stroke-width="2" />
+                      </g>
+                      <path
+                        d="M-23-44h39l19-15h45l10 19v25H-23Z"
+                        fill="#d4a957"
+                        stroke="#f0cb7e"
+                      />
+                      <path
+                        d="M34-59v-31h38l9 31"
+                        fill="#233b3e"
+                        stroke="#b5c7c4"
+                        stroke-width="2"
+                      />
+                      <path d="M56-87v24" stroke="#8da5a4" />
+                      <rect
+                        x="47"
+                        y="-98"
+                        width="18"
+                        height="7"
+                        rx="2"
+                        fill="#dae2d3"
+                      />
+                      <circle cx="57" cy="-94" r="2.5" fill="#ccf287" />
+                      <path
+                        d="M-14-31h27m-27 7h27"
+                        stroke="#8e733c"
+                        stroke-width="3"
+                      />
+                      <g fill="#111a1c" stroke="#879084" stroke-width="2">
+                        <circle cx="-3" cy="-7" r="16" />
+                        <circle cx="62" cy="-7" r="16" />
+                      </g>
+                      <g fill="#526057">
+                        <circle cx="-3" cy="-7" r="6" />
+                        <circle cx="62" cy="-7" r="6" />
+                      </g>
+                      <text
+                        x="28"
+                        y="40"
+                        text-anchor="middle"
+                        class="tms-vehicle-label"
+                      >
+                        REACHSTACKER
+                      </text>
+                    </g>
+                    <!-- One truck illustration is reused for inbound and outbound. -->
+                    <g data-tms="truck" transform="translate(20 345)">
+                      <ellipse
+                        cx="161"
+                        cy="17"
+                        rx="171"
+                        ry="10"
+                        fill="#050b0b"
+                        opacity=".5"
+                      />
+                      <path
+                        d="M26-22h221v13H26Z"
+                        fill="#6d8283"
+                        stroke="#b4c4bf"
+                      />
+                      <path
+                        d="M240-65h50l30 28v28h-81Z"
+                        fill="#c5cfbf"
+                        stroke="#e6eddd"
+                      />
+                      <path d="M250-57h35l21 20h-56Z" fill="#243f45" />
+                      <path d="M275-57v20" stroke="#647e83" />
+                      <path d="M314-23h9" stroke="#f9e4a6" stroke-width="5" />
+                      <path d="M251-27h13" stroke="#64766b" stroke-width="2" />
+                      <rect
+                        x="249"
+                        y="-34"
+                        width="65"
+                        height="14"
+                        rx="2"
+                        fill="#edf0e2"
+                      />
+                      <text
+                        x="281.5"
+                        y="-24"
+                        text-anchor="middle"
+                        class="tms-plate"
+                        data-tms="plate"
+                      >
+                        А123АА 196
+                      </text>
+                      <g fill="#101a1e" stroke="#879995" stroke-width="2">
+                        <circle cx="57" cy="1" r="15" />
+                        <circle cx="94" cy="1" r="15" />
+                        <circle cx="222" cy="1" r="15" />
+                        <circle cx="292" cy="1" r="15" />
+                      </g>
+                      <g stroke="#7f8c84" stroke-width="2">
+                        <g transform="translate(57 1)">
+                          <path data-tms-wheel d="M-7 0H7M0-7V7" />
+                        </g>
+                        <g transform="translate(94 1)">
+                          <path data-tms-wheel d="M-7 0H7M0-7V7" />
+                        </g>
+                        <g transform="translate(222 1)">
+                          <path data-tms-wheel d="M-7 0H7M0-7V7" />
+                        </g>
+                        <g transform="translate(292 1)">
+                          <path data-tms-wheel d="M-7 0H7M0-7V7" />
+                        </g>
+                      </g>
+                    </g>
+                    <g data-tms="cargo" transform="translate(58 247)">
+                      <path d="M0 0 9-7h196l-9 7Z" fill="#c98262" />
+                      <path d="M196 0 205-7v76l-9 7Z" fill="#704438" />
+                      <rect
+                        width="196"
+                        height="76"
+                        rx="2"
+                        fill="url(#tms-container-paint)"
+                        stroke="#e7a786"
+                      />
+                      <rect
+                        width="196"
+                        height="76"
+                        rx="2"
+                        fill="url(#tms-ribs)"
+                      />
+                      <path
+                        d="M6 6h7m170 0h7M6 70h7m170 0h7"
+                        stroke="#efd0a7"
+                        stroke-width="3"
+                      />
+                      <rect
+                        x="9"
+                        y="7"
+                        width="49"
+                        height="18"
+                        rx="2"
+                        fill="#452a23"
+                      />
+                      <text x="16" y="20" class="tms-container-meta">
+                        40 ft
+                      </text>
+                      <rect
+                        x="108"
+                        y="7"
+                        width="80"
+                        height="18"
+                        rx="2"
+                        fill="#452a23"
+                      />
+                      <text
+                        x="181"
+                        y="20"
+                        text-anchor="end"
+                        class="tms-container-meta"
+                      >
+                        ISO 45G0
+                      </text>
+                      <rect
+                        x="17"
+                        y="32"
+                        width="162"
+                        height="25"
+                        rx="2"
+                        fill="#5c3528"
+                        fill-opacity=".94"
+                      />
+                      <text
+                        x="98"
+                        y="50"
+                        text-anchor="middle"
+                        class="tms-container-id"
+                      >
+                        MOGU 133767
+                      </text>
+                      <g data-tms="scan" opacity="0">
+                        <rect
+                          x="-5"
+                          y="-5"
+                          width="206"
+                          height="86"
+                          rx="4"
+                          fill="#c6ff9010"
+                          stroke="#d6f484"
+                          stroke-width="2"
+                        />
+                        <rect
+                          data-tms="scan-line"
+                          x="0"
+                          y="5"
+                          width="196"
+                          height="3"
+                          fill="#ddff99"
+                        />
+                      </g>
+                    </g>
+                  </svg>
+                  <div
+                    class="tms-signal"
+                    aria-label="Последний сигнал площадки"
+                  >
+                    <div class="tms-signal-heading">
+                      <span class="mono" data-tms="signal-source">Площадка</span
+                      ><span class="tms-signal-wire" aria-hidden="true"
+                        ><i></i></span
+                      ><span class="mono"
+                        >TMS <span aria-hidden="true">↗</span></span
+                      >
+                    </div>
+                    <p data-tms="signal-text">
+                      Здесь появятся сигналы с терминала
+                    </p>
+                  </div>
+                </div>
+
+                <section
+                  class="tms-request"
+                  aria-labelledby="tms-request-title"
+                >
+                  <div class="tms-request-header">
+                    <div>
+                      <span class="tms-eyebrow mono"
+                        >TMS / Карточка операции</span
+                      >
+                      <h5 id="tms-request-title">Заявка № 1042</h5>
+                    </div>
+                    <span class="tms-live"
+                      ><i aria-hidden="true"></i>В реальном времени</span
+                    >
+                  </div>
+                  <div class="tms-request-status" data-tms="status">
+                    Ожидает прибытия
+                  </div>
+                  <div class="tms-container-field">
+                    <span>Контейнер</span
+                    ><strong data-tms="container">Ожидает распознавания</strong
+                    ><small class="mono" data-tms="type">—</small>
+                  </div>
+                  <dl class="tms-fields">
+                    <div>
+                      <dt>Авто / приём</dt>
+                      <dd class="mono" data-tms="inbound">Ожидается</dd>
+                    </div>
+                    <div>
+                      <dt>Авто / выдача</dt>
+                      <dd class="mono" data-tms="outbound">Пока не прибыл</dd>
+                    </div>
+                    <div class="tms-location">
+                      <dt>Расположение</dt>
+                      <dd data-tms="location">—</dd>
+                    </div>
+                  </dl>
+                  <div class="tms-billing">
+                    <div>
+                      <span>Хранение</span
+                      ><small data-tms="storage">0 суток × 1 200 ₽</small>
+                    </div>
+                    <strong data-tms="amount">0 ₽</strong>
+                  </div>
+                  <div class="tms-payment-row">
+                    <span>Оплата</span
+                    ><strong data-tms="payment">Счёт ещё не выставлен</strong>
+                  </div>
+                  <div class="tms-log-heading">
+                    <span class="mono"
+                      >История событий
+                      <span data-tms="event-count">00</span></span
+                    ><span data-tms="record-source">Ожидание событий</span>
+                  </div>
+                  <p class="tms-empty-log" data-tms="empty-log">
+                    Записи появятся по мере поступления сигналов.
+                  </p>
+                  <ol
+                    class="tms-events"
+                    data-tms="events"
+                    aria-label="История событий заявки"
+                    tabindex="0"
+                  ></ol>
+                  <div
+                    class="tms-payment-signal"
+                    data-tms="payment-signal"
+                    hidden
+                  >
+                    <span class="mono" data-tms="payment-source"
+                      >Счёт отправлен · ожидание оплаты</span
+                    ><strong data-tms="payment-message"
+                      >Все операции завершены. Ожидается внешний сигнал об
+                      оплате.</strong
+                    >
+                  </div>
+                  <div class="tms-finale" data-tms="finale" hidden>
+                    <span class="tms-complete-icon" aria-hidden="true">✓</span>
+                    <div>
+                      <h5>Задача выполнена. Заявка закрыта.</h5>
+                      <p>
+                        Так, если кратко, работала TMS: события площадки
+                        обновляли заявку, система считала хранение и после
+                        подтверждения оплаты закрывала её без участия человека.
+                      </p>
+                      <button type="button" data-tms="replay">
+                        Посмотреть ещё раз <span aria-hidden="true">↻</span>
+                      </button>
+                    </div>
+                  </div>
+                </section>
+              </div>
+              <nav
+                class="tms-chapters"
+                data-tms="chapters"
+                aria-label="Этапы истории контейнера"
+                hidden
+              >
+                <button type="button" data-tms-chapter="0">
+                  <span>01</span>Въезд</button
+                ><button type="button" data-tms-chapter="1">
+                  <span>02</span>Приём</button
+                ><button type="button" data-tms-chapter="2">
+                  <span>03</span>В сток</button
+                ><button type="button" data-tms-chapter="3">
+                  <span>04</span>Хранение</button
+                ><button type="button" data-tms-chapter="4">
+                  <span>05</span>За контейнером</button
+                ><button type="button" data-tms-chapter="5">
+                  <span>06</span>Перемещение</button
+                ><button type="button" data-tms-chapter="6">
+                  <span>07</span>Отгрузка</button
+                ><button type="button" data-tms-chapter="7">
+                  <span>08</span>Оплата
+                </button>
+              </nav>
+              <p class="tms-demo-note">
+                Упрощённый сценарий. В примере: 3 суток хранения × 1 200 ₽.
+                Тариф и номера автомобилей условные.
+              </p>
+              <p
+                class="tms-sr-only"
+                data-tms="announcement"
+                role="status"
+                aria-live="polite"
+                aria-atomic="true"
+              ></p>
+              <noscript
+                ><p class="tms-no-script">
+                  Сценарий: прибытие автомобиля → распознавание и приём
+                  контейнера → размещение в Stock X1 Y1 Z1 → 3 суток хранения, 3
+                  600 ₽ → второй автомобиль → перемещение и выдача → оплата →
+                  автоматическое закрытие заявки. Для воспроизведения включите
+                  JavaScript.
+                </p></noscript
+              >
+            </section>
+          </article>
+          <div class="project-details">
+            <article data-reveal>
+              <figure class="story-media">
+                <img
+                  src="./images/tms-terminal.jpg?v=20261008-2"
+                  width="1168"
+                  height="784"
+                  alt="Контейнерный терминал вечером: ряды контейнеров, краны, железная дорога и цифровая схема над ними"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+              <span class="detail-index mono">01 / ТЕРМИНАЛ</span>
+              <h3>Терминал — как на ладони.</h3>
+              <p>
+                Стоки и ЖД-платформы на интерактивной схеме. Собственный fork
+                Z.Blazor.Diagrams и Canvas API связывают физический терминал с
+                его представлением в системе.
+              </p>
+            </article>
+            <article data-reveal style="--reveal-delay: 70ms">
+              <figure class="story-media">
+                <img
+                  src="./images/tms-realtime.jpg?v=20261008-2"
+                  width="1168"
+                  height="784"
+                  alt="Три окна с карточками заявок: линии связи показывают одновременное обновление статусов"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+              <span class="detail-index mono">02 / REAL-TIME</span>
+              <h3>Все видят одно и то же.</h3>
+              <p>
+                Статусы контейнеров и заявок сразу видны всем через gRPC,
+                SignalR и Redis. Изменения отображаются у всех пользователей без
+                перезагрузки страницы.
+              </p>
+            </article>
+            <article data-reveal style="--reveal-delay: 140ms">
+              <figure class="story-media">
+                <img
+                  src="./images/legacy-migration.jpg?v=20261008-2"
+                  width="1168"
+                  height="784"
+                  alt="Поток светящихся папок переносит данные из старого серверного шкафа в современный"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+              <span class="detail-index mono">03 / МИГРАЦИЯ</span>
+              <h3>Логика остаётся. Стек меняется.</h3>
+              <p>
+                Старая система переехала на .NET 8. Библиотеки миграции для
+                каждой сущности и синхронизация сохранили данные и
+                бизнес-логику.
+              </p>
+            </article>
+          </div>
+          <div class="other-projects">
+            <article class="project-row" data-reveal>
+              <span class="project-row-number mono">02</span>
+              <div>
+                <h3>ERP для бизнес-процессов</h3>
+                <p>
+                  С нуля — единое веб-приложение вместо разрозненных таблиц и
+                  переписки. Проект для «Интекс-Электро».
+                </p>
+                <div class="tags">
+                  <span>.NET</span><span>Blazor</span><span>Автоматизация</span>
+                </div>
+              </div>
               <a
-                class="btn btn-ghost"
+                class="round-link"
+                href="#experience-intex"
+                aria-label="Подробнее об ERP в Интекс-Электро"
+                ><svg class="icon" aria-hidden="true">
+                  <use href="#icon-arrow" /></svg
+              ></a>
+            </article>
+            <article class="project-row" data-reveal>
+              <span class="project-row-number mono">03</span>
+              <div>
+                <h3>Highload / Real-time</h3>
+                <p>
+                  Открытая демонстрация масштабирования SignalR: Redis
+                  backplane, наблюдаемость, темы и события.
+                </p>
+                <div class="tags">
+                  <span>SignalR</span><span>Redis</span><span>Open source</span>
+                </div>
+              </div>
+              <a
+                class="round-link"
                 href="https://github.com/AndrixPro100GOD/highload-realtime-signalr-demo"
                 target="_blank"
                 rel="noopener noreferrer"
-                >Репозиторий</a
-              >
+                aria-label="Highload real-time — открыть репозиторий GitHub"
+                ><svg class="icon" aria-hidden="true">
+                  <use href="#icon-arrow" /></svg
+              ></a>
             </article>
-            <article class="project-card reveal reveal-delay-3">
-              <h3>Другие репозитории</h3>
-              <div class="project-tags">
-                <span>C#</span>
-                <span>Open source</span>
+          </div>
+          <a
+            class="text-link all-repositories"
+            href="https://github.com/AndrixPro100GOD?tab=repositories"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Другие проекты и fork Z.Blazor.Diagrams — на GitHub
+            <svg class="icon" aria-hidden="true"><use href="#icon-arrow" /></svg
+          ></a>
+        </div>
+      </section>
+
+      <section
+        class="section experience-section"
+        id="experience"
+        aria-labelledby="experience-title"
+      >
+        <div class="container">
+          <div class="section-heading heading-split" data-reveal>
+            <div>
+              <p class="section-label"><span>04 /</span> Опыт работы</p>
+              <h2 id="experience-title">
+                Каждый этап —<br /><span class="text-muted"
+                  >новый масштаб задач.</span
+                >
+              </h2>
+            </div>
+            <span class="experience-total mono">4 года 3 месяца</span>
+          </div>
+          <div class="timeline">
+            <details
+              class="experience-item"
+              id="experience-intex"
+              data-reveal
+              open
+            >
+              <summary>
+                <span class="experience-date"
+                  ><span class="current-label"
+                    ><i aria-hidden="true"></i> Сейчас</span
+                  ><span>Май 2026 — сейчас</span
+                  ><span class="duration">6 месяцев</span></span
+                ><span class="experience-heading"
+                  ><strong>Системный администратор</strong
+                  ><span>Интекс-Электро</span></span
+                ><span class="expand-icon" aria-hidden="true"></span>
+              </summary>
+              <div class="experience-body">
+                <p class="experience-intro">
+                  IT-инфраструктура, поддержка сотрудников и собственная
+                  ERP-система.
+                </p>
+                <ul>
+                  <li>
+                    Поддерживал IT-инфраструктуру офиса: настраивал роутеры,
+                    интернет и VPN, чтобы сотрудники стабильно работали из офиса
+                    и удалённо.
+                  </li>
+                  <li>
+                    Устранял сбои периферии: настраивал ноутбуки, принтеры и
+                    другое офисное оборудование, возвращал рабочие места в
+                    строй.
+                  </li>
+                  <li>
+                    Оказывал техническую поддержку пользователям: разбирал
+                    IT-запросы и доводил их до решения.
+                  </li>
+                  <li>
+                    Приобрёл и настроил хостинг для сайтов компании и почтовый
+                    сервис: завёл корпоративную почту для сотрудников.
+                  </li>
+                  <li>
+                    Сделал сайты-визитки компании и разместил их на этом
+                    хостинге.
+                  </li>
+                  <li>
+                    С нуля разработал ERP-систему для автоматизации
+                    бизнес-процессов: единое веб-приложение вместо разрозненных
+                    таблиц и переписки.
+                  </li>
+                </ul>
+                <div class="tags">
+                  <span>IT-инфраструктура</span><span>VPN</span
+                  ><span>Хостинг</span><span>ERP</span>
+                </div>
               </div>
-              <p>Например, форк Z.Blazor.Diagrams под TMS и другие публичные проекты на GitHub.</p>
+            </details>
+            <details class="experience-item" id="experience-tms" data-reveal>
+              <summary>
+                <span class="experience-date"
+                  ><span>Май 2024 — апрель 2026</span
+                  ><span class="duration">2 года</span></span
+                ><span class="experience-heading"
+                  ><strong>Full-Stack .NET Developer</strong
+                  ><span>ООО «Управление недвижимостью»</span></span
+                ><span class="expand-icon" aria-hidden="true"></span>
+              </summary>
+              <div class="experience-body">
+                <p class="experience-intro">
+                  Разработка TMS (Transport Management System) — системы
+                  управления грузовыми контейнерами и логистикой.
+                </p>
+                <ul>
+                  <li>
+                    Разработал с нуля TMS на C# .NET 8, ASP.NET Core и Blazor
+                    (MudBlazor) с полным end-to-end циклом обработки заявок — от
+                    создания до завершения.
+                  </li>
+                  <li>
+                    Реализовал real-time обновления статуса контейнеров и заявок
+                    через gRPC, SignalR и Redis, обеспечив мгновенное
+                    отображение изменений для всех пользователей.
+                  </li>
+                  <li>
+                    Создал интерактивную визуальную схему терминала со стоками и
+                    ЖД-платформами с использованием собственного fork
+                    Z.Blazor.Diagrams и Canvas API.
+                  </li>
+                  <li>
+                    Выполнил миграцию legacy-системы на .NET 8 по утверждённому
+                    ТЗ: разработал миграционные библиотеки под каждую сущность с
+                    автоматической синхронизацией данных, обеспечив плавный
+                    переход без потери информации.
+                  </li>
+                  <li>
+                    Довёл продукт до коммерческого использования: разделил
+                    сборки на внутреннюю и клиентскую версии, настроил
+                    Docker-образы для клиентов, что позволило успешно продавать
+                    систему внешним компаниям.
+                  </li>
+                  <li>
+                    Постоянно работал с Git и Docker: вёл версионирование,
+                    публиковал образы, проводил тестирование через GitLab CI, K6
+                    и интеграционные тесты, включая взаимодействие
+                    Android-приложения с Backend API.
+                  </li>
+                  <li>
+                    Оптимизировал работу с Entity Framework Core и PostgreSQL,
+                    разрабатывал REST API, что ускорило обработку заявок и
+                    снизило количество ошибок.
+                  </li>
+                </ul>
+                <div class="tags">
+                  <span>C# / .NET 8</span><span>Blazor / MudBlazor</span
+                  ><span>PostgreSQL</span><span>Docker</span
+                  ><span>GitLab CI</span><span>K6</span>
+                </div>
+              </div>
+            </details>
+            <details
+              class="experience-item"
+              id="experience-rebotica"
+              data-reveal
+            >
+              <summary>
+                <span class="experience-date"
+                  ><span>Январь 2023 — октябрь 2024</span
+                  ><span class="duration">1 год 10 месяцев</span></span
+                ><span class="experience-heading"
+                  ><strong>Unity Ментор</strong><span>Rebotica</span></span
+                ><span class="expand-icon" aria-hidden="true"></span>
+              </summary>
+              <div class="experience-body">
+                <ul>
+                  <li>
+                    Вёл индивидуальные занятия по C# и Unity для детей и
+                    подростков: синтаксис, классы, редактор Unity, физика,
+                    скрипты поведения и UI.
+                  </li>
+                  <li>
+                    Доводил учебные проекты от идеи до играбельного прототипа:
+                    платформеры, шутеры и другие простые игры.
+                  </li>
+                  <li>
+                    Провёл более 200 часов индивидуальных и групповых занятий.
+                  </li>
+                  <li>
+                    Помог более 10 ученикам самостоятельно собрать свои первые
+                    полноценные проекты.
+                  </li>
+                </ul>
+                <div class="tags">
+                  <span>C#</span><span>Unity</span><span>Менторство</span>
+                </div>
+              </div>
+            </details>
+            <details class="experience-item" id="experience-unity" data-reveal>
+              <summary>
+                <span class="experience-date"
+                  ><span>Январь 2022 — май 2022</span
+                  ><span class="duration">5 месяцев</span></span
+                ><span class="experience-heading"
+                  ><strong>Unity-разработчик</strong><span>Арбитаж</span></span
+                ><span class="expand-icon" aria-hidden="true"></span>
+              </summary>
+              <div class="experience-body">
+                <ul>
+                  <li>
+                    Разрабатывал hyper-casual игры на Unity (C#) с нуля:
+                    геймплей, физика, адаптивный UI и сборка под мобильные
+                    устройства.
+                  </li>
+                  <li>Доводил проекты до релиза и публиковал в Google Play.</li>
+                  <li>
+                    Собрал 20 коммерческих казуальных игр с полной механикой —
+                    от прототипа до играбельной версии.
+                  </li>
+                </ul>
+                <div class="tags">
+                  <span>Unity</span><span>C#</span><span>Android</span
+                  ><span>Google Play</span>
+                </div>
+              </div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="section skills-section"
+        id="skills"
+        aria-labelledby="skills-title"
+      >
+        <div class="container">
+          <div class="section-heading" data-reveal>
+            <p class="section-label"><span>05 /</span> Технологии</p>
+            <h2 id="skills-title">
+              Опыт в технологиях.<br /><span class="text-muted"
+                >Свобода в выборе.</span
+              >
+            </h2>
+            <p class="skills-context">
+              Это технологии, с которыми я работал в проектах. Практический опыт
+              помогает оценивать решения агента, а ИИ-инструменты — выходить за
+              рамки привычного стека и осваивать новое под задачу.
+            </p>
+          </div>
+          <div class="skills-grid">
+            <article data-reveal>
+              <span class="skill-symbol mono" aria-hidden="true">{ }</span>
+              <h3>Backend</h3>
+              <ul>
+                <li>C# / .NET</li>
+                <li>ASP.NET Core</li>
+                <li>REST API / gRPC</li>
+                <li>Entity Framework Core</li>
+              </ul>
+            </article>
+            <article data-reveal style="--reveal-delay: 60ms">
+              <span class="skill-symbol mono" aria-hidden="true"
+                >&lt; / &gt;</span
+              >
+              <h3>Интерфейсы</h3>
+              <ul>
+                <li>Blazor / MudBlazor</li>
+                <li>Canvas API</li>
+                <li>Z.Blazor.Diagrams</li>
+                <li>Unity / UI</li>
+              </ul>
+            </article>
+            <article data-reveal style="--reveal-delay: 120ms">
+              <span class="skill-symbol mono" aria-hidden="true">[ : ]</span>
+              <h3>Данные и real-time</h3>
+              <ul>
+                <li>PostgreSQL / SQL Server</li>
+                <li>SignalR / Redis</li>
+                <li>RabbitMQ</li>
+                <li>Миграции и синхронизация</li>
+              </ul>
+            </article>
+            <article data-reveal style="--reveal-delay: 180ms">
+              <span class="skill-symbol mono" aria-hidden="true">&gt; _</span>
+              <h3>Поставка и качество</h3>
+              <ul>
+                <li>Docker / Linux</li>
+                <li>Git / GitLab CI</li>
+                <li>K6 / интеграционные тесты</li>
+                <li>Оптимизация производительности</li>
+              </ul>
+            </article>
+          </div>
+          <div class="principle" data-reveal>
+            <figure class="story-media principle-visual">
+              <img
+                src="./images/ai-workflow-20261009.jpg?v=20261009-3"
+                width="1712"
+                height="1152"
+                alt="Разработчик анализирует код и показатели на большом мониторе в тёмном кабинете"
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
+            <div class="principle-copy">
+              <span class="principle-mark" aria-hidden="true">↳</span>
+              <h3>
+                Меньше ручной работы.<br /><span class="text-lime"
+                  >Больше инженерной.</span
+                >
+              </h3>
+              <p>
+                С ИИ растёт объём задач, который я могу вести, и нагрузка на
+                мышление: нужно точнее ставить цели, держать в голове связи и
+                проверять последствия решений.
+              </p>
+              <p>
+                Функциональность, на которую раньше уходили недели, с
+                ИИ-инструментами может занять несколько дней. Сэкономленное
+                время — возможность решить больше задач и внимательнее проверить
+                результат.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="section background-section"
+        aria-labelledby="background-title"
+      >
+        <div class="container">
+          <div class="section-heading" data-reveal>
+            <p class="section-label"><span>06 /</span> Игры и менторство</p>
+            <h2 id="background-title">
+              До систем были игры.<br /><span class="text-muted"
+                >И первые проекты учеников.</span
+              >
+            </h2>
+          </div>
+          <div class="background-grid">
+            <article class="background-card" data-reveal>
+              <figure class="story-media">
+                <img
+                  src="./images/unity-hypercasual-20261009.jpg?v=20261009-4"
+                  width="1531"
+                  height="1027"
+                  alt="Мобильная hyper-casual игра: персонаж прыгает по ярким платформам на экране телефона"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+              <div class="background-card-top">
+                <span class="mono small-label">Разработка / Unity</span
+                ><span class="background-number">20<span>игр</span></span>
+              </div>
+              <h3>От механики до Google Play.</h3>
+              <p>
+                Собирал hyper-casual игры: геймплей, физика, адаптивный
+                интерфейс, мобильные сборки. Доводил проекты от прототипа до
+                релиза и публиковал в Google Play.
+              </p>
+              <a class="text-link" href="#experience-unity"
+                >Опыт разработки игр
+                <svg class="icon" aria-hidden="true">
+                  <use href="#icon-arrow" /></svg
+              ></a>
+            </article>
+            <article
+              class="background-card"
+              data-reveal
+              style="--reveal-delay: 100ms"
+            >
+              <figure class="story-media">
+                <img
+                  src="./images/unity-mentor-20261009.jpg?v=20261009-4"
+                  width="1529"
+                  height="1029"
+                  alt="Наставник в гарнитуре проводит удалённый урок: на мониторах редактор Unity и ученик по видеосвязи"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+              <div class="background-card-top">
+                <span class="mono small-label">Обучение / Rebotica</span
+                ><span class="background-number">200<span>+ часов</span></span>
+              </div>
+              <h3>Объяснять. Пробовать. Собирать.</h3>
+              <p>
+                Больше полутора лет вёл занятия по C# и Unity. Больше десяти
+                учеников довели свои первые игры до играбельного прототипа — от
+                первых классов до собственной механики.
+              </p>
+              <a class="text-link" href="#experience-rebotica"
+                >Опыт преподавания
+                <svg class="icon" aria-hidden="true">
+                  <use href="#icon-arrow" /></svg
+              ></a>
+            </article>
+          </div>
+          <div class="credentials-grid">
+            <article id="education" class="credential" data-reveal>
+              <p class="section-label">Образование <span>/ 2021</span></p>
+              <h3>Программирование<br />в компьютерных системах</h3>
+              <p>ПФ ГАПОУ СО УРТК им. А.С. Попова</p>
+              <span class="mono small-label">Среднее специальное</span>
+            </article>
+            <article
+              id="references"
+              class="credential"
+              data-reveal
+              style="--reveal-delay: 100ms"
+            >
+              <p class="section-label">Рекомендация <span>/ TMS</span></p>
+              <h3>Кокшаров Е.А.</h3>
+              <p>
+                Директор по информационным технологиям (CIO)<br />ООО
+                «Управление недвижимостью»
+              </p>
               <a
-                class="btn btn-ghost"
-                href="https://github.com/AndrixPro100GOD?tab=repositories"
+                class="text-link"
+                href="./documents/recommendation-koksharov.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                >Все репозитории</a
+                ><svg class="icon" aria-hidden="true">
+                  <use href="#icon-file" />
+                </svg>
+                Рекомендательное письмо
+                <span class="mono file-type">PDF ↗</span></a
               >
             </article>
           </div>
         </div>
       </section>
 
-      <section class="section section--alt" id="contact" aria-labelledby="contact-title">
+      <section
+        class="contact-section"
+        id="contact"
+        aria-labelledby="contact-title"
+      >
         <div class="container">
-          <div class="contact-panel reveal">
-            <div>
-              <h2 id="contact-title">Контакты</h2>
-              <p>E-mail, телефон, Telegram и GitHub — для связи по вакансиям и проектам.</p>
+          <div class="contact-top" data-reveal>
+            <p class="section-label"><span>07 /</span> Контакты</p>
+            <span class="mono small-label"
+              >Хорошие системы начинаются с разговора.</span
+            >
+          </div>
+          <div class="contact-grid">
+            <div data-reveal>
+              <h2 id="contact-title">
+                Обсудим<br /><span
+                  >вашу задачу<span class="contact-period">?</span></span
+                >
+              </h2>
+              <p>
+                Вакансия, продукт или отдельная система.<br />Расскажите, что
+                должно работать.
+              </p>
+              <a
+                class="button button-primary"
+                href="https://t.me/AndriXPro100GodDamn"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Написать в Telegram
+                <svg class="icon" aria-hidden="true">
+                  <use href="#icon-arrow" /></svg
+              ></a>
             </div>
-            <div class="contact-links">
-              <a href="mailto:kaidenkoandrey@gmail.com">kaidenkoandrey@gmail.com</a>
-              <a href="tel:+79041717411">+7 904 171-74-11</a>
-              <a href="https://t.me/AndriXPro100GodDamn" target="_blank" rel="noopener noreferrer">Telegram @AndriXPro100GodDamn</a>
-              <a href="https://github.com/AndrixPro100GOD" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <div
+              class="contact-links"
+              data-reveal
+              style="--reveal-delay: 100ms"
+            >
+              <div class="contact-link-row">
+                <span class="mono small-label">E-mail</span>
+                <div class="email-link">
+                  <a href="mailto:kaidenkoandrey@gmail.com"
+                    >kaidenkoandrey@gmail.com</a
+                  ><button
+                    class="copy-button"
+                    id="copy-email"
+                    type="button"
+                    aria-label="Скопировать адрес электронной почты"
+                    hidden
+                  >
+                    <svg class="icon" aria-hidden="true">
+                      <use href="#icon-copy" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <div class="contact-link-row">
+                <span class="mono small-label">Телефон</span
+                ><a href="tel:+79041717411"
+                  >+7 904 171-74-11
+                  <svg class="icon" aria-hidden="true">
+                    <use href="#icon-arrow" /></svg
+                ></a>
+              </div>
+              <div class="contact-socials">
+                <a
+                  href="https://github.com/AndrixPro100GOD"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >GitHub
+                  <svg class="icon" aria-hidden="true">
+                    <use href="#icon-arrow" /></svg></a
+                ><a
+                  href="https://hh.ru/resume/a0eadeb5ff0b5df5220039ed1f746176715033"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Резюме на hh.ru
+                  <svg class="icon" aria-hidden="true">
+                    <use href="#icon-arrow" /></svg
+                ></a>
+              </div>
             </div>
           </div>
         </div>
       </section>
     </main>
-
     <footer class="site-footer">
-      <div class="container">
-        <p>© <span id="y"></span> · Портфолио · Full-Stack .NET</p>
+      <div class="container footer-inner">
+        <a class="footer-name" href="#top"
+          >Андрей Кайденко <span aria-hidden="true">↗</span></a
+        >
+        <p>© <span id="year">2026</span> Андрей Кайденко</p>
+        <button
+          class="motion-toggle"
+          id="motion-toggle"
+          type="button"
+          aria-pressed="true"
+          hidden
+        >
+          <span class="motion-indicator" aria-hidden="true"></span>Анимации
+          <span id="motion-label" aria-hidden="true">вкл.</span></button
+        ><a class="back-to-top mono" href="#top">Наверх ↑</a>
       </div>
     </footer>
-
-    <script>
-      // Год в подвале обновляется автоматически, чтобы не править каждый январь.
-      document.getElementById("y").textContent = new Date().getFullYear();
-      // Мобильное меню: переключаем класс на шапке — стили раскрывают .main-nav (см. index.css).
-      (function () {
-        var header = document.querySelector(".site-header");
-        var btn = document.querySelector(".nav-toggle");
-        var nav = document.getElementById("site-nav");
-        if (!header || !btn || !nav) return;
-        btn.addEventListener("click", function () {
-          var open = header.classList.toggle("nav-open");
-          btn.setAttribute("aria-expanded", open ? "true" : "false");
-        });
-        nav.querySelectorAll("a").forEach(function (link) {
-          link.addEventListener("click", function () {
-            header.classList.remove("nav-open");
-            btn.setAttribute("aria-expanded", "false");
-          });
-        });
-      })();
-
-      // Бегущая строка навыков: плоский список + два DOM-сегмента для бесшовного translateX(-50%).
-      (function initSkillsMarquee() {
-        var SKILLS_MARQUEE = [
-          "C#",
-          ".NET Core",
-          "ASP.NET",
-          "ASP.NET Core",
-          "REST API",
-          "Entity Framework",
-          "ORM",
-          "Redis",
-          "RabbitMQ",
-          "Очереди и брокеры сообщений",
-          "Docker",
-          "Git",
-          "Оптимизация производительности",
-          "SOLID",
-          "ООП",
-          "Многопоточность и асинхронность",
-          "Командная разработка",
-          "Английский язык",
-          "PostgreSQL",
-          "SQL",
-          "SQL Server",
-          "CI/CD",
-          "gRPC",
-          "Linux",
-        ];
-
-        var track = document.getElementById("skills-marquee-track");
-        if (!track) return;
-
-        function buildSegment() {
-          var seg = document.createElement("div");
-          seg.className = "skills-marquee-segment";
-          seg.setAttribute("aria-hidden", "true");
-          SKILLS_MARQUEE.forEach(function (text, index) {
-            if (index > 0) {
-              var sep = document.createElement("span");
-              sep.className = "skills-marquee-sep";
-              sep.textContent = "·";
-              seg.appendChild(sep);
-            }
-            var span = document.createElement("span");
-            span.className = "skills-marquee-item";
-            span.textContent = text;
-            seg.appendChild(span);
-          });
-          return seg;
-        }
-
-        track.appendChild(buildSegment());
-        track.appendChild(buildSegment());
-
-        var root = document.getElementById("skills-marquee-root");
-        if (root) {
-          root.setAttribute("aria-label", "Навыки: " + SKILLS_MARQUEE.join(", "));
-        }
-
-        // Длительность анимации от длины списка: длиннее список — медленнее, чтобы текст читался.
-        var seconds = Math.min(90, Math.max(36, Math.round(SKILLS_MARQUEE.length * 2.2)));
-        track.style.setProperty("--skills-marquee-duration", seconds + "s");
-      })();
-    </script>
-    <script type="module" src="./js/brand-text-webgl.mjs?v=20260512-7"></script>
+    <div class="scroll-orbit" aria-hidden="true">
+      <svg viewBox="0 0 80 80">
+        <circle cx="40" cy="40" r="34" />
+        <path d="M40 8V1M40 72v7M8 40H1m71 0h7" /></svg
+      ><span class="mono" id="scroll-percent">0%</span>
+    </div>
+    <div
+      class="toast"
+      id="toast"
+      role="status"
+      aria-live="polite"
+      aria-atomic="true"
+    ></div>
   </body>
 </html>
