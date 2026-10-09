@@ -2180,6 +2180,7 @@ h2 {
   color: var(--lime);
 }
 .kinetic-band {
+  --kinetic-gap: 36px;
   overflow: clip;
   padding-block: 44px 50px;
   border-bottom: 1px solid var(--line);
@@ -2187,15 +2188,23 @@ h2 {
 .kinetic-track {
   display: flex;
   align-items: center;
-  gap: 36px;
+  justify-content: center;
   width: max-content;
-  padding-left: 4vw;
+  min-width: 100%;
   color: var(--lime);
   font-size: clamp(36px, 5.5vw, 80px);
   font-weight: 500;
   line-height: 1.25;
   letter-spacing: -0.06em;
   transform: translateX(var(--band-x, 0px));
+}
+.kinetic-sequence {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: var(--kinetic-gap);
+  padding-inline-end: var(--kinetic-gap);
+  white-space: nowrap;
 }
 .kinetic-outline {
   color: transparent;
@@ -2929,10 +2938,10 @@ h2 {
     margin-top: 21px;
   }
   .kinetic-band {
+    --kinetic-gap: 25px;
     padding-block: 29px 33px;
   }
   .kinetic-track {
-    gap: 25px;
     font-size: 45px;
   }
   .section-heading h2 {

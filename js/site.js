@@ -132,6 +132,9 @@
   // The page stays native: no scroll interception, pinned spacer or idle loop.
   const hero = document.querySelector("[data-hero]");
   const band = document.querySelector(".kinetic-band");
+  const bandTrack = band.querySelector(".kinetic-track");
+  const bandSequence = bandTrack.querySelector(".kinetic-sequence");
+  let bandTravel = 0;
   const about = document.getElementById("about");
   const approach = document.getElementById("approach");
   const contact = document.getElementById("contact");
@@ -152,7 +155,22 @@
   const clamp = (value) => Math.min(1, Math.max(0, value));
   root.classList.add("scroll-enhanced");
 
+  function fillBand() {
+    bandTravel = Math.min(band.clientWidth * 0.28, 360);
+    const sequenceWidth = bandSequence.getBoundingClientRect().width;
+    if (!sequenceWidth) return;
+    // Cover the viewport and the full scroll travel, with one spare repeat.
+    // Measure actual text so resizing, zoom and font changes leave no empty tail.
+    const copies =
+      Math.ceil((band.clientWidth + bandTravel) / sequenceWidth) + 1;
+    while (bandTrack.childElementCount < copies)
+      bandTrack.appendChild(bandSequence.cloneNode(true));
+    while (bandTrack.childElementCount > copies)
+      bandTrack.lastElementChild.remove();
+  }
+
   function measureScenes() {
+    fillBand();
     [hero, band, about, approach, contact, ...storyMedia].forEach((element) => {
       const rect = element.getBoundingClientRect();
       sceneBounds.set(element, {
@@ -215,10 +233,7 @@
         clamp(window.scrollY / heroBounds.height).toFixed(4),
       );
       const bandProgress = sceneProgress(band);
-      band.style.setProperty(
-        "--band-x",
-        `${-bandProgress * Math.min(window.innerWidth * 0.28, 360)}px`,
-      );
+      band.style.setProperty("--band-x", `${-bandProgress * bandTravel}px`);
       band.style.setProperty("--star-turn", `${bandProgress * 150}deg`);
       about.style.setProperty("--bio-turn", `${sceneProgress(about) * 140}deg`);
       contact.style.setProperty(
@@ -309,8 +324,11 @@
   document
     .querySelectorAll("details")
     .forEach((details) => details.addEventListener("toggle", refreshScenes));
-  if ("ResizeObserver" in window)
-    new ResizeObserver(refreshScenes).observe(document.body);
+  if ("ResizeObserver" in window) {
+    const sceneResizeObserver = new ResizeObserver(refreshScenes);
+    sceneResizeObserver.observe(document.body);
+    sceneResizeObserver.observe(bandSequence);
+  }
   if (document.fonts) document.fonts.ready.then(refreshScenes);
   measureScenes();
   updateScrollState();
