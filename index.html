@@ -33,10 +33,10 @@
     />
     <link rel="stylesheet" href="./index.css?v=20261009-5" />
     <link rel="stylesheet" href="./tms-demo.css?v=20261009-2" />
-    <link rel="stylesheet" href="./ai-demo.css?v=20261016-1" />
+    <link rel="stylesheet" href="./ai-demo.css?v=20261016-2" />
     <script src="./js/site.js?v=20261009-5" defer></script>
     <script src="./js/tms-demo.js?v=20261009-2" defer></script>
-    <script src="./js/ai-demo.js?v=20261016-1" defer></script>
+    <script src="./js/ai-demo.js?v=20261016-2" defer></script>
   </head>
   <body id="top">
     <a class="skip-link" href="#main">Перейти к содержимому</a>
@@ -523,13 +523,13 @@
                 <span>В действии /</span> От идеи до интерфейса
               </p>
               <h3 id="ai-demo-title">
-                Одна задача.<br /><span>Целая система.</span>
+                От требований<br /><span>до рабочей системы.</span>
               </h3>
             </div>
             <p>
-              Вы рассказываете, что нужно бизнесу. Я превращаю это в понятную
-              задачу для ИИ-агентов, направляю разработку и проверяю результат.
-              Вот как это выглядит.
+              За работающим интерфейсом — архитектура, десятки решений и
+              проверки. Я задаю требования и контролирую качество, агенты
+              ускоряют реализацию. Вот как выглядит этот процесс на примере ERP.
             </p>
           </div>
 
@@ -587,7 +587,7 @@
               <span class="ad-film-label"
                 ><span></span> Идея → работающий продукт</span
               >
-              <span class="ad-example">На примере ERP-системы</span>
+              <span class="ad-example">Условный проект ERP</span>
             </div>
             <div class="ad-stage" data-ad="stage" data-phase="product">
               <div class="ad-stage-glow" aria-hidden="true"></div>
@@ -617,40 +617,106 @@
                     <div class="ad-project-name">
                       <span class="ad-project-icon">п</span> Пульс ERP
                     </div>
-                    <div class="ad-chat ad-main-chat" data-ad-reveal="1700">
+                    <div
+                      class="ad-chat"
+                      data-ad-thread="architecture"
+                      data-ad-reveal="1700"
+                    >
                       <span class="ad-chat-dot"></span
                       ><span
-                        ><strong>Основа приложения</strong
+                        ><strong>Архитектура и стек</strong
                         ><small data-ad="chat-state">Новая задача</small></span
                       >
                     </div>
                     <div class="ad-new-chats">
-                      <div class="ad-chat" data-ad-reveal="34900">
+                      <div
+                        class="ad-chat"
+                        data-ad-thread="orders"
+                        data-ad-reveal="26000"
+                      >
                         <span class="ad-chat-dot"></span
                         ><span
-                          ><strong>Каталог и продажи</strong
-                          ><small>Модуль магазина</small></span
+                          ><strong>Модуль заказов</strong
+                          ><small>API · бизнес-правила</small></span
                         >
                       </div>
-                      <div class="ad-chat" data-ad-reveal="35900">
+                      <div
+                        class="ad-chat"
+                        data-ad-thread="warehouse"
+                        data-ad-reveal="29000"
+                      >
                         <span class="ad-chat-dot"></span
                         ><span
-                          ><strong>Аналитика бизнеса</strong
-                          ><small>Отчёты и показатели</small></span
+                          ><strong>Модуль склада</strong
+                          ><small>Резервы · транзакции</small></span
                         >
                       </div>
-                      <div class="ad-chat" data-ad-reveal="36900">
+                      <div
+                        class="ad-chat"
+                        data-ad-thread="tests"
+                        data-ad-reveal="42000"
+                      >
                         <span class="ad-chat-dot"></span
                         ><span
-                          ><strong>Заявки и процессы</strong
-                          ><small>Рабочие сценарии</small></span
+                          ><strong>Тесты и покрытие</strong
+                          ><small data-ad="tests-thread-state"
+                            >Проверка доступа</small
+                          ></span
                         >
                       </div>
-                      <div class="ad-chat" data-ad-reveal="37900">
+                      <div
+                        class="ad-chat"
+                        data-ad-thread="delivery"
+                        data-ad-reveal="57000"
+                      >
                         <span class="ad-chat-dot"></span
                         ><span
-                          ><strong>Команда и доступы</strong
-                          ><small>Роли и аккаунты</small></span
+                          ><strong>CI/CD и Kubernetes</strong
+                          ><small>Контейнеры · поставка</small></span
+                        >
+                      </div>
+                      <div
+                        class="ad-chat"
+                        data-ad-thread="scaling"
+                        data-ad-reveal="65000"
+                      >
+                        <span class="ad-chat-dot"></span
+                        ><span
+                          ><strong>Масштабирование</strong
+                          ><small>Нагрузка · HPA</small></span
+                        >
+                      </div>
+                      <div
+                        class="ad-chat"
+                        data-ad-thread="mobile"
+                        data-ad-reveal="80000"
+                      >
+                        <span class="ad-chat-dot"></span
+                        ><span
+                          ><strong>Мобильные клиенты</strong
+                          ><small>OpenAPI · синхронизация</small></span
+                        >
+                      </div>
+                      <div
+                        class="ad-chat"
+                        data-ad-thread="integrations"
+                        data-ad-reveal="81300"
+                      >
+                        <span class="ad-chat-dot"></span
+                        ><span
+                          ><strong>Интеграции</strong
+                          ><small>Webhooks · идемпотентность</small></span
+                        >
+                      </div>
+                      <div
+                        class="ad-chat"
+                        data-ad-thread="observability"
+                        data-ad-reveal="82500"
+                      >
+                        <span class="ad-chat-dot"></span
+                        ><span
+                          ><strong>Логи и мониторинг</strong
+                          ><small>Метрики · оповещения</small></span
                         >
                       </div>
                     </div>
@@ -666,52 +732,61 @@
 
                   <div class="ad-conversation">
                     <div class="ad-conversation-heading">
-                      <span>Основа приложения</span
+                      <span data-ad="thread-title">Архитектура и стек</span
                       ><span data-ad="dev-status">Новая тема</span>
                     </div>
                     <div class="ad-empty" data-ad="empty">
                       <span class="ad-empty-mark">✳</span
                       ><strong>С чего начнём?</strong
-                      ><span>Новая тема. Одна понятная задача.</span>
+                      ><span>Требования → решения → проверка.</span>
                     </div>
                     <div class="ad-messages">
-                      <div class="ad-sent" data-ad-reveal="11800">
-                        <span>Я · постановка задачи</span>
-                        <p>
-                          Создай ERP для бизнеса: продажи, заявки, аналитика и
-                          команда. Всё — в одном понятном интерфейсе.
-                        </p>
+                      <div class="ad-context-note" data-ad-reveal="18000">
+                        ТЗ · 7 разделов
+                        <span>.NET 10 · ASP.NET Core · Blazor</span>
                       </div>
-                      <div class="ad-agent-message" data-ad-reveal="12800">
-                        <div class="ad-agent-heading">
-                          <span class="ad-agent-mark">✳</span
-                          ><strong>Ведущий агент</strong
-                          ><span class="ad-agent-role"
-                            >Координирует работу</span
+                      <div
+                        class="ad-discussion"
+                        data-ad="discussion"
+                        data-ad-reveal="18500"
+                      >
+                        <div class="ad-agent-message">
+                          <div class="ad-agent-heading">
+                            <span class="ad-agent-mark">✳</span
+                            ><strong>Оркестратор</strong
+                            ><span class="ad-agent-role"
+                              >План и координация</span
+                            >
+                          </div>
+                          <p data-ad="agent-text">
+                            Сначала согласуем границы модулей и права доступа.
+                          </p>
+                        </div>
+                        <div
+                          class="ad-artifact"
+                          data-ad="artifact"
+                          data-tone="neutral"
+                        >
+                          <div>
+                            <span data-ad="artifact-label"
+                              >Архитектурное решение</span
+                            ><i data-ad="artifact-state">На ревью</i>
+                          </div>
+                          <pre data-ad="artifact-body">
+Заказы · Склад · Доступы</pre>
+                        </div>
+                        <div
+                          class="ad-sent ad-human-review"
+                          data-ad="human-review"
+                        >
+                          <span data-ad="human-action"
+                            >Я · ревью архитектуры</span
                           >
+                          <p data-ad="human-text">
+                            Утверждаю границы модулей. Реализацию начинаем после
+                            согласования контрактов API.
+                          </p>
                         </div>
-                        <p data-ad="agent-text">
-                          Разделяю задачу между агентами. Соберу модули в единую
-                          систему.
-                        </p>
-                        <div class="ad-task-list" data-ad-reveal="15700">
-                          <span><i></i> Интерфейс и навигация</span
-                          ><span><i></i> Данные и бизнес-логика</span
-                          ><span><i></i> Тесты и интеграция</span>
-                        </div>
-                      </div>
-                      <div class="ad-complete-message" data-ad-reveal="30000">
-                        <span class="ad-success-icon"
-                          ><svg class="ad-icon"><use href="#ad-check" /></svg
-                        ></span>
-                        <div>
-                          <strong>Задача выполнена</strong>
-                          <p>Приложение собрано. Проверки пройдены.</p>
-                        </div>
-                      </div>
-                      <div class="ad-test-results" data-ad-reveal="31200">
-                        <span>✓ Сборка</span><span>✓ Тесты</span
-                        ><span>✓ Сценарии</span>
                       </div>
                     </div>
                     <div class="ad-composer" data-ad-reveal="4400">
@@ -720,56 +795,59 @@
                         <span
                           ><span class="ad-agent-mark">✳</span> Агент
                           <span class="ad-composer-divider">/</span> План →
-                          реализация</span
+                          ревью → реализация</span
                         ><span class="ad-send" data-ad="send">↑</span>
                       </div>
                     </div>
                   </div>
 
-                  <div class="ad-tools" data-ad-reveal="14200">
+                  <div class="ad-tools" data-ad-reveal="19800">
                     <div class="ad-git-heading">
                       <svg class="ad-icon"><use href="#ad-branch" /></svg>
-                      Изменения <span>+248 <i>−16</i></span>
+                      Git <span data-ad="git-count">+86 <i>−12</i></span>
                     </div>
-                    <div class="ad-files">
-                      <span><i>TSX</i> App.tsx <b>+64</b></span
-                      ><span><i>TSX</i> Sidebar.tsx <b>+38</b></span
-                      ><span><i>TS</i> orders.ts <b>+92</b></span
-                      ><span><i>TEST</i> app.test.ts <b>+54</b></span>
-                    </div>
-                    <div class="ad-code-preview">
-                      <span>+ &lt;Workspace&gt;</span
-                      ><span>+ &nbsp; &lt;Sidebar /&gt;</span
-                      ><span>+ &nbsp; &lt;Dashboard /&gt;</span
-                      ><span>+ &lt;/Workspace&gt;</span>
-                    </div>
+                    <div class="ad-files" data-ad="files"></div>
+                    <div class="ad-code-preview" data-ad="diff"></div>
                     <div class="ad-subagents-heading">
-                      Команда агентов <span>3</span>
+                      Subagents <span>3</span>
                     </div>
-                    <div class="ad-subagent" data-ad-reveal="14800">
+                    <div
+                      class="ad-subagent ad-worker-ui"
+                      data-ad-reveal="20500"
+                    >
                       <span class="ad-subagent-symbol is-lilac">◈</span
                       ><span
                         ><strong>Интерфейс</strong
-                        ><small>Экраны и компоненты</small></span
+                        ><small data-ad="worker-ui"
+                          >Blazor · компоненты</small
+                        ></span
                       ><i></i>
                     </div>
-                    <div class="ad-subagent" data-ad-reveal="15400">
+                    <div
+                      class="ad-subagent ad-worker-api"
+                      data-ad-reveal="21100"
+                    >
                       <span class="ad-subagent-symbol is-blue">⌘</span
                       ><span
                         ><strong>Бизнес-логика</strong
-                        ><small>Данные и процессы</small></span
+                        ><small data-ad="worker-api"
+                          >.NET · API и модули</small
+                        ></span
                       ><i></i>
                     </div>
-                    <div class="ad-subagent" data-ad-reveal="16000">
+                    <div
+                      class="ad-subagent ad-worker-ops"
+                      data-ad-reveal="21700"
+                    >
                       <span class="ad-subagent-symbol is-green">✓</span
                       ><span
-                        ><strong>Проверка</strong
-                        ><small>Тесты и сценарии</small></span
+                        ><strong>Тесты и DevOps</strong
+                        ><small data-ad="worker-ops"
+                          >Тесты · инфраструктура</small
+                        ></span
                       ><i></i>
                     </div>
-                    <div class="ad-team-note">
-                      Разные задачи. Общий контекст.
-                    </div>
+                    <div class="ad-team-note">Решения проходят моё ревью.</div>
                   </div>
                 </div>
               </div>
@@ -786,7 +864,7 @@
                   ><span class="ad-preview-label">Пример приложения</span>
                 </div>
                 <div class="ad-erp-body">
-                  <div class="ad-erp-sidebar" data-ad-build="23500">
+                  <div class="ad-erp-sidebar" data-ad-build="37700">
                     <div class="ad-erp-logo">
                       <span class="ad-logo-mark"
                         ><i></i><i></i><i></i><i></i></span
@@ -865,7 +943,7 @@
                     </div>
                   </div>
                   <div class="ad-erp-workspace">
-                    <header class="ad-erp-header" data-ad-build="21400">
+                    <header class="ad-erp-header" data-ad-build="35000">
                       <span
                         >Рабочее пространство <i>/</i>
                         <b data-ad="breadcrumb">Обзор</b></span
@@ -874,7 +952,7 @@
                         <span class="ad-mini-avatar">А</span></span
                       >
                     </header>
-                    <div class="ad-erp-content" data-ad-build="24700">
+                    <div class="ad-erp-content" data-ad-build="39000">
                       <div class="ad-page" data-ad-view="dashboard">
                         <div class="ad-page-heading">
                           <div>
@@ -995,7 +1073,7 @@
                         </div>
                       </div>
                     </div>
-                    <footer class="ad-erp-footer" data-ad-build="22500">
+                    <footer class="ad-erp-footer" data-ad-build="36400">
                       <span>Пульс ERP</span
                       ><span>Единое пространство для вашей команды</span
                       ><span>Все системы работают <i></i></span>
@@ -1012,6 +1090,136 @@
                 </div>
               </div>
 
+              <div
+                class="ad-infra ad-window"
+                data-ad="infra"
+                aria-hidden="true"
+              >
+                <div class="ad-dev-titlebar">
+                  <span class="ad-window-dots"><i></i><i></i><i></i></span>
+                  <span class="ad-dev-brand">Под капотом</span>
+                  <span class="ad-dev-project"
+                    >Тестовый контур <span>/</span> Kubernetes</span
+                  >
+                </div>
+                <div class="ad-infra-content">
+                  <div class="ad-infra-heading">
+                    <span>Приложение работает для всех одновременно</span>
+                    <h4>Больше людей.<br /><em>Больше мощности.</em></h4>
+                    <p data-ad="infra-explanation">
+                      Web и смартфоны обращаются к одному API. Входящий трафик
+                      распределяется между контейнерами.
+                    </p>
+                  </div>
+                  <div class="ad-traffic-meter">
+                    <div>
+                      <span>Одновременно в системе</span
+                      ><strong data-ad="user-count">120</strong
+                      ><small>пользователей · пример нагрузки</small>
+                    </div>
+                    <div class="ad-load-bars">
+                      <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i
+                      ><i></i><i></i><i></i><i></i>
+                    </div>
+                    <span class="ad-load-label" data-ad="load-label"
+                      >Обычная нагрузка</span
+                    >
+                  </div>
+                  <div class="ad-infra-map">
+                    <div class="ad-clients">
+                      <div>
+                        <svg viewBox="0 0 48 40">
+                          <rect x="3" y="3" width="42" height="27" rx="3" />
+                          <path
+                            d="M17 37h14M24 30v7M9 10h18M9 15h30M9 20h24"
+                          /></svg
+                        ><span>Web<small>Blazor WebAssembly</small></span>
+                      </div>
+                      <div>
+                        <svg viewBox="0 0 48 40">
+                          <rect x="14" y="1" width="21" height="38" rx="4" />
+                          <path
+                            d="M21 5h7M23 34h3M19 12h11M19 17h11M19 22h7"
+                          /></svg
+                        ><span
+                          >Smartphone<small>Мобильный клиент · API</small></span
+                        >
+                      </div>
+                      <div class="ad-user-dots">
+                        <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+                      </div>
+                    </div>
+                    <div class="ad-flow"><span>HTTPS</span><i></i><b>→</b></div>
+                    <div class="ad-ingress">
+                      <span class="ad-infra-symbol">⇄</span
+                      ><strong>L7 Ingress</strong><small>Входящий трафик</small
+                      ><code>/api · /hubs</code
+                      ><span class="ad-infra-badge">Балансировка</span>
+                    </div>
+                    <div class="ad-flow">
+                      <span>запросы</span><i></i><b>→</b>
+                    </div>
+                    <div class="ad-cluster">
+                      <div class="ad-cluster-heading">
+                        <strong>Kubernetes</strong
+                        ><span data-ad="replica-count">2 реплики</span>
+                      </div>
+                      <div class="ad-server-row">
+                        <div class="ad-server">
+                          <span>worker 01</span>
+                          <div class="ad-pod">
+                            <i></i> .NET API <small>pod 01</small>
+                          </div>
+                          <div class="ad-pod ad-extra-pod">
+                            <i></i> .NET API <small>pod 03</small>
+                          </div>
+                        </div>
+                        <div class="ad-server">
+                          <span>worker 02</span>
+                          <div class="ad-pod">
+                            <i></i> .NET API <small>pod 02</small>
+                          </div>
+                          <div class="ad-pod ad-extra-pod">
+                            <i></i> .NET API <small>pod 04</small>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="ad-hpa">
+                        <span>HPA</span
+                        ><span data-ad="hpa-status">Запас мощности</span>
+                      </div>
+                      <div class="ad-signal">
+                        ↔ SignalR · обновления в реальном времени
+                      </div>
+                    </div>
+                    <div class="ad-flow">
+                      <span>данные</span><i></i><b>→</b>
+                    </div>
+                    <div class="ad-data-services">
+                      <div>
+                        <span>▤</span><strong>PostgreSQL</strong
+                        ><small>Заказы и остатки</small>
+                      </div>
+                      <div>
+                        <span>⇆</span><strong>Redis</strong
+                        ><small>SignalR backplane</small>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ad-observability">
+                    <span>◉ OpenTelemetry</span
+                    ><span>Логи · метрики · трассировки</span
+                    ><strong data-ad="infra-state"
+                      >Наблюдаем за системой</strong
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="ad-proof" aria-hidden="true">
+                <span>9 рабочих тем</span><span>Ревью человека ✓</span
+                ><span>Тесты → исправления → CI/CD</span>
+              </div>
               <div class="ad-demo-cursor" data-ad="cursor" aria-hidden="true">
                 <svg viewBox="0 0 28 32"><path d="M3 2 24 19l-10 1-5 9Z" /></svg
                 ><span></span>
@@ -1024,12 +1232,15 @@
 
             <div class="ad-story-bar">
               <div class="ad-caption" aria-live="polite" aria-atomic="true">
-                <span class="ad-caption-number mono" data-ad="number">08</span>
+                <span class="ad-caption-number mono" data-ad="number">09</span>
                 <div>
-                  <h4 data-ad="title">Теперь это ваш рабочий инструмент</h4>
+                  <h4 data-ad="title">
+                    Результат решений, проверок и итераций
+                  </h4>
                   <p data-ad="detail">
-                    Продажи, аналитика, заявки и команда — в одном приложении.
-                    Каждый раздел решает свою задачу.
+                    Человек определяет требования, архитектуру и качество.
+                    Агенты ускоряют реализацию, тесты и инфраструктуру. В этом
+                    условном ERP можно переключать разделы.
                   </p>
                 </div>
               </div>
@@ -1052,7 +1263,7 @@
                   ↺
                 </button>
                 <span class="ad-time mono"
-                  ><span data-ad="elapsed">00:00</span> / 01:03</span
+                  ><span data-ad="elapsed">00:00</span> / 01:52</span
                 >
               </div>
             </div>
@@ -1074,16 +1285,16 @@
           </p>
           <div class="ad-finale" data-ad="finale">
             <p>
-              Понимать людей.<br />Создавать нужное.<br /><span
-                >Беречь ваше время.</span
+              Человек направляет.<br />Агенты ускоряют.<br /><span
+                >Качество — под контролем.</span
               >
             </p>
             <div>
               <span class="ad-finale-star" aria-hidden="true">✳</span>
               <p>
-                Мой опыт задаёт направление.<br />ИИ помогает пройти путь
-                быстрее.<br /><strong
-                  >В центре — ваша задача и работающий результат.</strong
+                Я определяю требования и архитектуру,<br />проверяю решения и
+                принимаю результат.<br /><strong
+                  >Агенты ускоряют код, тесты и инфраструктуру.</strong
                 >
               </p>
             </div>

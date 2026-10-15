@@ -4,95 +4,115 @@
 
   const demo = document.getElementById("ai-demo");
   if (!demo) return;
-  const find = (name) => demo.querySelector(`[data-ad="${name}"]`);
-  const TOTAL = 63000;
-  const PRODUCT_START = 39500;
-  const prompt =
-    "Создай ERP для бизнеса: продажи, заявки, аналитика и команда. Всё — в одном понятном интерфейсе.";
-  const agentReply =
-    "Разделяю задачу между агентами. Соберу модули в единую систему.";
+  const elements = new Map();
+  const find = (name) => {
+    if (!elements.has(name))
+      elements.set(name, demo.querySelector(`[data-ad="${name}"]`));
+    return elements.get(name);
+  };
+  const TOTAL = 112000;
+  const PRODUCT_START = 87000;
+  const FINALE_START = 108000;
+  const prompt = [
+    "Разработать ERP: .NET 10, ASP.NET Core API, Blazor WebAssembly.",
+    "1. Архитектура: модульный монолит; заказы, склад, аналитика. Контракты OpenAPI, интеграции с учётной системой.",
+    "2. RBAC: Admin / Manager / Viewer. Проверка прав на сервере; аудит операций и транзакционное резервирование остатков.",
+    "3. Web + мобильные клиенты; общие API и события SignalR.",
+    "4. Unit, integration и e2e: роли, конкурентные заказы, критические сценарии.",
+    "5. Docker + Kubernetes: probes, лимиты ресурсов, L7 Ingress, HPA.",
+    "6. CI/CD: build → tests → image → staging; production после моего ревью.",
+    "7. Структурированные логи, OpenTelemetry, метрики и нагрузочные проверки. Сначала согласовать архитектуру и критерии приёмки.",
+  ].join("\n");
   const chapters = [
     {
       start: 0,
-      inspect: 3100,
-      label: "Задача",
-      title: "У каждой задачи — своя тема",
-      detail:
-        "После обсуждения вашей идеи я создаю новую тему в проекте. Здесь будет весь путь: от требований до результата.",
-    },
-    {
-      start: 4200,
-      inspect: 5400,
+      inspect: 3500,
       label: "Контекст",
-      title: "Сначала — ясная цель",
+      title: "Сначала — контекст и требования",
       detail:
-        "Пустое окно становится отправной точкой. Я определяю, кому нужно приложение, какую проблему оно решает и что считаем готовым результатом.",
+        "После обсуждения бизнес-процессов создаю проект. В отдельных темах сохранятся требования, решения и история проверок.",
     },
     {
-      start: 6200,
-      inspect: 11200,
-      label: "Запрос",
-      title: "Перевожу идею в задачу для агента",
+      start: 6000,
+      inspect: 15000,
+      label: "Техзадание",
+      title: "Ставлю инженерную задачу",
       detail:
-        "Описываю нужные разделы, пользовательские сценарии и ограничения. У агента появляется конкретный план действий.",
+        "Фиксирую стек .NET 10 и Blazor, границы модулей, права, интеграции, Web и мобильные клиенты. Заранее определяю тесты, поставку и наблюдаемость.",
     },
     {
-      start: 11800,
-      inspect: 18800,
-      label: "Команда",
-      title: "Агенты работают одной командой",
+      start: 18000,
+      inspect: 23500,
+      label: "Решения",
+      title: "Архитектура проходит моё ревью",
       detail:
-        "Ведущий агент координирует работу. Другие агенты параллельно создают интерфейс, логику и тесты. Я направляю процесс и проверяю решения.",
-    },
-    {
-      start: 20500,
-      inspect: 27600,
-      label: "Сборка",
-      title: "Из деталей складывается приложение",
-      detail:
-        "Шапка, нижняя панель, навигация и рабочая область собираются в единый интерфейс. У каждой детали есть своя роль.",
-    },
-    {
-      start: 29000,
-      inspect: 32900,
-      label: "Проверка",
-      title: "Готово — значит проверено",
-      detail:
-        "Агенты собирают приложение и запускают тесты. Вместе проверяем рабочие сценарии. Я принимаю результат и решаю, что готово к использованию.",
+        "Оркестратор предлагает план и распределяет работу. Я утверждаю границы модулей, читаю изменения и уточняю правила заказов и склада.",
     },
     {
       start: 34000,
-      inspect: 38800,
-      label: "Развитие",
-      title: "Большая система. Понятные задачи.",
+      inspect: 39700,
+      label: "Сборка",
+      title: "Интерфейс собирается поверх бизнес-логики",
       detail:
-        "Продажи, аналитика, заявки, доступы — у каждого модуля своя тема. Так приложение растёт последовательно, а контекст каждой задачи сохраняется.",
+        "Компоненты Blazor складываются в рабочее пространство: шапка, навигация, аккаунт и модули. Это промежуточный результат, дальше — проверки поведения.",
+    },
+    {
+      start: 42000,
+      inspect: 47000,
+      label: "Проверки",
+      title: "Ошибка → исправление → повторная проверка",
+      detail:
+        "Интеграционный тест обнаруживает лишние права у Viewer. Я уточняю требование: проверка нужна на сервере. Агент исправляет код и повторяет unit, integration и e2e.",
+    },
+    {
+      start: 57000,
+      inspect: 62500,
+      label: "Поставка",
+      title: "Приложению нужен воспроизводимый запуск",
+      detail:
+        "Готовим Dockerfile, манифесты Kubernetes и CI/CD: сборка, тесты, образ, тестовый контур. Я проверяю probes, ресурсы и подтверждение перед production.",
+    },
+    {
+      start: 65000,
+      inspect: 68000,
+      label: "Нагрузка",
+      title: "Под капотом — работа для многих пользователей",
+      detail:
+        "Web и смартфоны работают одновременно. L7 Ingress распределяет запросы между контейнерами .NET; SignalR передаёт события, а метрики показывают нагрузку.",
+    },
+    {
+      start: 80000,
+      inspect: 83600,
+      label: "Итерации",
+      title: "Большая ERP — множество связанных задач",
+      detail:
+        "Открываем тему мобильных клиентов. Рядом остаются интеграции и мониторинг: у каждой задачи свой контекст и статус. Я сверяю результат с критериями приёмки.",
     },
     {
       start: PRODUCT_START,
-      inspect: 41500,
-      label: "Продукт",
-      title: "Теперь это ваш рабочий инструмент",
+      inspect: 90000,
+      label: "ERP",
+      title: "Результат решений, проверок и итераций",
       detail:
-        "На переднем плане — готовое приложение. Продажи, аналитика, заявки и команда связаны между собой. Разделы можно переключать самостоятельно.",
+        "Теперь можно пройти рабочие сценарии ERP. Позади остаются темы, ревью, исправления и проверки. Разделы демонстрационного приложения доступны и вручную.",
     },
     {
-      start: 58500,
+      start: FINALE_START,
       inspect: TOTAL,
-      label: "Результат",
-      title: "В центре — ваша задача и результат",
+      label: "Итог",
+      title: "Человек направляет. Агенты ускоряют.",
       detail:
-        "Понимание пользователей, инженерный опыт и скорость ИИ работают вместе. Чтобы ваше время превращалось в полезный продукт.",
+        "Я определяю требования, контролирую архитектуру и качество, принимаю результат. Агенты ускоряют реализацию, тесты и инфраструктуру — время уходит на полезную работу.",
     },
   ];
   const tour = [
-    { at: 40800, page: "dashboard" },
-    { at: 43300, page: "shop" },
-    { at: 46100, page: "analytics" },
-    { at: 48900, page: "bids" },
-    { at: 51700, page: "team" },
-    { at: 54500, page: "account" },
-    { at: 57200, page: "dashboard" },
+    { at: 88400, page: "dashboard" },
+    { at: 90900, page: "shop" },
+    { at: 93800, page: "analytics" },
+    { at: 96700, page: "bids" },
+    { at: 99600, page: "team" },
+    { at: 102500, page: "account" },
+    { at: 105400, page: "dashboard" },
   ];
   const pageNames = {
     dashboard: "Обзор",
@@ -102,6 +122,414 @@
     team: "Команда",
     account: "Аккаунт",
   };
+
+  // These are illustrative project artifacts, not test results from this website.
+  const gitSets = {
+    architecture: {
+      count: "+86  −12",
+      files: [
+        ["MD", "adr-001.md", "+24"],
+        ["C#", "Program.cs", "+18"],
+        ["API", "openapi.yaml", "+32"],
+        ["C#", "Permissions.cs", "+12"],
+      ],
+      diff: [
+        "+ builder.Services",
+        "+   .AddOrdersModule()",
+        "+   .AddWarehouseModule();",
+        "+ app.MapOrderEndpoints();",
+      ],
+    },
+    orders: {
+      count: "+214  −18",
+      files: [
+        ["C#", "OrderService.cs", "+76"],
+        ["RZR", "Orders.razor", "+64"],
+        ["C#", "OrderTests.cs", "+42"],
+        ["API", "openapi.yaml", "+32"],
+      ],
+      diff: [
+        '+ group.MapPost("/orders",',
+        "+   CreateOrderAsync);",
+        "+ await stock.ReserveAsync(",
+        "+   order.Items, ct);",
+      ],
+    },
+    warehouse: {
+      count: "+302  −26",
+      files: [
+        ["C#", "StockService.cs", "+88"],
+        ["RZR", "Stock.razor", "+52"],
+        ["C#", "StockTests.cs", "+61"],
+        ["SQL", "reservations.sql", "+24"],
+      ],
+      diff: [
+        "+ await using var tx = await",
+        "+   db.Database",
+        "+   .BeginTransactionAsync();",
+        "+ await ReserveStockAsync();",
+        "+ await tx.CommitAsync();",
+      ],
+    },
+    tests: {
+      count: "+58  −4",
+      files: [
+        ["C#", "AccessTests.cs", "+26"],
+        ["C#", "OrderTests.cs", "+18"],
+        ["E2E", "orders.spec.ts", "+14"],
+        ["C#", "OrderEndpoints.cs", "M"],
+      ],
+      diff: [
+        "+ Assert.Equal(",
+        "+   HttpStatusCode.Forbidden,",
+        "+   response.StatusCode);",
+      ],
+    },
+    fix: {
+      count: "+64  −6",
+      files: [
+        ["C#", "OrderEndpoints.cs", "+2"],
+        ["C#", "Permissions.cs", "+4"],
+        ["C#", "AccessTests.cs", "+26"],
+        ["E2E", "orders.spec.ts", "+14"],
+      ],
+      diff: [
+        "- .RequireAuthorization();",
+        "+ .RequireAuthorization(",
+        '+   "Orders.Approve");',
+        "+ // проверка на сервере",
+      ],
+    },
+    docker: {
+      count: "+112  −8",
+      files: [
+        ["OCI", "Dockerfile", "+26"],
+        ["YML", "deployment.yaml", "+42"],
+        ["YML", "ingress.yaml", "+24"],
+        ["YML", "ci.yml", "+20"],
+      ],
+      diff: [
+        "+ FROM mcr.microsoft.com/dotnet/aspnet:10.0",
+        "+ COPY --from=build /app/publish .",
+        '+ ENTRYPOINT ["dotnet",',
+        '+   "Pulse.Api.dll"]',
+      ],
+    },
+    kubernetes: {
+      count: "+148  −8",
+      files: [
+        ["YML", "deployment.yaml", "+42"],
+        ["YML", "ingress.yaml", "+24"],
+        ["YML", "hpa.yaml", "+18"],
+        ["YML", "ci.yml", "+38"],
+      ],
+      diff: [
+        "+ replicas: 2",
+        "+ readinessProbe:",
+        "+   httpGet:",
+        "+     path: /health/ready",
+        "+     port: 8080",
+      ],
+    },
+    pipeline: {
+      count: "+186  −8",
+      files: [
+        ["YML", "ci.yml", "+38"],
+        ["YML", "deployment.yaml", "+42"],
+        ["YML", "hpa.yaml", "+18"],
+        ["MD", "runbook.md", "+28"],
+      ],
+      diff: [
+        "+ - run: dotnet test",
+        "+ - run: npx playwright test",
+        "+ - run: docker build -t pulse .",
+        "+ - run: helm upgrade pulse ./chart",
+        "+ environment: staging",
+      ],
+    },
+    mobile: {
+      count: "+126  −14",
+      files: [
+        ["API", "openapi.yaml", "+28"],
+        ["C#", "MobileClient.cs", "+44"],
+        ["C#", "EventsHub.cs", "+22"],
+        ["E2E", "sync.spec.ts", "+32"],
+      ],
+      diff: [
+        "+ connection.On<OrderEvent>(",
+        '+   "OrderUpdated",',
+        "+   RefreshOrder);",
+        "+ await ReloadAfterReconnect();",
+      ],
+    },
+  };
+  const threadNames = {
+    architecture: "Архитектура и стек",
+    orders: "Модуль заказов",
+    warehouse: "Модуль склада",
+    tests: "Тесты и покрытие",
+    delivery: "CI/CD и Kubernetes",
+    scaling: "Масштабирование и нагрузка",
+    mobile: "Мобильные клиенты",
+  };
+  const scenes = [
+    {
+      at: 18000,
+      thread: "architecture",
+      status: "Согласование",
+      git: "architecture",
+      agent:
+        "Предлагаю модульный монолит: отдельные границы заказов, склада и доступов. Сначала контракты API и критерии приёмки, затем параллельная работа.",
+      label: "ADR-001 · архитектура",
+      state: "На ревью",
+      tone: "neutral",
+      body: "ASP.NET Core API → модули → PostgreSQL\nBlazor WebAssembly + mobile → OpenAPI\nRBAC на сервере · аудит операций",
+      humanAt: 22200,
+      action: "Я · читаю план и утверждаю",
+      human:
+        "Границы модулей согласованы. Интеграции — через контракты; права проверяем на API. Сначала тесты критических сценариев.",
+    },
+    {
+      at: 26000,
+      thread: "orders",
+      status: "Ревью API",
+      git: "orders",
+      agent:
+        "Агенты разделили работу: Blazor-компоненты, бизнес-правила .NET и тестовые сценарии. Изменения заказов готовы к просмотру.",
+      label: "Модуль заказов · контракт",
+      state: "Изменения",
+      tone: "neutral",
+      body: "POST /api/orders → резерв склада\nManager → создать / подтвердить\nViewer → только чтение",
+      humanAt: 27400,
+      action: "Я · читаю diff и уточняю",
+      human:
+        "Повторный запрос не должен создавать второй заказ. Добавьте ключ идемпотентности и проверку повторной отправки.",
+    },
+    {
+      at: 29000,
+      thread: "warehouse",
+      status: "Уточнение правил",
+      git: "warehouse",
+      agent:
+        "Добавляю резервирование остатков и интеграционные тесты конкурентных заказов. Заказы и склад сохраняют согласованное состояние.",
+      label: "Склад · конкурентный доступ",
+      state: "Ревью логики",
+      tone: "neutral",
+      body: "Один остаток → два запроса\nТранзакция + контроль версии\nПодтверждён только один резерв",
+      humanAt: 30700,
+      action: "Я · правлю критерий приёмки",
+      human:
+        "Резерв — атомарный. При конфликте откатываем операцию целиком. Добавьте тест двух одновременных заказов на последний товар.",
+    },
+    {
+      at: 42000,
+      thread: "tests",
+      status: "Тесты запущены",
+      git: "tests",
+      agent:
+        "Интерфейс собран. Запускаю unit, integration и e2e: права доступа, заказы, склад и пользовательские сценарии.",
+      label: "dotnet test · Playwright",
+      state: "Выполняются",
+      tone: "neutral",
+      body: "✓ unit           148 / 148\n… integration     проверка RBAC\n… e2e             сценарий заказа",
+      humanAt: 43000,
+      action: "Я · проверяю сценарии",
+      human:
+        "Сверяю проверки с ТЗ. Особое внимание — доступам и резервированию остатков: одного успешного build недостаточно.",
+    },
+    {
+      at: 44400,
+      thread: "tests",
+      status: "Найден дефект",
+      git: "tests",
+      agent:
+        "Тест выявил дефект: Viewer может подтвердить заказ через API. Кнопка скрыта, но серверная проверка недостаточна. Останавливаю поставку.",
+      label: "Integration · ViewerCannotApprove",
+      state: "FAIL · 1",
+      tone: "failure",
+      body: "POST /api/orders/42/approve\nexpected: 403 Forbidden\nactual:   200 OK",
+      humanAt: 46000,
+      action: "Я · уточняю исправление",
+      human:
+        "Проверяйте policy Orders.Approve на сервере. Скрытой кнопки недостаточно. Повторите проверку всех ролей и прямого вызова API.",
+    },
+    {
+      at: 49500,
+      thread: "tests",
+      status: "Исправление",
+      git: "fix",
+      agent:
+        "Добавляю policy на endpoint и регрессионный тест прямого запроса. Manager сохраняет право подтверждения, Viewer получает 403.",
+      label: "OrderEndpoints.cs · diff",
+      state: "Исправлено",
+      tone: "neutral",
+      body: '− .RequireAuthorization();\n+ .RequireAuthorization("Orders.Approve");\n+ ViewerCannotApprove() → 403',
+      humanAt: 50700,
+      action: "Я · ревью исправления",
+      human:
+        "Policy стоит на серверном endpoint. Решение принято; теперь повторите весь набор тестов, включая положительный сценарий Manager.",
+    },
+    {
+      at: 53200,
+      thread: "tests",
+      status: "Повторный прогон",
+      git: "fix",
+      agent:
+        "Повторяю весь набор после исправления. Проверяю запрет для Viewer и разрешение для Manager, затем браузерный сценарий заказа.",
+      label: "Повторная проверка",
+      state: "RUNNING",
+      tone: "neutral",
+      body: "✓ unit           148 / 148\n✓ integration     36 / 36\n… e2e             11 / 12",
+      humanAt: 53200,
+      action: "Я · жду завершения проверок",
+      human:
+        "Переход к поставке — после полного прогона. Исправление доступа не должно сломать рабочие сценарии остальных ролей.",
+    },
+    {
+      at: 55300,
+      thread: "tests",
+      status: "Проверки пройдены",
+      git: "fix",
+      agent:
+        "Повторный прогон завершён. Проверка прав на сервере и браузерные сценарии проходят. Дальше — упаковка и тестовый контур.",
+      label: "Регрессия после исправления",
+      state: "PASS",
+      tone: "success",
+      body: "✓ unit           148 / 148\n✓ integration     36 / 36\n✓ e2e             12 / 12",
+      humanAt: 55700,
+      action: "Я · принимаю исправление",
+      human:
+        "Проверки и diff просмотрены. Разрешаю сборку образа для staging; готовность production проверим отдельно.",
+    },
+    {
+      at: 57000,
+      thread: "delivery",
+      status: "Упаковка",
+      git: "docker",
+      agent:
+        "Готовлю multi-stage Dockerfile: сборка и публикация .NET 10, затем runtime-образ. Конфигурация окружения и секреты передаются отдельно.",
+      label: "Dockerfile · .NET 10",
+      state: "Образ",
+      tone: "neutral",
+      body: "sdk:10.0 → dotnet publish\naspnet:10.0 → Pulse.Api.dll\nnon-root · порт 8080 · конфигурация извне",
+      humanAt: 58300,
+      action: "Я · проверяю запуск",
+      human:
+        "Секреты не включаем в образ. Проверьте запуск без root, health endpoints и единый образ для staging и production.",
+    },
+    {
+      at: 60000,
+      thread: "delivery",
+      status: "Манифесты",
+      git: "kubernetes",
+      agent:
+        "Добавляю Deployment, Service, Ingress и HPA. Настраиваю readiness/liveness, requests/limits и завершение запросов при обновлении.",
+      label: "deployment.yaml · Kubernetes",
+      state: "Ревью",
+      tone: "neutral",
+      body: "replicas: 2 · rolling update\nreadiness: /health/ready\nHPA: CPU 60% · min 2 / max 6",
+      humanAt: 61300,
+      action: "Я · согласую инфраструктуру",
+      human:
+        "Лимиты и probes согласованы. Перед production — проверка миграций, резервных копий и плана отката. Сначала нагрузка на staging.",
+    },
+    {
+      at: 63200,
+      thread: "delivery",
+      status: "CI/CD",
+      git: "pipeline",
+      agent:
+        "CI/CD собирает код, повторяет тесты и публикует образ в registry. Тестовый контур обновляется автоматически; production ожидает подтверждения.",
+      label: ".github/workflows/ci.yml",
+      state: "STAGING ✓",
+      tone: "success",
+      body: "✓ build → unit / integration / e2e\n✓ image → registry → staging\n○ production → ручное подтверждение",
+      humanAt: 63200,
+      action: "Я · контролирую выпуск",
+      human:
+        "Тестовый контур готов. Проверяем нагрузку и наблюдаемость; публикацию production подтверждаю после приёмки.",
+    },
+    {
+      at: 65000,
+      thread: "scaling",
+      status: "Нагрузочный прогон",
+      git: "pipeline",
+      agent:
+        "Проверяю совместную работу Web и мобильных клиентов, балансировку трафика, события SignalR и масштабирование по метрикам CPU.",
+      label: "Нагрузочный контур",
+      state: "НАБЛЮДЕНИЕ",
+      tone: "neutral",
+      body: "Web + Smartphone → L7 Ingress\n2 → 4 реплики ASP.NET Core API\nOpenTelemetry · логи · метрики",
+      humanAt: 65000,
+      action: "Я · оцениваю поведение",
+      human:
+        "Смотрю задержки, ошибки и события при росте нагрузки. Масштабирование приложения не заменяет проверку запросов к базе.",
+    },
+    {
+      at: 80000,
+      thread: "mobile",
+      status: "Проверка клиентов",
+      git: "mobile",
+      agent:
+        "Web и мобильный клиент используют общий OpenAPI-контракт. SignalR обновляет статусы; после переподключения клиент перечитывает состояние через API.",
+      label: "Совместный сценарий",
+      state: "Проверено",
+      tone: "success",
+      body: "Web: заказ создан → API\nSmartphone: OrderUpdated → новый статус\nReconnect → перечитать актуальные данные",
+      humanAt: 81600,
+      action: "Я · уточняю поведение клиента",
+      human:
+        "При потере связи покажите статус соединения. После восстановления синхронизируйте данные: события не заменяют источник истины в API.",
+    },
+    {
+      at: 84200,
+      thread: "architecture",
+      status: "Приёмка итерации",
+      git: "pipeline",
+      agent:
+        "Итерация собрана: модули, права, контракты клиентов, контейнеры и CI/CD. Решения и проверки сохранены в темах; открытые задачи видны отдельно.",
+      label: "Критерии приёмки · итерация",
+      state: "Ревью",
+      tone: "success",
+      body: "✓ API, RBAC и сценарии ERP\n✓ исправление → повторные тесты\n✓ staging, нагрузка и телеметрия",
+      humanAt: 84900,
+      action: "Я · принимаю результат итерации",
+      human:
+        "Критерии сверены. Теперь прохожу интерфейс как пользователь. Интеграции и оповещения ведём отдельными задачами следующей итерации.",
+    },
+    {
+      at: PRODUCT_START,
+      thread: "architecture",
+      status: "Демо готово",
+      git: "pipeline",
+      agent:
+        "Итерация готова к пользовательской проверке. Результат — общий итог требований, ревью, исправлений, тестов и настройки инфраструктуры.",
+      label: "История работы",
+      state: "Проверено",
+      tone: "success",
+      body: "9 тем · решения и ревью\nFAIL → fix → PASS\nDocker · Kubernetes · CI/CD",
+      humanAt: PRODUCT_START,
+      action: "Я · проверяю рабочие сценарии",
+      human:
+        "Открываю разделы ERP и сверяю поведение с требованиями. Направление, архитектура и качество остаются под моим контролем.",
+    },
+  ];
+  // Manual reduced-motion playback must also expose fixes and rechecks.
+  const checkpoints = [
+    ...new Set([
+      ...chapters.map((chapter) => chapter.inspect),
+      27900,
+      31800,
+      51500,
+      54100,
+      56200,
+      58800,
+      64100,
+      71600,
+      76200,
+      85700,
+    ]),
+  ].sort((a, b) => a - b);
 
   function heading(eyebrow, title, detail, tag) {
     return `<div class="ad-page-heading"><div><span class="ad-page-eyebrow">${eyebrow}</span><h4>${title}</h4><p>${detail}</p></div><span class="ad-date-tag">${tag}</span></div>`;
@@ -205,6 +633,7 @@
     button.disabled = false;
   });
   const panels = [...demo.querySelectorAll("[data-ad-view]")];
+  const threads = [...demo.querySelectorAll("[data-ad-thread]")];
   const reveals = [
     ...demo.querySelectorAll("[data-ad-reveal], [data-ad-build]"),
   ].map((element) => ({
@@ -241,9 +670,176 @@
   let cursorTarget = null;
   let cursorNeedsMeasure = true;
   let visibleProduct = false;
+  let activeScene = -1;
+  let activeGit = "";
 
   function setText(element, text) {
     if (element.textContent !== text) element.textContent = text;
+  }
+  function paintGit(name) {
+    if (activeGit === name) return;
+    activeGit = name;
+    const git = gitSets[name];
+    setText(find("git-count"), git.count);
+    find("files").replaceChildren(
+      ...git.files.map(([kind, name, count]) => {
+        const row = document.createElement("span");
+        const icon = document.createElement("i");
+        const delta = document.createElement("b");
+        icon.textContent = kind;
+        delta.textContent = count;
+        row.append(icon, document.createTextNode(name), delta);
+        return row;
+      }),
+    );
+    find("diff").replaceChildren(
+      ...git.diff.map((line) => {
+        const row = document.createElement("span");
+        row.textContent = line;
+        row.classList.toggle("ad-diff-removed", line.startsWith("-"));
+        return row;
+      }),
+    );
+  }
+  function renderWork() {
+    const index = Math.max(
+      0,
+      scenes.findLastIndex((scene) => time >= scene.at),
+    );
+    const scene = scenes[index];
+    if (activeScene !== index) {
+      activeScene = index;
+      setText(find("thread-title"), threadNames[scene.thread]);
+      setText(find("agent-text"), scene.agent);
+      setText(find("artifact-label"), scene.label);
+      setText(find("artifact-state"), scene.state);
+      setText(find("artifact-body"), scene.body);
+      find("artifact").dataset.tone = scene.tone;
+      setText(find("human-action"), scene.action);
+      setText(find("human-text"), scene.human);
+      paintGit(scene.git);
+      threads.forEach((thread) =>
+        thread.classList.toggle(
+          "ad-main-chat",
+          thread.dataset.adThread === scene.thread,
+        ),
+      );
+      const delivery =
+        scene.thread === "delivery" || scene.thread === "scaling";
+      setText(
+        find("worker-ui"),
+        time >= 42000 ? "Blazor · сценарии готовы" : "Blazor · компоненты",
+      );
+      setText(
+        find("worker-api"),
+        scene.git === "fix" ? "RBAC · исправление" : "ASP.NET Core · API",
+      );
+      setText(
+        find("worker-ops"),
+        delivery
+          ? "Docker · K8s · CI/CD"
+          : time >= 55300
+            ? "Регрессия · PASS"
+            : "Unit · integration · e2e",
+      );
+      const discussion = find("discussion");
+      discussion.classList.remove("ad-chat-enter");
+      if (playing && !motionOff && time >= 18000) {
+        void discussion.offsetWidth;
+        discussion.classList.add("ad-chat-enter");
+      }
+    }
+    if (index === 0 && time >= 18000) {
+      const fraction = Math.max(0, Math.min(1, (time - 18500) / 3000));
+      setText(
+        find("agent-text"),
+        scene.agent.slice(0, Math.floor(fraction * scene.agent.length)) || " ",
+      );
+    }
+    setText(find("dev-status"), time >= 18000 ? scene.status : "Новая тема");
+    setText(
+      find("chat-state"),
+      time >= 84200
+        ? "✓ Ревью итерации"
+        : time >= 26000
+          ? "✓ План согласован"
+          : time >= 18000
+            ? "Архитектурное ревью"
+            : "Новая задача",
+    );
+    setText(
+      find("tests-thread-state"),
+      time >= 55300
+        ? "✓ Повторный прогон"
+        : time >= 49500
+          ? "Исправление · RBAC"
+          : time >= 44400
+            ? "Ошибка доступа · FAIL"
+            : "Проверки запущены",
+    );
+    find("human-review").classList.toggle(
+      "ad-human-visible",
+      time >= scene.humanAt,
+    );
+  }
+  function renderInfrastructure() {
+    if (time < 65000 || time >= 80000) return;
+    const rising = time >= 70000;
+    const scaling = time >= 73500;
+    const scaled = time >= 75300;
+    const infra = find("infra");
+    infra.classList.toggle("ad-load-rising", rising);
+    infra.classList.toggle("ad-scaling", scaling);
+    infra.classList.toggle("ad-scaled", scaled);
+    setText(
+      find("user-count"),
+      Math.round(
+        120 + 1080 * Math.min(1, Math.max(0, (time - 70000) / 3000)),
+      ).toLocaleString("ru-RU"),
+    );
+    setText(
+      find("load-label"),
+      scaled
+        ? "Нагрузка распределена"
+        : rising
+          ? "Входящий трафик растёт"
+          : "Обычная нагрузка",
+    );
+    setText(
+      find("replica-count"),
+      scaled ? "4 реплики" : scaling ? "2 → 4 реплики" : "2 реплики",
+    );
+    setText(
+      find("hpa-status"),
+      scaled
+        ? "4 / 4 готовы · CPU 48%"
+        : scaling
+          ? "CPU > 60% → добавляем pod"
+          : rising
+            ? "CPU 78% · растёт нагрузка"
+            : "2 / 2 готовы · CPU 32%",
+    );
+    setText(
+      find("infra-state"),
+      scaled
+        ? "Больше пользователей → больше реплик API"
+        : scaling
+          ? "HPA добавляет мощность"
+          : "Наблюдаем за системой",
+    );
+    setText(
+      find("infra-explanation"),
+      scaled
+        ? "Kubernetes добавил экземпляры API. Ingress распределяет запросы; база данных остаётся общим источником данных."
+        : rising
+          ? "Пользователей стало больше. Метрики CPU запускают HPA: добавляем контейнеры приложения, чтобы распределить работу."
+          : "Web и смартфоны обращаются к одному API. Входящий трафик распределяется между контейнерами.",
+    );
+    if (time >= 65000 && time < 80000)
+      infra.style.setProperty(
+        "--ad-flow",
+        motionOff ? 0.5 : (time % 1800) / 1800,
+      );
   }
   function showPage(name, animate = true) {
     if (activePage === name) return;
@@ -281,7 +877,7 @@
   }
   function renderTour() {
     const touring =
-      time >= tour[0].at && time < 58500 && !motionOff && !userExploring;
+      time >= tour[0].at && time < FINALE_START && !motionOff && !userExploring;
     cursor.style.opacity = touring ? "1" : "0";
     if (userExploring) return;
     const index = tour.findLastIndex((item) => time >= item.at);
@@ -323,69 +919,61 @@
     setPhase(
       time < 900
         ? "opening"
-        : time < 11800
+        : time < 18000
           ? "compose"
-          : time < 20500
+          : time < 34000
             ? "working"
-            : time < 29000
+            : time < 42000
               ? "building"
-              : time < 34000
+              : time < 57000
                 ? "verified"
-                : time < PRODUCT_START
-                  ? "threads"
-                  : time < 58500
-                    ? "product"
-                    : "finale",
+                : time < 65000
+                  ? "delivery"
+                  : time < 80000
+                    ? "infrastructure"
+                    : time < PRODUCT_START
+                      ? "threads"
+                      : time < FINALE_START
+                        ? "product"
+                        : "finale",
     );
-    demo.classList.toggle("ad-has-tools", time >= 14200);
-    demo.classList.toggle("ad-verified", time >= 29000);
-    demo.classList.toggle("ad-finished", time >= 58500);
-    const typing = time >= 6600 && time < 11800;
+    demo.classList.toggle("ad-has-tools", time >= 19800);
+    demo.classList.toggle("ad-many-threads", time >= 80000);
+    demo.classList.toggle("ad-verified", time >= 55300);
+    demo.classList.toggle("ad-finished", time >= FINALE_START);
+    const typing = time >= 6600 && time < 13600;
     demo.classList.toggle("ad-is-typing", typing);
+    demo.classList.toggle("ad-brief-ready", time >= 13600 && time < 18000);
     setText(
       find("prompt"),
-      time >= 11800
-        ? "Следующая задача…"
-        : typing
-          ? prompt.slice(
-              0,
-              Math.floor(Math.min(1, (time - 6600) / 4200) * prompt.length),
-            ) || " "
-          : "Опишите задачу…",
+      time >= 18000
+        ? "Уточнить решение или поставить следующую задачу…"
+        : time >= 13600
+          ? prompt
+          : typing
+            ? prompt.slice(
+                0,
+                Math.floor(Math.min(1, (time - 6600) / 6300) * prompt.length),
+              ) || " "
+            : "Опишите задачу…",
     );
+    renderWork();
+    renderInfrastructure();
     setText(
-      find("agent-text"),
-      time >= 29000
-        ? "Модули связаны, изменения проверены. Приложение готово к проверке в работе."
-        : agentReply.slice(
-            0,
-            Math.floor(
-              Math.max(0, Math.min(1, (time - 12800) / 3500)) *
-                agentReply.length,
-            ),
-          ),
+      find("detail"),
+      time >= 75300 && time < 80000
+        ? "Нагрузка выросла со 120 до 1 200 пользователей. HPA увеличил число реплик API с двух до четырёх; Ingress распределяет запросы. Логи и метрики помогают проверить результат. Значения условные."
+        : time >= 49500 && time < 55300
+          ? "После ревью агент добавляет серверную policy Orders.Approve. Повторно проверяем запрет для Viewer, разрешение для Manager и весь набор unit, integration и e2e."
+          : time >= 55300 && time < 57000
+            ? "Повторные проверки проходят. Я просматриваю исправление и разрешаю сборку образа для тестового контура. Успешные тесты — этап работы, дальше проверяем поставку и нагрузку."
+            : chapters[chapter].detail,
     );
-    setText(
-      find("chat-state"),
-      time >= 29000
-        ? "✓ Готово"
-        : time >= 11800
-          ? "В работе · 3 агента"
-          : "Новая задача",
-    );
-    setText(
-      find("dev-status"),
-      time >= 29000
-        ? "Проверено ✓"
-        : time >= 11800
-          ? "Агенты работают"
-          : "Новая тема",
-    );
-    find("empty").style.opacity = time < 2600 || time >= 11800 ? "0" : "1";
+    find("empty").style.opacity = time < 2600 || time >= 6000 ? "0" : "1";
     find("empty").style.transform =
       time < 2600
         ? "translateY(8px)"
-        : time >= 11800
+        : time >= 6000
           ? "translateY(-8px)"
           : "none";
     reveals.forEach((item) => {
@@ -397,11 +985,11 @@
     });
     setText(
       find("build-label"),
-      time >= 24700
+      time >= 39000
         ? "Рабочая область"
-        : time >= 23500
+        : time >= 37700
           ? "Навигация и аккаунт"
-          : time >= 22500
+          : time >= 36400
             ? "Нижняя панель"
             : "Шапка интерфейса",
     );
@@ -450,7 +1038,7 @@
           ? "Вы изучаете пример приложения. Нажмите «Продолжить», чтобы вернуться к презентации."
           : playing && (!inView || document.hidden)
             ? "Презентация на паузе, пока окно вне экрана. Продолжится с того же места."
-            : "Около минуты · пауза и переходы по этапам доступны в любой момент. Интерфейс и данные — демонстрационные.",
+            : "1 мин 52 с · этапы можно выбирать в любой момент. Сценарий, код, проверки и данные ERP — демонстрационные.",
     );
     setText(
       find("stage-note"),
@@ -509,9 +1097,7 @@
       return;
     }
     if (motionOff) {
-      seek(
-        chapters.find((chapter) => chapter.inspect > time)?.inspect ?? TOTAL,
-      );
+      seek(checkpoints.find((position) => position > time) ?? TOTAL);
       return;
     }
     if (userExploring) {
@@ -544,7 +1130,9 @@
       stopFrame();
       playing = false;
       if (!started) {
-        time = chapters[7].inspect;
+        time = chapters.find(
+          (chapter) => chapter.start === PRODUCT_START,
+        ).inspect;
         started = true;
       }
     }
@@ -582,7 +1170,7 @@
   find("timeline").hidden = false;
   // With reduced motion, open a useful static product; the entire story remains selectable.
   if (motionOff) {
-    time = chapters[7].inspect;
+    time = chapters.find((chapter) => chapter.start === PRODUCT_START).inspect;
     started = true;
   }
   render();

@@ -70,7 +70,7 @@
 }
 .ad-stage {
   position: relative;
-  height: clamp(470px, 47vw, 590px);
+  height: 620px;
   overflow: hidden;
 }
 .ad-stage-glow {
@@ -179,6 +179,7 @@
   display: flex;
   flex-direction: column;
   min-width: 0;
+  min-height: 0;
   border-right: 1px solid #ffffff0c;
   background: #151916;
   padding: 15px 10px 11px;
@@ -215,7 +216,7 @@
 .ad-chat {
   display: flex;
   gap: 7px;
-  padding: 9px 7px;
+  padding: 7px;
   margin-bottom: 3px;
   border: 1px solid transparent;
   border-radius: 6px;
@@ -257,6 +258,8 @@
 }
 .ad-new-chats {
   margin-top: 5px;
+  min-height: 0;
+  overflow: hidden;
 }
 .ad-chats-footer {
   display: flex;
@@ -299,6 +302,7 @@
   padding-block: 14px;
   border-bottom: 1px solid #ffffff08;
   font-size: 9px;
+  flex: 0 0 auto;
 }
 .ad-conversation-heading > span:last-child {
   color: #85917f;
@@ -518,6 +522,11 @@
   font:
     8px/1.8 Consolas,
     monospace;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.ad-code-preview .ad-diff-removed {
+  color: #dc9d90;
 }
 .ad-subagents-heading {
   display: flex;
@@ -1342,7 +1351,7 @@
 }
 .ad-chapters {
   display: grid;
-  grid-template-columns: repeat(9, minmax(0, 1fr));
+  grid-template-columns: repeat(10, minmax(0, 1fr));
   padding: 14px 18px 17px;
   gap: 5px;
 }
@@ -1749,7 +1758,7 @@
 
 @media (min-width: 1500px) {
   .ad-stage {
-    height: 600px;
+    height: 620px;
   }
   .ad-revenue-chart {
     height: 145px;
@@ -2208,9 +2217,6 @@
   .ad-has-tools .ad-composer {
     display: none;
   }
-  .ad-verified .ad-sent {
-    display: none;
-  }
   .ad-composer {
     padding: 10px 9px 7px;
   }
@@ -2312,13 +2318,13 @@
     padding: 6px 4px;
     gap: 5px;
   }
-  .ad-subagent:nth-of-type(5) {
+  .ad-worker-ui {
     top: 37px;
   }
-  .ad-subagent:nth-of-type(6) {
+  .ad-worker-api {
     top: 73px;
   }
-  .ad-subagent:nth-of-type(7) {
+  .ad-worker-ops {
     top: 109px;
   }
   .ad-subagent strong {
@@ -2794,6 +2800,1076 @@
   }
   .ad-finale > p {
     font-size: 30px;
+  }
+}
+/* A few readable artifacts tell the engineering story without filling the window. */
+.ad-context-note {
+  font-size: 8px;
+  color: #b8ca9f;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #ffffff08;
+}
+.ad-has-tools .ad-composer {
+  display: none;
+}
+.ad-many-threads .ad-chat {
+  padding-block: 6px;
+  line-height: 1.4;
+}
+.ad-many-threads .ad-chat small {
+  display: none;
+}
+.ad-many-threads .ad-main-chat small {
+  display: block;
+}
+.ad-context-note > span {
+  display: block;
+  color: #899b83;
+  margin-top: 4px;
+  font-size: 8px;
+}
+.ad-messages {
+  overflow: hidden;
+}
+.ad-agent-message {
+  margin-top: 13px;
+}
+.ad-agent-message > p {
+  margin-left: 0;
+  line-height: 1.65;
+}
+.ad-artifact {
+  margin-top: 14px;
+  border: 1px solid #89b8cb29;
+  border-radius: 7px;
+  padding: 11px 12px;
+  background: #89b8cb06;
+}
+.ad-artifact > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 8px;
+  color: #a9c4ce;
+}
+.ad-artifact i {
+  font-size: 7px;
+  font-style: normal;
+  white-space: nowrap;
+}
+.ad-artifact pre {
+  font:
+    9px/1.8 Consolas,
+    monospace;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  color: #b8c7cb;
+  margin: 8px 0 0;
+}
+.ad-artifact[data-tone="failure"] {
+  border-color: #dc9d9045;
+  background: #dc9d9008;
+}
+.ad-artifact[data-tone="failure"] > div,
+.ad-artifact[data-tone="failure"] pre {
+  color: #e5aa9d;
+}
+.ad-artifact[data-tone="success"] {
+  border-color: #b1d78a35;
+  background: #b1d78a06;
+}
+.ad-artifact[data-tone="success"] > div,
+.ad-artifact[data-tone="success"] pre {
+  color: #b8d69d;
+}
+.ad-human-review {
+  margin: 14px 0 0 12px;
+  border-color: #d6f48426;
+  opacity: 0;
+  transform: translateY(6px);
+  transition:
+    opacity 0.5s ease,
+    transform 0.6s var(--ease);
+}
+.ad-human-visible {
+  opacity: 1;
+  transform: none;
+}
+.ad-chat-enter {
+  animation: ad-view-enter 0.5s var(--ease);
+}
+.ad-composer {
+  flex-shrink: 0;
+  margin-top: 12px;
+}
+.ad-composer p {
+  white-space: pre-line;
+  transition: min-height 0.6s var(--ease);
+}
+.ad-is-typing .ad-composer p,
+.ad-brief-ready .ad-composer p {
+  min-height: 255px;
+  color: #d4ddc9;
+}
+.ad-enhanced .ad-proof {
+  display: flex;
+  position: absolute;
+  top: 39px;
+  right: 34px;
+  gap: 8px;
+  opacity: 0;
+  transform: translateY(5px);
+  pointer-events: none;
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s var(--ease);
+}
+.ad-proof {
+  display: none;
+}
+.ad-proof > span {
+  padding: 5px 7px;
+  border: 1px solid #d6f48422;
+  border-radius: 4px;
+  background: #1c241b;
+  color: #c1d0b2;
+  font-size: 8px;
+}
+.ad-enhanced [data-phase="product"] .ad-proof,
+.ad-enhanced [data-phase="finale"] .ad-proof {
+  opacity: 1;
+  transform: none;
+}
+/* Infrastructure is a short, single composition on the same clock. */
+.ad-infra {
+  display: none;
+  inset: 30px 35px 58px;
+  color: #c7d2c1;
+  border: 1px solid #414a42;
+  background: #171e19;
+  font-size: 11px;
+  line-height: 1.5;
+  pointer-events: none;
+}
+.ad-enhanced .ad-infra {
+  display: block;
+  opacity: 0;
+  transform: translateY(20px) scale(0.98);
+}
+.ad-enhanced [data-phase="infrastructure"] .ad-infra {
+  opacity: 1;
+  transform: none;
+}
+.ad-enhanced [data-phase="infrastructure"] .ad-workbench {
+  opacity: 0.15;
+  transform: scale(0.95);
+}
+.ad-infra-content {
+  padding: 25px 28px 18px;
+}
+.ad-infra-heading {
+  display: grid;
+  grid-template-columns: 1fr 0.85fr;
+  gap: 7px 35px;
+  align-items: end;
+}
+.ad-infra-heading > span {
+  color: #92a589;
+  font-size: 9px;
+}
+.ad-infra-heading h4 {
+  grid-column: 1;
+  grid-row: 2;
+  margin: 0;
+  font-size: 31px;
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.035em;
+}
+.ad-infra-heading em {
+  font-style: normal;
+  color: #d6f484;
+}
+.ad-infra-heading p {
+  grid-column: 2;
+  grid-row: 1 / 3;
+  font-size: 11px;
+  line-height: 1.8;
+  color: #9aab92;
+}
+.ad-traffic-meter {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  margin-top: 22px;
+}
+.ad-traffic-meter > div:first-child {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 4px 10px;
+}
+.ad-traffic-meter > div > span {
+  grid-column: 1 / -1;
+  color: #8e9f87;
+  font-size: 8px;
+}
+.ad-traffic-meter strong {
+  font:
+    25px/1.2 Consolas,
+    monospace;
+  color: #e2edd7;
+  min-width: 62px;
+}
+.ad-traffic-meter small {
+  color: #7d9076;
+  font-size: 8px;
+  align-self: center;
+}
+.ad-load-bars {
+  display: flex;
+  align-items: end;
+  gap: 4px;
+  height: 28px;
+}
+.ad-load-bars i {
+  width: 5px;
+  height: 30%;
+  background: #526a45;
+  border-radius: 2px 2px 0 0;
+  transition:
+    height 1.3s var(--ease),
+    background 1s ease;
+}
+.ad-load-bars i:nth-child(3n) {
+  height: 45%;
+}
+.ad-load-bars i:nth-child(3n + 1) {
+  height: 65%;
+}
+.ad-load-rising .ad-load-bars i {
+  height: 75%;
+  background: #d3bc83;
+}
+.ad-load-rising .ad-load-bars i:nth-child(3n) {
+  height: 100%;
+}
+.ad-load-rising .ad-load-bars i:nth-child(3n + 1) {
+  height: 85%;
+}
+.ad-scaled .ad-load-bars i {
+  background: #b4ce8f;
+}
+.ad-load-label {
+  margin-left: auto;
+  color: #c5d4b8;
+  font-size: 9px;
+}
+.ad-infra-map {
+  display: grid;
+  grid-template-columns: 116px 36px 112px 36px minmax(200px, 1fr) 36px 106px;
+  align-items: center;
+  gap: 6px;
+  margin-top: 25px;
+}
+.ad-clients > div:not(.ad-user-dots) {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff03;
+  border: 1px solid #ffffff0e;
+  border-radius: 7px;
+  padding: 10px 7px;
+  margin-bottom: 7px;
+  color: #b8c5af;
+  font-size: 9px;
+}
+.ad-clients svg {
+  width: 31px;
+  height: 30px;
+  fill: none;
+  stroke: #afc496;
+  stroke-width: 1.5;
+  flex-shrink: 0;
+}
+.ad-clients small {
+  display: block;
+  margin-top: 4px;
+  font-size: 6px;
+  color: #7b9072;
+}
+.ad-user-dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  padding-top: 4px;
+}
+.ad-user-dots i {
+  height: 5px;
+  width: 5px;
+  border: 1px solid #9fb78b;
+  border-radius: 50%;
+  background: #405038;
+  transition: background 1s;
+}
+.ad-load-rising .ad-user-dots i {
+  background: #d3bc83;
+}
+.ad-flow {
+  position: relative;
+  height: 1px;
+  background: #668155;
+}
+.ad-flow > span {
+  position: absolute;
+  bottom: 9px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 6px;
+  white-space: nowrap;
+  color: #7d9470;
+}
+.ad-flow > b {
+  position: absolute;
+  right: -2px;
+  top: -9px;
+  font-size: 15px;
+  font-weight: 400;
+  color: #9fb987;
+}
+.ad-flow > i {
+  position: absolute;
+  left: calc(var(--ad-flow, 0.5) * 80%);
+  width: 5px;
+  height: 5px;
+  top: -2px;
+  background: #d6f484;
+  border-radius: 50%;
+}
+.ad-ingress {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 14px 7px;
+  border: 1px solid #bca6dc35;
+  background: #bca6dc07;
+  border-radius: 9px;
+}
+.ad-infra-symbol {
+  color: #bca6dc;
+  font-size: 26px;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+.ad-ingress strong {
+  font-size: 12px;
+  font-weight: 500;
+}
+.ad-ingress small {
+  margin-top: 6px;
+  font-size: 7px;
+  color: #9a90ab;
+}
+.ad-ingress code {
+  margin-top: 10px;
+  font-size: 8px;
+  color: #ae9bc3;
+}
+.ad-infra-badge {
+  margin-top: 12px;
+  color: #ac9abb;
+  font-size: 7px;
+  border-top: 1px solid #bca6dc18;
+  padding-top: 9px;
+}
+.ad-cluster {
+  padding: 12px;
+  border: 1px solid #89b8cb35;
+  border-radius: 9px;
+  background: #89b8cb05;
+}
+.ad-cluster-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
+  margin-bottom: 12px;
+}
+.ad-cluster-heading strong {
+  font-weight: 500;
+  font-size: 11px;
+  color: #acccd7;
+}
+.ad-cluster-heading > span {
+  font-size: 8px;
+  color: #91b6c4;
+}
+.ad-server-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.ad-server {
+  background: #111916;
+  border: 1px solid #89b8cb1c;
+  border-radius: 5px;
+  padding: 7px;
+}
+.ad-server > span {
+  font:
+    7px Consolas,
+    monospace;
+  color: #768d8a;
+}
+.ad-pod {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 7px;
+  padding: 7px 5px;
+  background: #2b3c32;
+  border: 1px solid #a2d19730;
+  border-radius: 4px;
+  font-size: 8px;
+  white-space: nowrap;
+}
+.ad-pod i {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #b8d88b;
+}
+.ad-pod small {
+  font:
+    6px Consolas,
+    monospace;
+  color: #90ae8e;
+  margin-left: auto;
+}
+.ad-extra-pod {
+  opacity: 0;
+  transform: translateY(4px);
+  transition:
+    opacity 1s ease,
+    transform 1s var(--ease);
+}
+.ad-extra-pod i {
+  background: #596b50;
+}
+.ad-scaling .ad-extra-pod {
+  opacity: 0.6;
+  transform: none;
+}
+.ad-scaled .ad-extra-pod {
+  opacity: 1;
+}
+.ad-scaled .ad-extra-pod i {
+  background: #b8d88b;
+}
+.ad-hpa {
+  display: flex;
+  justify-content: space-between;
+  gap: 6px;
+  margin-top: 10px;
+  font-size: 7px;
+  color: #8da68a;
+}
+.ad-hpa > span:first-child {
+  color: #abc997;
+}
+.ad-signal {
+  color: #8eaba2;
+  font-size: 7px;
+  border-top: 1px solid #89b8cb15;
+  padding-top: 9px;
+  margin-top: 10px;
+}
+.ad-data-services > div {
+  border: 1px solid #ffffff12;
+  border-radius: 7px;
+  padding: 10px 7px;
+  text-align: center;
+}
+.ad-data-services > div + div {
+  margin-top: 7px;
+}
+.ad-data-services > div > span {
+  color: #c4bb94;
+  font-size: 16px;
+}
+.ad-data-services strong {
+  display: block;
+  font-size: 9px;
+  font-weight: 500;
+  margin-top: 3px;
+}
+.ad-data-services small {
+  display: block;
+  font-size: 6px;
+  color: #9d9c87;
+  margin-top: 5px;
+}
+.ad-observability {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  font-size: 8px;
+  color: #80947a;
+  margin-top: 22px;
+  padding-top: 13px;
+  border-top: 1px solid #ffffff0b;
+}
+.ad-observability > span:first-child {
+  color: #acbe9c;
+}
+.ad-observability strong {
+  margin-left: auto;
+  color: #b4c99e;
+  font-weight: 400;
+  font-size: 8px;
+}
+@media (max-width: 1100px) {
+  .ad-infra {
+    inset-inline: 22px;
+  }
+  .ad-infra-content {
+    padding: 22px 20px 16px;
+  }
+  .ad-infra-map {
+    grid-template-columns: 85px 22px 86px 22px minmax(170px, 1fr) 22px 83px;
+    gap: 5px;
+  }
+  .ad-clients > div:not(.ad-user-dots) {
+    gap: 4px;
+    padding: 9px 5px;
+    font-size: 8px;
+  }
+  .ad-clients svg {
+    width: 23px;
+  }
+  .ad-clients small {
+    font-size: 5px;
+  }
+  .ad-ingress strong {
+    font-size: 10px;
+  }
+  .ad-ingress small,
+  .ad-infra-badge {
+    font-size: 6px;
+  }
+  .ad-cluster {
+    padding: 10px;
+  }
+  .ad-server {
+    padding: 5px;
+  }
+  .ad-pod {
+    font-size: 7px;
+    padding: 6px 4px;
+  }
+  .ad-pod small {
+    display: none;
+  }
+  .ad-infra-heading h4 {
+    font-size: 28px;
+  }
+  .ad-infra-heading p {
+    font-size: 10px;
+  }
+  .ad-proof {
+    max-width: 56%;
+  }
+  .ad-proof > span {
+    font-size: 7px;
+    white-space: nowrap;
+  }
+}
+@media (max-width: 800px) {
+  .ad-stage {
+    height: 580px;
+  }
+  .ad-context-note,
+  .ad-context-note > span {
+    font-size: 7px;
+  }
+  .ad-artifact {
+    padding: 9px;
+  }
+  .ad-artifact > div {
+    font-size: 7px;
+  }
+  .ad-artifact i {
+    font-size: 6px;
+  }
+  .ad-artifact pre {
+    font-size: 8px;
+  }
+  .ad-sent.ad-human-review {
+    margin-left: 0;
+    padding: 9px;
+  }
+  .ad-human-review p {
+    font-size: 9px;
+  }
+  .ad-infra {
+    inset: 22px 16px 51px;
+  }
+  .ad-infra-map {
+    grid-template-columns: 75px 18px 77px 18px minmax(160px, 1fr) 18px 74px;
+    gap: 3px;
+  }
+  .ad-infra-content {
+    padding-inline: 16px;
+  }
+  .ad-server-row {
+    gap: 5px;
+  }
+  .ad-cluster-heading strong {
+    font-size: 9px;
+  }
+  .ad-hpa,
+  .ad-signal {
+    font-size: 6px;
+  }
+  .ad-proof > span {
+    font-size: 6px;
+    padding: 4px 5px;
+  }
+  .ad-enhanced .ad-proof {
+    top: 43px;
+    gap: 4px;
+    right: 24px;
+  }
+  .ad-finale > p {
+    font-size: 27px;
+  }
+}
+@media (max-width: 600px) {
+  .ad-stage {
+    height: 580px;
+  }
+  .ad-has-tools .ad-workbench-body {
+    grid-template-rows: minmax(0, 1fr) 148px;
+  }
+  .ad-chat {
+    padding: 6px 3px;
+    margin-bottom: 1px;
+  }
+  .ad-chat small {
+    font-size: 5px;
+    margin-top: 2px;
+  }
+  .ad-project-name {
+    padding-block: 10px 9px;
+  }
+  .ad-conversation-heading {
+    align-items: start;
+    font-size: 8px;
+    gap: 5px;
+    padding-block: 10px;
+  }
+  .ad-conversation-heading > span:last-child {
+    max-width: 60px;
+    text-align: right;
+  }
+  .ad-context-note {
+    padding-bottom: 7px;
+    font-size: 6px;
+  }
+  .ad-context-note > span {
+    font-size: 6px;
+    margin-top: 3px;
+  }
+  .ad-agent-message {
+    margin-top: 9px;
+  }
+  .ad-agent-message > p {
+    font-size: 8px;
+    line-height: 1.6;
+  }
+  .ad-artifact {
+    margin-top: 9px;
+    padding: 8px;
+  }
+  .ad-artifact > div {
+    font-size: 6px;
+    gap: 4px;
+  }
+  .ad-artifact pre {
+    font-size: 7px;
+    line-height: 1.65;
+    margin-top: 5px;
+  }
+  .ad-sent.ad-human-review {
+    margin-top: 9px;
+    padding: 8px;
+  }
+  .ad-human-review p {
+    font-size: 8px;
+    line-height: 1.6;
+  }
+  .ad-is-typing .ad-composer p,
+  .ad-brief-ready .ad-composer p {
+    min-height: 300px;
+    font-size: 8.5px;
+    line-height: 1.55;
+  }
+  .ad-worker-ui {
+    top: 33px;
+  }
+  .ad-worker-api {
+    top: 68px;
+  }
+  .ad-worker-ops {
+    top: 103px;
+  }
+  .ad-files {
+    gap: 8px;
+  }
+  .ad-files > span {
+    font-size: 6px;
+  }
+  .ad-chapters {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 3px;
+  }
+  .ad-chapters > button {
+    flex-direction: row;
+    gap: 6px;
+    font-size: 8px;
+    padding: 8px 3px;
+  }
+  .ad-enhanced [data-phase="product"] .ad-erp,
+  .ad-enhanced [data-phase="finale"] .ad-erp {
+    top: 78px;
+  }
+  .ad-enhanced .ad-proof {
+    top: 52px;
+    right: 10px;
+    left: 17px;
+    max-width: none;
+    justify-content: space-between;
+  }
+  .ad-enhanced [data-phase="product"] .ad-conversation-heading,
+  .ad-enhanced [data-phase="finale"] .ad-conversation-heading {
+    opacity: 0;
+  }
+  .ad-proof > span {
+    font-size: 6px;
+    padding: 4px 5px;
+  }
+  .ad-infra {
+    inset: 16px 10px 46px;
+  }
+  .ad-infra-content {
+    padding: 15px 12px 10px;
+  }
+  .ad-infra-heading {
+    grid-template-columns: 1.2fr 1fr;
+    gap: 6px 13px;
+  }
+  .ad-infra-heading > span {
+    display: none;
+  }
+  .ad-infra-heading h4 {
+    grid-row: 1;
+    font-size: clamp(13px, 4.2vw, 18px);
+    white-space: nowrap;
+  }
+  .ad-infra-heading p {
+    font-size: 8px;
+    line-height: 1.65;
+    grid-row: 1;
+  }
+  .ad-traffic-meter {
+    gap: 9px;
+    margin-top: 14px;
+  }
+  .ad-traffic-meter > div > span {
+    font-size: 6px;
+  }
+  .ad-traffic-meter strong {
+    font-size: 21px;
+    min-width: 52px;
+  }
+  .ad-traffic-meter small {
+    font-size: 6px;
+    max-width: 85px;
+  }
+  .ad-load-bars {
+    gap: 2px;
+    height: 24px;
+    margin-left: auto;
+  }
+  .ad-load-bars i {
+    width: 3px;
+  }
+  .ad-load-label {
+    display: none;
+  }
+  .ad-infra-map {
+    position: relative;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 73px 13px 124px 13px 43px;
+    gap: 4px 25px;
+    margin-top: 14px;
+  }
+  .ad-clients {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .ad-clients > div:not(.ad-user-dots) {
+    flex-direction: column;
+    padding: 6px 2px;
+    margin: 0;
+    gap: 5px;
+    font-size: 7px;
+    text-align: center;
+  }
+  .ad-clients svg {
+    width: 25px;
+    height: 24px;
+  }
+  .ad-clients small {
+    font-size: 4px;
+    margin-top: 3px;
+  }
+  .ad-user-dots {
+    grid-column: 1 / -1;
+    gap: 5px;
+    padding-top: 0;
+  }
+  .ad-user-dots i {
+    width: 3px;
+    height: 3px;
+  }
+  .ad-ingress {
+    grid-column: 2;
+    grid-row: 1;
+    padding: 8px;
+    position: relative;
+  }
+  .ad-infra-symbol {
+    font-size: 17px;
+    margin-bottom: 4px;
+  }
+  .ad-ingress strong {
+    font-size: 9px;
+  }
+  .ad-ingress small {
+    font-size: 6px;
+    margin-top: 3px;
+  }
+  .ad-ingress code {
+    margin-top: 5px;
+    font-size: 6px;
+  }
+  .ad-infra-badge {
+    display: none;
+  }
+  .ad-flow:nth-child(2) {
+    position: absolute;
+    left: calc(50% - 10px);
+    top: 34px;
+    width: 20px;
+  }
+  .ad-flow:nth-child(4) {
+    grid-column: 2;
+    grid-row: 2;
+    justify-self: center;
+    transform: rotate(90deg);
+    width: 15px;
+  }
+  .ad-flow:nth-child(6) {
+    grid-column: 1 / -1;
+    grid-row: 4;
+    justify-self: center;
+    transform: rotate(90deg);
+    width: 15px;
+  }
+  .ad-flow > span {
+    display: none;
+  }
+  .ad-flow > b {
+    font-size: 12px;
+    top: -7px;
+  }
+  .ad-flow > i {
+    width: 3px;
+    height: 3px;
+    top: -1px;
+  }
+  .ad-cluster {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    padding: 8px 10px;
+  }
+  .ad-cluster-heading {
+    margin-bottom: 7px;
+  }
+  .ad-cluster-heading strong {
+    font-size: 9px;
+  }
+  .ad-cluster-heading > span {
+    font-size: 7px;
+  }
+  .ad-server {
+    padding: 4px 6px;
+  }
+  .ad-server > span {
+    font-size: 6px;
+  }
+  .ad-server-row {
+    gap: 8px;
+  }
+  .ad-pod {
+    margin-top: 4px;
+    padding: 4px;
+    font-size: 6px;
+  }
+  .ad-pod small {
+    display: block;
+    font-size: 5px;
+  }
+  .ad-hpa {
+    margin-top: 6px;
+    font-size: 6px;
+  }
+  .ad-signal {
+    margin-top: 5px;
+    padding-top: 5px;
+    font-size: 5px;
+  }
+  .ad-data-services {
+    grid-column: 1 / -1;
+    grid-row: 5;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .ad-data-services > div {
+    position: relative;
+    padding: 7px 5px 7px 17px;
+  }
+  .ad-data-services > div + div {
+    margin: 0;
+  }
+  .ad-data-services > div > span {
+    position: absolute;
+    left: 5px;
+    top: 10px;
+    font-size: 13px;
+  }
+  .ad-data-services strong {
+    font-size: 7px;
+    margin-top: 0;
+  }
+  .ad-data-services small {
+    font-size: 5px;
+    margin-top: 4px;
+  }
+  .ad-observability {
+    flex-wrap: wrap;
+    gap: 6px 10px;
+    margin-top: 13px;
+    padding-top: 9px;
+    font-size: 6px;
+  }
+  .ad-observability strong {
+    flex-basis: 100%;
+    font-size: 7px;
+    margin-left: 0;
+  }
+  .ad-finale > p {
+    font-size: clamp(23px, 6.7vw, 34px);
+  }
+}
+@media (max-width: 370px) {
+  .ad-artifact pre {
+    font-size: 6.5px;
+  }
+  .ad-human-review p,
+  .ad-agent-message > p {
+    font-size: 7px;
+  }
+  .ad-infra-heading h4 {
+    font-size: 13px;
+  }
+  .ad-infra-heading p {
+    font-size: 7px;
+  }
+  .ad-proof > span {
+    font-size: 5px;
+  }
+  .ad-chapters > button {
+    font-size: 7px;
+  }
+  .ad-is-typing .ad-composer p,
+  .ad-brief-ready .ad-composer p {
+    font-size: 8px;
+  }
+}
+@media (min-width: 801px) {
+  .ad-conversation-heading {
+    font-size: 11px;
+  }
+  .ad-chat strong {
+    font-size: 10px;
+  }
+  .ad-chat small {
+    line-height: 1.4;
+  }
+  .ad-context-note,
+  .ad-context-note > span {
+    font-size: 9px;
+  }
+  .ad-agent-heading strong {
+    font-size: 12px;
+  }
+  .ad-agent-message > p,
+  .ad-sent p {
+    font-size: 12px;
+  }
+  .ad-sent > span {
+    font-size: 9px;
+  }
+  .ad-artifact > div {
+    font-size: 10px;
+  }
+  .ad-artifact pre {
+    font-size: 11px;
+  }
+  .ad-composer p {
+    font-size: 12px;
+  }
+  .ad-composer {
+    padding: 14px;
+  }
+  .ad-is-typing .ad-composer p,
+  .ad-brief-ready .ad-composer p {
+    min-height: 255px;
+  }
+  .ad-files > span,
+  .ad-subagent strong {
+    font-size: 10px;
+  }
+  .ad-code-preview {
+    font-size: 9px;
+  }
+}
+@media (min-width: 801px) and (max-width: 1100px) {
+  .ad-agent-message > p,
+  .ad-sent p {
+    font-size: 11px;
+  }
+  .ad-artifact pre {
+    font-size: 10px;
+  }
+  .ad-team-note {
+    display: none;
   }
 }
 .motion-off .ai-demo *,
