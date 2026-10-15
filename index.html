@@ -33,8 +33,10 @@
     />
     <link rel="stylesheet" href="./index.css?v=20261009-5" />
     <link rel="stylesheet" href="./tms-demo.css?v=20261009-2" />
+    <link rel="stylesheet" href="./ai-demo.css?v=20261016-1" />
     <script src="./js/site.js?v=20261009-5" defer></script>
     <script src="./js/tms-demo.js?v=20261009-2" defer></script>
+    <script src="./js/ai-demo.js?v=20261016-1" defer></script>
   </head>
   <body id="top">
     <a class="skip-link" href="#main">Перейти к содержимому</a>
@@ -510,6 +512,583 @@
             </ol>
           </div>
         </div>
+        <section
+          class="container ai-demo"
+          id="ai-demo"
+          aria-labelledby="ai-demo-title"
+        >
+          <div class="ad-intro">
+            <div>
+              <p class="section-label">
+                <span>В действии /</span> От идеи до интерфейса
+              </p>
+              <h3 id="ai-demo-title">
+                Одна задача.<br /><span>Целая система.</span>
+              </h3>
+            </div>
+            <p>
+              Вы рассказываете, что нужно бизнесу. Я превращаю это в понятную
+              задачу для ИИ-агентов, направляю разработку и проверяю результат.
+              Вот как это выглядит.
+            </p>
+          </div>
+
+          <svg
+            class="icon-library"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <symbol id="ad-grid" viewBox="0 0 24 24">
+              <rect x="3" y="3" width="7" height="7" rx="1.5" />
+              <rect x="14" y="3" width="7" height="7" rx="1.5" />
+              <rect x="3" y="14" width="7" height="7" rx="1.5" />
+              <rect x="14" y="14" width="7" height="7" rx="1.5" />
+            </symbol>
+            <symbol id="ad-shop" viewBox="0 0 24 24">
+              <path
+                d="M4 9v12h16V9M3 9l2-6h14l2 6M3 9c0 4 6 4 6 0 0 4 6 4 6 0 0 4 6 4 6 0M9 21v-7h6v7"
+              />
+            </symbol>
+            <symbol id="ad-chart" viewBox="0 0 24 24">
+              <path d="M4 3v18h17M8 16v-4m5 4V8m5 8V5" />
+            </symbol>
+            <symbol id="ad-bids" viewBox="0 0 24 24">
+              <rect x="5" y="4" width="14" height="17" rx="2" />
+              <path d="M9 3h6v4H9zM9 12h6m-6 4h4" />
+            </symbol>
+            <symbol id="ad-users" viewBox="0 0 24 24">
+              <circle cx="9" cy="8" r="3" />
+              <path
+                d="M3 21v-3a6 6 0 0 1 12 0v3m2-9a3 3 0 1 0-1-6m3 15v-3a6 6 0 0 0-2-4"
+              />
+            </symbol>
+            <symbol id="ad-settings" viewBox="0 0 24 24">
+              <path
+                d="m10 3-.6 3-2.5 1.4L4 7l-2 4 2.3 2 .1 2.8L3 18l3 3 2.7-1.3L11 21h3l.6-3 2.5-1.4L20 17l2-4-2.3-2-.1-2.8L21 6l-3-3-2.7 1.3L13 3Z"
+              />
+              <circle cx="12" cy="12" r="3" />
+            </symbol>
+            <symbol id="ad-check" viewBox="0 0 24 24">
+              <path d="m5 12 4 4L19 6" />
+            </symbol>
+            <symbol id="ad-code" viewBox="0 0 24 24">
+              <path d="m8 7-5 5 5 5m8-10 5 5-5 5m-3-14-2 18" />
+            </symbol>
+            <symbol id="ad-branch" viewBox="0 0 24 24">
+              <circle cx="6" cy="5" r="2" />
+              <circle cx="18" cy="5" r="2" />
+              <circle cx="6" cy="19" r="2" />
+              <path d="M6 7v10m12-10v2c0 4-12 1-12 6" />
+            </symbol>
+          </svg>
+
+          <div class="ad-player" data-ad="player">
+            <div class="ad-player-top">
+              <span class="ad-film-label"
+                ><span></span> Идея → работающий продукт</span
+              >
+              <span class="ad-example">На примере ERP-системы</span>
+            </div>
+            <div class="ad-stage" data-ad="stage" data-phase="product">
+              <div class="ad-stage-glow" aria-hidden="true"></div>
+
+              <div
+                class="ad-workbench ad-window"
+                data-ad="workbench"
+                inert
+                aria-hidden="true"
+              >
+                <div class="ad-dev-titlebar">
+                  <span class="ad-window-dots"><i></i><i></i><i></i></span>
+                  <span class="ad-dev-brand"
+                    ><svg class="ad-icon"><use href="#ad-code" /></svg> Рабочая
+                    среда</span
+                  >
+                  <span class="ad-dev-project"
+                    >Пульс ERP <span>/</span> Разработка</span
+                  >
+                  <span class="ad-titlebar-action">⊞</span>
+                </div>
+                <div class="ad-workbench-body">
+                  <div class="ad-chats">
+                    <div class="ad-chats-heading">
+                      <span>Проект</span><span>＋</span>
+                    </div>
+                    <div class="ad-project-name">
+                      <span class="ad-project-icon">п</span> Пульс ERP
+                    </div>
+                    <div class="ad-chat ad-main-chat" data-ad-reveal="1700">
+                      <span class="ad-chat-dot"></span
+                      ><span
+                        ><strong>Основа приложения</strong
+                        ><small data-ad="chat-state">Новая задача</small></span
+                      >
+                    </div>
+                    <div class="ad-new-chats">
+                      <div class="ad-chat" data-ad-reveal="34900">
+                        <span class="ad-chat-dot"></span
+                        ><span
+                          ><strong>Каталог и продажи</strong
+                          ><small>Модуль магазина</small></span
+                        >
+                      </div>
+                      <div class="ad-chat" data-ad-reveal="35900">
+                        <span class="ad-chat-dot"></span
+                        ><span
+                          ><strong>Аналитика бизнеса</strong
+                          ><small>Отчёты и показатели</small></span
+                        >
+                      </div>
+                      <div class="ad-chat" data-ad-reveal="36900">
+                        <span class="ad-chat-dot"></span
+                        ><span
+                          ><strong>Заявки и процессы</strong
+                          ><small>Рабочие сценарии</small></span
+                        >
+                      </div>
+                      <div class="ad-chat" data-ad-reveal="37900">
+                        <span class="ad-chat-dot"></span
+                        ><span
+                          ><strong>Команда и доступы</strong
+                          ><small>Роли и аккаунты</small></span
+                        >
+                      </div>
+                    </div>
+                    <div class="ad-chats-footer">
+                      <span class="ad-avatar">АК</span
+                      ><span
+                        >Андрей Кайденко<small
+                          >Управляю разработкой</small
+                        ></span
+                      >
+                    </div>
+                  </div>
+
+                  <div class="ad-conversation">
+                    <div class="ad-conversation-heading">
+                      <span>Основа приложения</span
+                      ><span data-ad="dev-status">Новая тема</span>
+                    </div>
+                    <div class="ad-empty" data-ad="empty">
+                      <span class="ad-empty-mark">✳</span
+                      ><strong>С чего начнём?</strong
+                      ><span>Новая тема. Одна понятная задача.</span>
+                    </div>
+                    <div class="ad-messages">
+                      <div class="ad-sent" data-ad-reveal="11800">
+                        <span>Я · постановка задачи</span>
+                        <p>
+                          Создай ERP для бизнеса: продажи, заявки, аналитика и
+                          команда. Всё — в одном понятном интерфейсе.
+                        </p>
+                      </div>
+                      <div class="ad-agent-message" data-ad-reveal="12800">
+                        <div class="ad-agent-heading">
+                          <span class="ad-agent-mark">✳</span
+                          ><strong>Ведущий агент</strong
+                          ><span class="ad-agent-role"
+                            >Координирует работу</span
+                          >
+                        </div>
+                        <p data-ad="agent-text">
+                          Разделяю задачу между агентами. Соберу модули в единую
+                          систему.
+                        </p>
+                        <div class="ad-task-list" data-ad-reveal="15700">
+                          <span><i></i> Интерфейс и навигация</span
+                          ><span><i></i> Данные и бизнес-логика</span
+                          ><span><i></i> Тесты и интеграция</span>
+                        </div>
+                      </div>
+                      <div class="ad-complete-message" data-ad-reveal="30000">
+                        <span class="ad-success-icon"
+                          ><svg class="ad-icon"><use href="#ad-check" /></svg
+                        ></span>
+                        <div>
+                          <strong>Задача выполнена</strong>
+                          <p>Приложение собрано. Проверки пройдены.</p>
+                        </div>
+                      </div>
+                      <div class="ad-test-results" data-ad-reveal="31200">
+                        <span>✓ Сборка</span><span>✓ Тесты</span
+                        ><span>✓ Сценарии</span>
+                      </div>
+                    </div>
+                    <div class="ad-composer" data-ad-reveal="4400">
+                      <p data-ad="prompt">Опишите задачу…</p>
+                      <div>
+                        <span
+                          ><span class="ad-agent-mark">✳</span> Агент
+                          <span class="ad-composer-divider">/</span> План →
+                          реализация</span
+                        ><span class="ad-send" data-ad="send">↑</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="ad-tools" data-ad-reveal="14200">
+                    <div class="ad-git-heading">
+                      <svg class="ad-icon"><use href="#ad-branch" /></svg>
+                      Изменения <span>+248 <i>−16</i></span>
+                    </div>
+                    <div class="ad-files">
+                      <span><i>TSX</i> App.tsx <b>+64</b></span
+                      ><span><i>TSX</i> Sidebar.tsx <b>+38</b></span
+                      ><span><i>TS</i> orders.ts <b>+92</b></span
+                      ><span><i>TEST</i> app.test.ts <b>+54</b></span>
+                    </div>
+                    <div class="ad-code-preview">
+                      <span>+ &lt;Workspace&gt;</span
+                      ><span>+ &nbsp; &lt;Sidebar /&gt;</span
+                      ><span>+ &nbsp; &lt;Dashboard /&gt;</span
+                      ><span>+ &lt;/Workspace&gt;</span>
+                    </div>
+                    <div class="ad-subagents-heading">
+                      Команда агентов <span>3</span>
+                    </div>
+                    <div class="ad-subagent" data-ad-reveal="14800">
+                      <span class="ad-subagent-symbol is-lilac">◈</span
+                      ><span
+                        ><strong>Интерфейс</strong
+                        ><small>Экраны и компоненты</small></span
+                      ><i></i>
+                    </div>
+                    <div class="ad-subagent" data-ad-reveal="15400">
+                      <span class="ad-subagent-symbol is-blue">⌘</span
+                      ><span
+                        ><strong>Бизнес-логика</strong
+                        ><small>Данные и процессы</small></span
+                      ><i></i>
+                    </div>
+                    <div class="ad-subagent" data-ad-reveal="16000">
+                      <span class="ad-subagent-symbol is-green">✓</span
+                      ><span
+                        ><strong>Проверка</strong
+                        ><small>Тесты и сценарии</small></span
+                      ><i></i>
+                    </div>
+                    <div class="ad-team-note">
+                      Разные задачи. Общий контекст.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="ad-erp ad-window"
+                data-ad="erp"
+                role="group"
+                aria-label="Демонстрационное ERP-приложение Пульс"
+              >
+                <div class="ad-erp-titlebar">
+                  <span class="ad-window-dots"><i></i><i></i><i></i></span
+                  ><span class="ad-address">⌁ &nbsp; pulse.app / workspace</span
+                  ><span class="ad-preview-label">Пример приложения</span>
+                </div>
+                <div class="ad-erp-body">
+                  <div class="ad-erp-sidebar" data-ad-build="23500">
+                    <div class="ad-erp-logo">
+                      <span class="ad-logo-mark"
+                        ><i></i><i></i><i></i><i></i></span
+                      ><span>пульс<small>Бизнес в одном месте</small></span>
+                    </div>
+                    <span class="ad-nav-label">Рабочее пространство</span>
+                    <nav
+                      class="ad-erp-nav"
+                      aria-label="Разделы демонстрационного приложения"
+                    >
+                      <button
+                        type="button"
+                        data-ad-page="dashboard"
+                        aria-pressed="true"
+                        disabled
+                      >
+                        <svg class="ad-icon" aria-hidden="true">
+                          <use href="#ad-grid" /></svg
+                        ><span>Обзор</span>
+                      </button>
+                      <button
+                        type="button"
+                        data-ad-page="shop"
+                        aria-pressed="false"
+                        disabled
+                      >
+                        <svg class="ad-icon" aria-hidden="true">
+                          <use href="#ad-shop" /></svg
+                        ><span>Магазин</span>
+                      </button>
+                      <button
+                        type="button"
+                        data-ad-page="analytics"
+                        aria-pressed="false"
+                        disabled
+                      >
+                        <svg class="ad-icon" aria-hidden="true">
+                          <use href="#ad-chart" /></svg
+                        ><span>Аналитика</span>
+                      </button>
+                      <button
+                        type="button"
+                        data-ad-page="bids"
+                        aria-pressed="false"
+                        disabled
+                      >
+                        <svg class="ad-icon" aria-hidden="true">
+                          <use href="#ad-bids" /></svg
+                        ><span>Заявки</span><i>12</i>
+                      </button>
+                      <button
+                        type="button"
+                        data-ad-page="team"
+                        aria-pressed="false"
+                        disabled
+                      >
+                        <svg class="ad-icon" aria-hidden="true">
+                          <use href="#ad-users" /></svg
+                        ><span>Команда</span>
+                      </button>
+                      <button
+                        type="button"
+                        data-ad-page="account"
+                        aria-pressed="false"
+                        disabled
+                      >
+                        <svg class="ad-icon" aria-hidden="true">
+                          <use href="#ad-settings" /></svg
+                        ><span>Аккаунт</span>
+                      </button>
+                    </nav>
+                    <div class="ad-erp-profile">
+                      <span>АК</span>
+                      <div>Андрей<small>Администратор</small></div>
+                      <i>⌄</i>
+                    </div>
+                  </div>
+                  <div class="ad-erp-workspace">
+                    <header class="ad-erp-header" data-ad-build="21400">
+                      <span
+                        >Рабочее пространство <i>/</i>
+                        <b data-ad="breadcrumb">Обзор</b></span
+                      ><span class="ad-erp-header-right"
+                        ><span class="ad-online-dot"></span> Всё в порядке
+                        <span class="ad-mini-avatar">А</span></span
+                      >
+                    </header>
+                    <div class="ad-erp-content" data-ad-build="24700">
+                      <div class="ad-page" data-ad-view="dashboard">
+                        <div class="ad-page-heading">
+                          <div>
+                            <span class="ad-page-eyebrow"
+                              >Всё под контролем</span
+                            >
+                            <h4>Обзор бизнеса</h4>
+                            <p>Хороший день для новых решений.</p>
+                          </div>
+                          <span class="ad-date-tag">Октябрь 2026 ⌄</span>
+                        </div>
+                        <div class="ad-metrics">
+                          <div>
+                            <span>Выручка</span
+                            ><strong>2 458 000 <small>₽</small></strong
+                            ><em>↗ 18,6% <i>за месяц</i></em>
+                          </div>
+                          <div>
+                            <span>Заказы</span><strong>148</strong
+                            ><em>↗ 12,4% <i>за месяц</i></em>
+                          </div>
+                          <div>
+                            <span>Новые клиенты</span><strong>32</strong
+                            ><em>↗ 8,2% <i>за месяц</i></em>
+                          </div>
+                        </div>
+                        <div class="ad-dashboard-grid">
+                          <div class="ad-chart-card">
+                            <div class="ad-card-heading">
+                              <strong>Динамика выручки</strong
+                              ><span><i></i> Этот месяц</span>
+                            </div>
+                            <div class="ad-revenue-chart">
+                              <div class="ad-chart-y">
+                                <span>3 млн</span><span>2 млн</span
+                                ><span>1 млн</span>
+                              </div>
+                              <svg
+                                viewBox="0 0 480 150"
+                                preserveAspectRatio="none"
+                                role="img"
+                                aria-label="Выручка растёт в течение месяца"
+                              >
+                                <defs>
+                                  <linearGradient
+                                    id="ad-chart-fill"
+                                    x1="0"
+                                    y1="0"
+                                    x2="0"
+                                    y2="1"
+                                  >
+                                    <stop
+                                      stop-color="#9c9adf"
+                                      stop-opacity=".28"
+                                    />
+                                    <stop
+                                      offset="1"
+                                      stop-color="#9c9adf"
+                                      stop-opacity="0"
+                                    />
+                                  </linearGradient>
+                                </defs>
+                                <path
+                                  class="ad-chart-grid"
+                                  d="M0 20H480M0 65H480M0 110H480"
+                                />
+                                <path
+                                  d="M0 127C25 130 24 103 50 108S78 85 100 91 122 109 145 78 175 91 196 65 218 79 244 47 269 71 295 40 321 52 346 24 370 40 396 18 422 31 450 8L480 3V150H0Z"
+                                  fill="url(#ad-chart-fill)"
+                                />
+                                <path
+                                  d="M0 127C25 130 24 103 50 108S78 85 100 91 122 109 145 78 175 91 196 65 218 79 244 47 269 71 295 40 321 52 346 24 370 40 396 18 422 31 450 8L480 3"
+                                  fill="none"
+                                  stroke="#8b89cd"
+                                  stroke-width="2.5"
+                                  vector-effect="non-scaling-stroke"
+                                />
+                              </svg>
+                            </div>
+                            <div class="ad-chart-x">
+                              <span>01 окт</span><span>08 окт</span
+                              ><span>15 окт</span><span>22 окт</span
+                              ><span>31 окт</span>
+                            </div>
+                          </div>
+                          <div class="ad-activity-card">
+                            <div class="ad-card-heading">
+                              <strong>Сегодня</strong><span>•••</span>
+                            </div>
+                            <div class="ad-activity">
+                              <i class="is-green"></i
+                              ><span
+                                >Новый заказ<strong>ООО «Вектор»</strong
+                                ><small>2 минуты назад</small></span
+                              ><b>+48 500 ₽</b>
+                            </div>
+                            <div class="ad-activity">
+                              <i class="is-lilac"></i
+                              ><span
+                                >Заявка одобрена<strong>Поставка #1042</strong
+                                ><small>15 минут назад</small></span
+                              >
+                            </div>
+                            <div class="ad-activity">
+                              <i class="is-blue"></i
+                              ><span
+                                >Новый участник<strong>Мария · продажи</strong
+                                ><small>1 час назад</small></span
+                              >
+                            </div>
+                          </div>
+                        </div>
+                        <div class="ad-dashboard-bottom">
+                          <span
+                            ><span class="ad-online-dot"></span> Данные
+                            обновлены только что</span
+                          ><span>Продажи, процессы и люди — вместе.</span>
+                        </div>
+                      </div>
+                    </div>
+                    <footer class="ad-erp-footer" data-ad-build="22500">
+                      <span>Пульс ERP</span
+                      ><span>Единое пространство для вашей команды</span
+                      ><span>Все системы работают <i></i></span>
+                    </footer>
+                  </div>
+                </div>
+                <div
+                  class="ad-build-tag"
+                  data-ad="build-tag"
+                  aria-hidden="true"
+                >
+                  <span>Собираем приложение</span
+                  ><span data-ad="build-label">Шапка интерфейса</span>
+                </div>
+              </div>
+
+              <div class="ad-demo-cursor" data-ad="cursor" aria-hidden="true">
+                <svg viewBox="0 0 28 32"><path d="M3 2 24 19l-10 1-5 9Z" /></svg
+                ><span></span>
+              </div>
+              <div class="ad-stage-note" data-ad="stage-note">
+                <span class="ad-online-dot"></span> Готовое приложение.
+                Попробуйте переключить разделы.
+              </div>
+            </div>
+
+            <div class="ad-story-bar">
+              <div class="ad-caption" aria-live="polite" aria-atomic="true">
+                <span class="ad-caption-number mono" data-ad="number">08</span>
+                <div>
+                  <h4 data-ad="title">Теперь это ваш рабочий инструмент</h4>
+                  <p data-ad="detail">
+                    Продажи, аналитика, заявки и команда — в одном приложении.
+                    Каждый раздел решает свою задачу.
+                  </p>
+                </div>
+              </div>
+              <div class="ad-controls" data-ad="controls" hidden>
+                <button
+                  class="ad-play"
+                  type="button"
+                  data-ad="play"
+                  aria-label="Смотреть презентацию"
+                >
+                  <span data-ad="play-icon" aria-hidden="true">▶</span
+                  ><span data-ad="play-label">Смотреть</span>
+                </button>
+                <button
+                  type="button"
+                  data-ad="restart"
+                  aria-label="Начать презентацию заново"
+                  title="Начать заново"
+                >
+                  ↺
+                </button>
+                <span class="ad-time mono"
+                  ><span data-ad="elapsed">00:00</span> / 01:03</span
+                >
+              </div>
+            </div>
+            <div class="ad-timeline" data-ad="timeline" hidden>
+              <div class="ad-progress" aria-hidden="true">
+                <span data-ad="progress"></span>
+              </div>
+              <div
+                class="ad-chapters"
+                data-ad="chapters"
+                role="group"
+                aria-label="Этапы презентации"
+              ></div>
+            </div>
+          </div>
+          <p class="ad-playback-note" data-ad="playback-note">
+            Условный пример: интерфейс и данные созданы для демонстрации
+            процесса.
+          </p>
+          <div class="ad-finale" data-ad="finale">
+            <p>
+              Понимать людей.<br />Создавать нужное.<br /><span
+                >Беречь ваше время.</span
+              >
+            </p>
+            <div>
+              <span class="ad-finale-star" aria-hidden="true">✳</span>
+              <p>
+                Мой опыт задаёт направление.<br />ИИ помогает пройти путь
+                быстрее.<br /><strong
+                  >В центре — ваша задача и работающий результат.</strong
+                >
+              </p>
+            </div>
+          </div>
+        </section>
       </section>
 
       <section
