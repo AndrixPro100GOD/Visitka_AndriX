@@ -33,10 +33,10 @@
     />
     <link rel="stylesheet" href="./index.css?v=20261009-5" />
     <link rel="stylesheet" href="./tms-demo.css?v=20261009-2" />
-    <link rel="stylesheet" href="./ai-demo.css?v=20261016-2" />
+    <link rel="stylesheet" href="./ai-demo.css?v=20261016-3" />
     <script src="./js/site.js?v=20261009-5" defer></script>
     <script src="./js/tms-demo.js?v=20261009-2" defer></script>
-    <script src="./js/ai-demo.js?v=20261016-2" defer></script>
+    <script src="./js/ai-demo.js?v=20261016-3" defer></script>
   </head>
   <body id="top">
     <a class="skip-link" href="#main">Перейти к содержимому</a>
@@ -624,7 +624,7 @@
                     >
                       <span class="ad-chat-dot"></span
                       ><span
-                        ><strong>Архитектура и стек</strong
+                        ><strong>Архитектура и правила</strong
                         ><small data-ad="chat-state">Новая задача</small></span
                       >
                     </div>
@@ -632,12 +632,12 @@
                       <div
                         class="ad-chat"
                         data-ad-thread="orders"
-                        data-ad-reveal="26000"
+                        data-ad-reveal="25000"
                       >
                         <span class="ad-chat-dot"></span
                         ><span
-                          ><strong>Модуль заказов</strong
-                          ><small>API · бизнес-правила</small></span
+                          ><strong>Код заказов</strong
+                          ><small>Литералы · моё ревью</small></span
                         >
                       </div>
                       <div
@@ -647,18 +647,29 @@
                       >
                         <span class="ad-chat-dot"></span
                         ><span
-                          ><strong>Модуль склада</strong
-                          ><small>Резервы · транзакции</small></span
+                          ><strong>Склад и миграции</strong
+                          ><small>SQL · перенос данных</small></span
+                        >
+                      </div>
+                      <div
+                        class="ad-chat"
+                        data-ad-thread="integrations"
+                        data-ad-reveal="33000"
+                      >
+                        <span class="ad-chat-dot"></span
+                        ><span
+                          ><strong>Интеграции</strong
+                          ><small>Контракт · документация</small></span
                         >
                       </div>
                       <div
                         class="ad-chat"
                         data-ad-thread="tests"
-                        data-ad-reveal="42000"
+                        data-ad-reveal="46000"
                       >
                         <span class="ad-chat-dot"></span
                         ><span
-                          ><strong>Тесты и покрытие</strong
+                          ><strong>Тесты и исправления</strong
                           ><small data-ad="tests-thread-state"
                             >Проверка доступа</small
                           ></span
@@ -667,29 +678,29 @@
                       <div
                         class="ad-chat"
                         data-ad-thread="delivery"
-                        data-ad-reveal="57000"
+                        data-ad-reveal="65000"
                       >
                         <span class="ad-chat-dot"></span
                         ><span
-                          ><strong>CI/CD и Kubernetes</strong
-                          ><small>Контейнеры · поставка</small></span
+                          ><strong>CI/CD и документация</strong
+                          ><small>Workflow · runbook</small></span
                         >
                       </div>
                       <div
                         class="ad-chat"
                         data-ad-thread="scaling"
-                        data-ad-reveal="65000"
+                        data-ad-reveal="78000"
                       >
                         <span class="ad-chat-dot"></span
                         ><span
-                          ><strong>Масштабирование</strong
+                          ><strong>Нагрузочный тест</strong
                           ><small>Нагрузка · HPA</small></span
                         >
                       </div>
                       <div
                         class="ad-chat"
                         data-ad-thread="mobile"
-                        data-ad-reveal="80000"
+                        data-ad-reveal="93000"
                       >
                         <span class="ad-chat-dot"></span
                         ><span
@@ -699,19 +710,8 @@
                       </div>
                       <div
                         class="ad-chat"
-                        data-ad-thread="integrations"
-                        data-ad-reveal="81300"
-                      >
-                        <span class="ad-chat-dot"></span
-                        ><span
-                          ><strong>Интеграции</strong
-                          ><small>Webhooks · идемпотентность</small></span
-                        >
-                      </div>
-                      <div
-                        class="ad-chat"
                         data-ad-thread="observability"
-                        data-ad-reveal="82500"
+                        data-ad-reveal="95500"
                       >
                         <span class="ad-chat-dot"></span
                         ><span
@@ -732,7 +732,7 @@
 
                   <div class="ad-conversation">
                     <div class="ad-conversation-heading">
-                      <span data-ad="thread-title">Архитектура и стек</span
+                      <span data-ad="thread-title">Архитектура и правила</span
                       ><span data-ad="dev-status">Новая тема</span>
                     </div>
                     <div class="ad-empty" data-ad="empty">
@@ -772,6 +772,10 @@
                               >Архитектурное решение</span
                             ><i data-ad="artifact-state">На ревью</i>
                           </div>
+                          <div class="ad-editor-toolbar">
+                            <span data-ad="editor-tab">Изменения</span>
+                            <span>Рабочая копия · <b>АК</b></span>
+                          </div>
                           <pre data-ad="artifact-body">
 Заказы · Склад · Доступы</pre>
                         </div>
@@ -779,9 +783,12 @@
                           class="ad-sent ad-human-review"
                           data-ad="human-review"
                         >
-                          <span data-ad="human-action"
-                            >Я · ревью архитектуры</span
-                          >
+                          <div class="ad-review-author">
+                            <span class="ad-avatar">АК</span>
+                            <span data-ad="human-action"
+                              >Я · ревью архитектуры</span
+                            >
+                          </div>
                           <p data-ad="human-text">
                             Утверждаю границы модулей. Реализацию начинаем после
                             согласования контрактов API.
@@ -801,7 +808,7 @@
                     </div>
                   </div>
 
-                  <div class="ad-tools" data-ad-reveal="19800">
+                  <div class="ad-tools" data-ad-reveal="21000">
                     <div class="ad-git-heading">
                       <svg class="ad-icon"><use href="#ad-branch" /></svg>
                       Git <span data-ad="git-count">+86 <i>−12</i></span>
@@ -813,7 +820,7 @@
                     </div>
                     <div
                       class="ad-subagent ad-worker-ui"
-                      data-ad-reveal="20500"
+                      data-ad-reveal="21300"
                     >
                       <span class="ad-subagent-symbol is-lilac">◈</span
                       ><span
@@ -825,7 +832,7 @@
                     </div>
                     <div
                       class="ad-subagent ad-worker-api"
-                      data-ad-reveal="21100"
+                      data-ad-reveal="21800"
                     >
                       <span class="ad-subagent-symbol is-blue">⌘</span
                       ><span
@@ -837,7 +844,7 @@
                     </div>
                     <div
                       class="ad-subagent ad-worker-ops"
-                      data-ad-reveal="21700"
+                      data-ad-reveal="22300"
                     >
                       <span class="ad-subagent-symbol is-green">✓</span
                       ><span
@@ -864,7 +871,7 @@
                   ><span class="ad-preview-label">Пример приложения</span>
                 </div>
                 <div class="ad-erp-body">
-                  <div class="ad-erp-sidebar" data-ad-build="37700">
+                  <div class="ad-erp-sidebar" data-ad-build="40600">
                     <div class="ad-erp-logo">
                       <span class="ad-logo-mark"
                         ><i></i><i></i><i></i><i></i></span
@@ -943,7 +950,7 @@
                     </div>
                   </div>
                   <div class="ad-erp-workspace">
-                    <header class="ad-erp-header" data-ad-build="35000">
+                    <header class="ad-erp-header" data-ad-build="38000">
                       <span
                         >Рабочее пространство <i>/</i>
                         <b data-ad="breadcrumb">Обзор</b></span
@@ -952,7 +959,7 @@
                         <span class="ad-mini-avatar">А</span></span
                       >
                     </header>
-                    <div class="ad-erp-content" data-ad-build="39000">
+                    <div class="ad-erp-content" data-ad-build="41900">
                       <div class="ad-page" data-ad-view="dashboard">
                         <div class="ad-page-heading">
                           <div>
@@ -1073,19 +1080,31 @@
                         </div>
                       </div>
                     </div>
-                    <footer class="ad-erp-footer" data-ad-build="36400">
+                    <footer class="ad-erp-footer" data-ad-build="39300">
                       <span>Пульс ERP</span
                       ><span>Единое пространство для вашей команды</span
                       ><span>Все системы работают <i></i></span>
                     </footer>
                   </div>
                 </div>
+                <div class="ad-ui-review" aria-hidden="true">
+                  <div class="ad-review-author">
+                    <span class="ad-avatar">АК</span>
+                    <strong>Я · правлю Orders.razor</strong>
+                    <span>Мой diff</span>
+                  </div>
+                  <pre><span class="ad-line-removed">- &lt;button&gt;Approve&lt;/button&gt;</span><span class="ad-line-added">+ &lt;button disabled="@(!CanApprove)"&gt;</span><span class="ad-line-added">+   @Labels.Orders.Approve</span><span class="ad-line-added">+ &lt;/button&gt;</span></pre>
+                  <p>
+                    Проверяю роли и сценарий, правлю компонент и ресурсы. Следом
+                    — проверка доступа через API.
+                  </p>
+                </div>
                 <div
                   class="ad-build-tag"
                   data-ad="build-tag"
                   aria-hidden="true"
                 >
-                  <span>Собираем приложение</span
+                  <span>Промежуточная сборка · моё ревью</span
                   ><span data-ad="build-label">Шапка интерфейса</span>
                 </div>
               </div>
@@ -1104,25 +1123,25 @@
                 </div>
                 <div class="ad-infra-content">
                   <div class="ad-infra-heading">
-                    <span>Приложение работает для всех одновременно</span>
-                    <h4>Больше людей.<br /><em>Больше мощности.</em></h4>
+                    <span>Я задаю профиль и проверяю метрики</span>
+                    <h4>Нагрузочный тест.<br /><em>Измеряем запас.</em></h4>
                     <p data-ad="infra-explanation">
-                      Web и смартфоны обращаются к одному API. Входящий трафик
-                      распределяется между контейнерами.
+                      Синтетические запросы Web / Phone проходят через общий
+                      API. Решение HPA зависит от метрик и настроек ресурсов.
                     </p>
                   </div>
                   <div class="ad-traffic-meter">
                     <div>
-                      <span>Одновременно в системе</span
-                      ><strong data-ad="user-count">120</strong
-                      ><small>пользователей · пример нагрузки</small>
+                      <span>Синтетический профиль · staging</span
+                      ><strong data-ad="request-rate">500</strong
+                      ><small>запросов/с · условный пример</small>
                     </div>
                     <div class="ad-load-bars">
                       <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i
                       ><i></i><i></i><i></i><i></i>
                     </div>
                     <span class="ad-load-label" data-ad="load-label"
-                      >Обычная нагрузка</span
+                      >Базовый профиль · CPU 26%</span
                     >
                   </div>
                   <div class="ad-infra-map">
@@ -1141,9 +1160,7 @@
                           <path
                             d="M21 5h7M23 34h3M19 12h11M19 17h11M19 22h7"
                           /></svg
-                        ><span
-                          >Smartphone<small>Мобильный клиент · API</small></span
-                        >
+                        ><span>Phone<small>Мобильный клиент · API</small></span>
                       </div>
                       <div class="ad-user-dots">
                         <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
@@ -1179,9 +1196,6 @@
                           <div class="ad-pod">
                             <i></i> .NET API <small>pod 02</small>
                           </div>
-                          <div class="ad-pod ad-extra-pod">
-                            <i></i> .NET API <small>pod 04</small>
-                          </div>
                         </div>
                       </div>
                       <div class="ad-hpa">
@@ -1210,15 +1224,19 @@
                     <span>◉ OpenTelemetry</span
                     ><span>Логи · метрики · трассировки</span
                     ><strong data-ad="infra-state"
-                      >Наблюдаем за системой</strong
+                      >CPU относительно requests 500m</strong
                     >
                   </div>
+                  <p class="ad-load-footnote">
+                    HPA: target CPU 60% от requests 500m · профиль удерживается
+                    3 мин · *время сжато.
+                  </p>
                 </div>
               </div>
 
               <div class="ad-proof" aria-hidden="true">
-                <span>9 рабочих тем</span><span>Ревью человека ✓</span
-                ><span>Тесты → исправления → CI/CD</span>
+                <span>9 рабочих тем</span><span>Мои правки и ревью ✓</span
+                ><span>Миграции · тесты · CI/CD</span>
               </div>
               <div class="ad-demo-cursor" data-ad="cursor" aria-hidden="true">
                 <svg viewBox="0 0 28 32"><path d="M3 2 24 19l-10 1-5 9Z" /></svg
@@ -1263,7 +1281,7 @@
                   ↺
                 </button>
                 <span class="ad-time mono"
-                  ><span data-ad="elapsed">00:00</span> / 01:52</span
+                  ><span data-ad="elapsed">00:00</span> / 02:05</span
                 >
               </div>
             </div>

@@ -10,9 +10,9 @@
       elements.set(name, demo.querySelector(`[data-ad="${name}"]`));
     return elements.get(name);
   };
-  const TOTAL = 112000;
-  const PRODUCT_START = 87000;
-  const FINALE_START = 108000;
+  const TOTAL = 125000;
+  const PRODUCT_START = 100000;
+  const FINALE_START = 121000;
   const prompt = [
     "Разработать ERP: .NET 10, ASP.NET Core API, Blazor WebAssembly.",
     "1. Архитектура: модульный монолит; заказы, склад, аналитика. Контракты OpenAPI, интеграции с учётной системой.",
@@ -42,55 +42,55 @@
     },
     {
       start: 18000,
-      inspect: 23500,
-      label: "Решения",
-      title: "Архитектура проходит моё ревью",
+      inspect: 27500,
+      label: "Правила и код",
+      title: "Я задаю правила и редактирую код",
       detail:
-        "Оркестратор предлагает план и распределяет работу. Я утверждаю границы модулей, читаю изменения и уточняю правила заказов и склада.",
+        "Фиксирую границы модулей и общий стиль в правилах проекта. Исправляю строковые литералы в diff, проверяю SQL миграции и контракт интеграции. Агенты продолжают по этим правилам.",
     },
     {
-      start: 34000,
-      inspect: 39700,
-      label: "Сборка",
-      title: "Интерфейс собирается поверх бизнес-логики",
+      start: 37000,
+      inspect: 44000,
+      label: "Проверка UI",
+      title: "Я проверяю интерфейс и правлю компоненты",
       detail:
-        "Компоненты Blazor складываются в рабочее пространство: шапка, навигация, аккаунт и модули. Это промежуточный результат, дальше — проверки поведения.",
+        "Открываю промежуточную сборку, проверяю роли и сценарий заказа. Правлю состояние кнопки и ресурсы локализации в Razor-компоненте. Затем проверяю права отдельно на API.",
     },
     {
-      start: 42000,
-      inspect: 47000,
+      start: 46000,
+      inspect: 52000,
       label: "Проверки",
-      title: "Ошибка → исправление → повторная проверка",
+      title: "Я дописываю тесты, нахожу причину и исправляю",
       detail:
-        "Интеграционный тест обнаруживает лишние права у Viewer. Я уточняю требование: проверка нужна на сервере. Агент исправляет код и повторяет unit, integration и e2e.",
-    },
-    {
-      start: 57000,
-      inspect: 62500,
-      label: "Поставка",
-      title: "Приложению нужен воспроизводимый запуск",
-      detail:
-        "Готовим Dockerfile, манифесты Kubernetes и CI/CD: сборка, тесты, образ, тестовый контур. Я проверяю probes, ресурсы и подтверждение перед production.",
+        "Добавляю негативный тест прямого запроса к API. Получаю 200 вместо 403, останавливаю merge и нахожу пропущенную policy. Вношу правку, затем проверяю diff, повторный прогон и регрессию.",
     },
     {
       start: 65000,
-      inspect: 68000,
-      label: "Нагрузка",
-      title: "Под капотом — работа для многих пользователей",
+      inspect: 71000,
+      label: "CI/CD и выпуск",
+      title: "Я настраиваю поставку и условия выпуска",
       detail:
-        "Web и смартфоны работают одновременно. L7 Ingress распределяет запросы между контейнерами .NET; SignalR передаёт события, а метрики показывают нагрузку.",
+        "Редактирую workflow, задаю зависимости jobs и защиту production в настройках репозитория. Проверяю Docker, миграции и секреты, дополняю runbook откатом. Автоматизация выполняет согласованный порядок.",
     },
     {
-      start: 80000,
-      inspect: 83600,
+      start: 78000,
+      inspect: 81000,
+      label: "Нагрузка",
+      title: "Масштабирование проверяю нагрузочным тестом",
+      detail:
+        "Web и Phone работают через общий API и L7 Ingress. Я задаю профиль синтетических запросов и сверяю CPU с настроенным HPA. Число посетителей само по себе не определяет потребность в репликах.",
+    },
+    {
+      start: 93000,
+      inspect: 96600,
       label: "Итерации",
       title: "Большая ERP — множество связанных задач",
       detail:
-        "Открываем тему мобильных клиентов. Рядом остаются интеграции и мониторинг: у каждой задачи свой контекст и статус. Я сверяю результат с критериями приёмки.",
+        "Проверяю мобильный клиент и сверяю интеграцию с общим контрактом. В темах сохранены правила, мои исправления, миграции и документация. Сопоставляю результат с критериями приёмки.",
     },
     {
       start: PRODUCT_START,
-      inspect: 90000,
+      inspect: 103000,
       label: "ERP",
       title: "Результат решений, проверок и итераций",
       detail:
@@ -106,13 +106,13 @@
     },
   ];
   const tour = [
-    { at: 88400, page: "dashboard" },
-    { at: 90900, page: "shop" },
-    { at: 93800, page: "analytics" },
-    { at: 96700, page: "bids" },
-    { at: 99600, page: "team" },
-    { at: 102500, page: "account" },
-    { at: 105400, page: "dashboard" },
+    { at: 101400, page: "dashboard" },
+    { at: 103900, page: "shop" },
+    { at: 106800, page: "analytics" },
+    { at: 109700, page: "bids" },
+    { at: 112600, page: "team" },
+    { at: 115500, page: "account" },
+    { at: 118400, page: "dashboard" },
   ];
   const pageNames = {
     dashboard: "Обзор",
@@ -123,61 +123,89 @@
     account: "Аккаунт",
   };
 
-  // These are illustrative project artifacts, not test results from this website.
+  // These are illustrative artifacts from the ERP example, not this site's code or test results.
   const gitSets = {
-    architecture: {
-      count: "+86  −12",
+    rules: {
+      count: "+42  −8",
       files: [
-        ["MD", "adr-001.md", "+24"],
-        ["C#", "Program.cs", "+18"],
-        ["API", "openapi.yaml", "+32"],
-        ["C#", "Permissions.cs", "+12"],
+        ["MD", "AGENTS.md", "+18"],
+        ["CFG", ".editorconfig", "+8"],
+        ["MD", "adr-001.md", "+12"],
+        ["C#", "ArchitectureTests.cs", "+4"],
       ],
       diff: [
-        "+ builder.Services",
-        "+   .AddOrdersModule()",
-        "+   .AddWarehouseModule();",
-        "+ app.MapOrderEndpoints();",
+        "+ # Правила проекта",
+        "+ Policy → OrderPolicies",
+        "+ UI-тексты → Resources",
+        "+ Контракт → тест + документация",
       ],
     },
-    orders: {
-      count: "+214  −18",
+    literals: {
+      count: "+28  −16",
       files: [
-        ["C#", "OrderService.cs", "+76"],
-        ["RZR", "Orders.razor", "+64"],
-        ["C#", "OrderTests.cs", "+42"],
-        ["API", "openapi.yaml", "+32"],
+        ["C#", "OrderPolicies.cs", "+6"],
+        ["C#", "OrderQueries.cs", "M"],
+        ["RZR", "Orders.razor", "M"],
+        ["RES", "Labels.resx", "+8"],
       ],
       diff: [
-        '+ group.MapPost("/orders",',
-        "+   CreateOrderAsync);",
-        "+ await stock.ReserveAsync(",
-        "+   order.Items, ct);",
+        '- .RequireAuthorization("Orders.Read");',
+        "+ .RequireAuthorization(",
+        "+   OrderPolicies.Read);",
       ],
     },
-    warehouse: {
-      count: "+302  −26",
+    migrations: {
+      count: "+62  −4",
       files: [
-        ["C#", "StockService.cs", "+88"],
-        ["RZR", "Stock.razor", "+52"],
-        ["C#", "StockTests.cs", "+61"],
-        ["SQL", "reservations.sql", "+24"],
+        ["SQL", "stock-migration.sql", "M"],
+        ["C#", "StockMigration.cs", "+24"],
+        ["C#", "MigrationTests.cs", "+18"],
+        ["MD", "migration-plan.md", "+16"],
       ],
       diff: [
-        "+ await using var tx = await",
-        "+   db.Database",
-        "+   .BeginTransactionAsync();",
-        "+ await ReserveStockAsync();",
-        "+ await tx.CommitAsync();",
+        "- ALTER TABLE stock",
+        "-   DROP COLUMN legacy_qty;",
+        "+ ALTER TABLE stock",
+        "+   ADD reserved int DEFAULT 0;",
+      ],
+    },
+    integration: {
+      count: "+84  −12",
+      files: [
+        ["API", "erp.openapi.yaml", "M"],
+        ["C#", "AccountingClient.cs", "+32"],
+        ["C#", "ContractTests.cs", "+24"],
+        ["MD", "integration.md", "+16"],
+      ],
+      diff: [
+        "+ Idempotency-Key: required",
+        "+ duplicate: same orderId",
+        "+ retry: exponential backoff",
+        "+ contractVersion: v1",
+      ],
+    },
+    ui: {
+      count: "+38  −14",
+      files: [
+        ["RZR", "Orders.razor", "M"],
+        ["RES", "Labels.resx", "+8"],
+        ["CSS", "Orders.razor.css", "M"],
+        ["E2E", "order-ui.spec.ts", "+16"],
+      ],
+      diff: [
+        "- <button>Approve</button>",
+        '+ <button disabled="@(!CanApprove)">',
+        "+   @Labels.Orders.Approve",
+        "+ </button>",
       ],
     },
     tests: {
-      count: "+58  −4",
+      count: "+54  −6",
       files: [
-        ["C#", "AccessTests.cs", "+26"],
-        ["C#", "OrderTests.cs", "+18"],
-        ["E2E", "orders.spec.ts", "+14"],
-        ["C#", "OrderEndpoints.cs", "M"],
+        ["C#", "AccessTests.cs", "+18"],
+        ["C#", "ContractTests.cs", "+14"],
+        ["C#", "MigrationTests.cs", "+12"],
+        ["E2E", "orders.spec.ts", "+10"],
       ],
       diff: [
         "+ Assert.Equal(",
@@ -186,71 +214,70 @@
       ],
     },
     fix: {
-      count: "+64  −6",
+      count: "+60  −8",
       files: [
-        ["C#", "OrderEndpoints.cs", "+2"],
-        ["C#", "Permissions.cs", "+4"],
-        ["C#", "AccessTests.cs", "+26"],
-        ["E2E", "orders.spec.ts", "+14"],
+        ["C#", "OrderEndpoints.cs", "M"],
+        ["C#", "OrderPolicies.cs", "M"],
+        ["C#", "AccessTests.cs", "+18"],
+        ["MD", "access-rules.md", "+6"],
       ],
       diff: [
         "- .RequireAuthorization();",
         "+ .RequireAuthorization(",
-        '+   "Orders.Approve");',
-        "+ // проверка на сервере",
-      ],
-    },
-    docker: {
-      count: "+112  −8",
-      files: [
-        ["OCI", "Dockerfile", "+26"],
-        ["YML", "deployment.yaml", "+42"],
-        ["YML", "ingress.yaml", "+24"],
-        ["YML", "ci.yml", "+20"],
-      ],
-      diff: [
-        "+ FROM mcr.microsoft.com/dotnet/aspnet:10.0",
-        "+ COPY --from=build /app/publish .",
-        '+ ENTRYPOINT ["dotnet",',
-        '+   "Pulse.Api.dll"]',
-      ],
-    },
-    kubernetes: {
-      count: "+148  −8",
-      files: [
-        ["YML", "deployment.yaml", "+42"],
-        ["YML", "ingress.yaml", "+24"],
-        ["YML", "hpa.yaml", "+18"],
-        ["YML", "ci.yml", "+38"],
-      ],
-      diff: [
-        "+ replicas: 2",
-        "+ readinessProbe:",
-        "+   httpGet:",
-        "+     path: /health/ready",
-        "+     port: 8080",
+        "+   OrderPolicies.Approve);",
       ],
     },
     pipeline: {
-      count: "+186  −8",
+      count: "+76  −10",
       files: [
-        ["YML", "ci.yml", "+38"],
-        ["YML", "deployment.yaml", "+42"],
-        ["YML", "hpa.yaml", "+18"],
-        ["MD", "runbook.md", "+28"],
+        ["YML", "ci.yml", "M"],
+        ["OCI", "Dockerfile", "M"],
+        ["YML", "deployment.yaml", "M"],
+        ["MD", "release-checklist.md", "+12"],
       ],
       diff: [
-        "+ - run: dotnet test",
-        "+ - run: npx playwright test",
-        "+ - run: docker build -t pulse .",
-        "+ - run: helm upgrade pulse ./chart",
-        "+ environment: staging",
+        "+ image:",
+        "+   needs: [unit, integration, e2e]",
+        "+ deploy:",
+        "+   needs: [image, migration-check]",
+        "+   environment: staging",
+      ],
+    },
+    environment: {
+      count: "+98  −14",
+      files: [
+        ["YML", "release.yml", "M"],
+        ["YML", "deployment.yaml", "M"],
+        ["YML", "hpa.yaml", "+18"],
+        ["OCI", "Dockerfile", "M"],
+      ],
+      diff: [
+        "+ environment: production",
+        "+ resources:",
+        "+   requests: { cpu: 500m }",
+        "+   limits: { cpu: '1' }",
+        "+ # reviewers: в Settings",
+      ],
+    },
+    runbook: {
+      count: "+124  −14",
+      files: [
+        ["MD", "runbook.md", "M"],
+        ["MD", "migration-plan.md", "M"],
+        ["MD", "integration.md", "M"],
+        ["YML", "release.yml", "M"],
+      ],
+      diff: [
+        "+ ## Перед выпуском",
+        "+ Backup → проверка восстановления",
+        "+ SQL review → staging → smoke",
+        "+ Rollback: образ + совместимая схема",
       ],
     },
     mobile: {
       count: "+126  −14",
       files: [
-        ["API", "openapi.yaml", "+28"],
+        ["API", "erp.openapi.yaml", "M"],
         ["C#", "MobileClient.cs", "+44"],
         ["C#", "EventsHub.cs", "+22"],
         ["E2E", "sync.spec.ts", "+32"],
@@ -264,270 +291,376 @@
     },
   };
   const threadNames = {
-    architecture: "Архитектура и стек",
-    orders: "Модуль заказов",
-    warehouse: "Модуль склада",
-    tests: "Тесты и покрытие",
-    delivery: "CI/CD и Kubernetes",
-    scaling: "Масштабирование и нагрузка",
+    architecture: "Архитектура и правила",
+    orders: "Ревью кода заказов",
+    warehouse: "Склад и миграции",
+    integrations: "Контракты интеграций",
+    tests: "Тесты и исправления",
+    delivery: "CI/CD и документация",
+    scaling: "Нагрузочный тест",
     mobile: "Мобильные клиенты",
   };
   const scenes = [
     {
       at: 18000,
+      mode: "chat",
       thread: "architecture",
-      status: "Согласование",
-      git: "architecture",
+      status: "Черновик плана",
+      git: "rules",
       agent:
-        "Предлагаю модульный монолит: отдельные границы заказов, склада и доступов. Сначала контракты API и критерии приёмки, затем параллельная работа.",
-      label: "ADR-001 · архитектура",
-      state: "На ревью",
+        "Черновик архитектуры готов. До реализации нужны ваши решения по границам модулей, контрактам и правилам общего репозитория.",
+      label: "ADR-001 · архитектурный черновик",
+      state: "На рассмотрении",
       tone: "neutral",
-      body: "ASP.NET Core API → модули → PostgreSQL\nBlazor WebAssembly + mobile → OpenAPI\nRBAC на сервере · аудит операций",
-      humanAt: 22200,
-      action: "Я · читаю план и утверждаю",
+      body: "ASP.NET Core → модули → PostgreSQL\nBlazor + Phone → общий контракт API\nРешения и ограничения фиксируются в репозитории",
+      humanAt: 19500,
+      action: "Я · сопоставляю план с требованиями",
       human:
-        "Границы модулей согласованы. Интеграции — через контракты; права проверяем на API. Сначала тесты критических сценариев.",
+        "Выбираю границы модулей и правила совместной работы. Дальше работаю с файлами, diff и проверками.",
     },
     {
-      at: 26000,
-      thread: "orders",
-      status: "Ревью API",
-      git: "orders",
+      at: 21000,
+      mode: "editor",
+      thread: "architecture",
+      status: "Мой редактор",
+      git: "rules",
       agent:
-        "Агенты разделили работу: Blazor-компоненты, бизнес-правила .NET и тестовые сценарии. Изменения заказов готовы к просмотру.",
-      label: "Модуль заказов · контракт",
-      state: "Изменения",
+        "Агенты читают правила репозитория; изменения проверяются форматтером и архитектурными тестами.",
+      label: "AGENTS.md · общие правила",
+      state: "Редактирую",
       tone: "neutral",
-      body: "POST /api/orders → резерв склада\nManager → создать / подтвердить\nViewer → только чтение",
-      humanAt: 27400,
-      action: "Я · читаю diff и уточняю",
+      before:
+        "# Правила проекта\nГраницы модулей и стиль ещё не зафиксированы.",
+      body: "# Правила проекта\n+ Модули общаются через контракты.\n+ Policy → OrderPolicies; UI-тексты → Resources.\n+ Деньги → decimal; миграции → SQL review.\n+ Изменение контракта → тест + документация.",
+      editAt: 22500,
+      humanAt: 21000,
+      action: "Я · фиксирую правила проекта",
       human:
-        "Повторный запрос не должен создавать второй заказ. Добавьте ключ идемпотентности и проверку повторной отправки.",
+        "Записываю единые соглашения в AGENTS.md и .editorconfig. Закрепляю границы модулей архитектурными тестами.",
+      caption:
+        "Разработчик создаёт правила общего репозитория: границы модулей, именование, ресурсы текстов, миграции и обязательные проверки. Агенты работают в этих рамках.",
+    },
+    {
+      at: 25000,
+      mode: "editor",
+      thread: "orders",
+      status: "Моя правка diff",
+      git: "literals",
+      agent:
+        "По моей правке агенты обновляют остальные вызовы policy и связанные тесты. Итоговый diff я проверяю снова.",
+      label: "OrderQueries.cs · diff",
+      state: "Ревью литералов",
+      tone: "neutral",
+      before:
+        '- .RequireAuthorization("Orders.Read");\n// Строка повторяется в нескольких модулях.',
+      body: '- .RequireAuthorization("Orders.Read");\n+ .RequireAuthorization(OrderPolicies.Read);\n// Определение — в OrderPolicies.cs:\n+ public const string Read = "Orders.Read";',
+      editAt: 26600,
+      humanAt: 25000,
+      action: "Я · исправляю строковые литералы",
+      human:
+        "Выношу имя policy в общий контракт. Тексты кнопок переношу в Resources, проверяю типы сумм и согласованность именования.",
+      caption:
+        "В diff агента нахожу повторяющиеся строки. Сам меняю код: имя права хранится в общем контракте, тексты — в ресурсах. Проверяю связанные вызовы и тесты.",
     },
     {
       at: 29000,
+      mode: "editor",
       thread: "warehouse",
-      status: "Уточнение правил",
-      git: "warehouse",
+      status: "SQL review",
+      git: "migrations",
       agent:
-        "Добавляю резервирование остатков и интеграционные тесты конкурентных заказов. Заказы и склад сохраняют согласованное состояние.",
-      label: "Склад · конкурентный доступ",
-      state: "Ревью логики",
+        "Агент подготавливает backfill и тест миграции по исправленному мной плану. Разрушительное изменение отложено.",
+      label: "stock-migration.sql · проверка",
+      state: "Риск потери данных",
       tone: "neutral",
-      body: "Один остаток → два запроса\nТранзакция + контроль версии\nПодтверждён только один резерв",
-      humanAt: 30700,
-      action: "Я · правлю критерий приёмки",
+      before:
+        "- ALTER TABLE stock DROP COLUMN legacy_qty;\n// Старые данные и клиенты ещё используют колонку.",
+      body: "- ALTER TABLE stock DROP COLUMN legacy_qty;\n+ ALTER TABLE stock ADD reserved int DEFAULT 0;\n-- Backfill на копии БД → сверка остатков.\n-- Переключение чтения → удаление позже.",
+      editAt: 30600,
+      humanAt: 29000,
+      action: "Я · исправляю план миграции",
       human:
-        "Резерв — атомарный. При конфликте откатываем операцию целиком. Добавьте тест двух одновременных заказов на последний товар.",
+        "Отклоняю раннее удаление колонки. Проверяю SQL на копии данных, планирую обратимую поставку и сверку остатков после переноса.",
+      caption:
+        "Разработчик замечает потерю совместимости в миграции агента. Меняет план, проверяет SQL и данные на копии базы, задаёт порядок переноса и отката.",
     },
     {
-      at: 42000,
-      thread: "tests",
-      status: "Тесты запущены",
-      git: "tests",
+      at: 33000,
+      mode: "editor",
+      thread: "integrations",
+      status: "Проверка контракта",
+      git: "integration",
       agent:
-        "Интерфейс собран. Запускаю unit, integration и e2e: права доступа, заказы, склад и пользовательские сценарии.",
-      label: "dotnet test · Playwright",
-      state: "Выполняются",
+        "Агент приводит клиент и contract-тесты к сверенной спецификации интеграции.",
+      label: "integration.md · учётная система",
+      state: "Моя сверка",
       tone: "neutral",
-      body: "✓ unit           148 / 148\n… integration     проверка RBAC\n… e2e             сценарий заказа",
-      humanAt: 43000,
-      action: "Я · проверяю сценарии",
+      body: "OpenAPI v1 → клиент учётной системы\nПовтор события → тот же orderId\nTimeout → retry с backoff\nИзменение схемы → contract test + документация",
+      humanAt: 33000,
+      action: "Я · сверяю интеграцию и документацию",
       human:
-        "Сверяю проверки с ТЗ. Особое внимание — доступам и резервированию остатков: одного успешного build недостаточно.",
+        "Проверяю реальный контракт и ответы тестового контура. Добавляю случай повторной доставки и описываю обработку ошибок.",
+      caption:
+        "Сверяю интеграцию с внешней системой: контракт, повторную доставку и ошибки. Дописываю проверочные случаи и документацию, затем принимаю изменения клиента.",
     },
     {
-      at: 44400,
+      at: 37000,
+      mode: "editor",
+      thread: "orders",
+      status: "Проверяю UI",
+      git: "ui",
+      agent:
+        "Агент обновляет компоненты по общим правилам; я проверяю промежуточный интерфейс и вношу правки в Razor.",
+      label: "Orders.razor · мой diff",
+      state: "Проверка ролей",
+      tone: "neutral",
+      body: '- <button>Approve</button>\n+ <button disabled="@(!CanApprove)">\n+   @Labels.Orders.Approve\n+ </button>',
+      humanAt: 37000,
+      action: "Я · проверяю сценарий и правлю UI",
+      human:
+        "Прохожу заказ под разными ролями. Исправляю состояние действия и локализацию; серверные права проверяю следующим тестом.",
+    },
+    {
+      at: 46000,
+      mode: "editor",
       thread: "tests",
-      status: "Найден дефект",
+      status: "Мои тест-кейсы",
       git: "tests",
       agent:
-        "Тест выявил дефект: Viewer может подтвердить заказ через API. Кнопка скрыта, но серверная проверка недостаточна. Останавливаю поставку.",
-      label: "Integration · ViewerCannotApprove",
+        "Агент запускает дополненный мной набор unit, integration и e2e и собирает результаты.",
+      label: "AccessTests.cs · негативные случаи",
+      state: "Добавляю тест",
+      tone: "neutral",
+      body: '+ var response = await viewer.PostAsync(\n+   "/api/orders/42/approve", null);\n+ Assert.Equal(HttpStatusCode.Forbidden,\n+   response.StatusCode);',
+      humanAt: 46000,
+      action: "Я · дописываю недостающие проверки",
+      human:
+        "Добавляю прямой вызов API под Viewer: скрытая кнопка не проверяет серверную защиту. Сверяю покрытие с контрактами и миграцией.",
+      caption:
+        "Сам дописываю тест прямого POST к API под Viewer: ожидаю 403. Отдельно проверяю Manager, повтор события и сохранность данных при миграции.",
+    },
+    {
+      at: 49000,
+      mode: "editor",
+      thread: "tests",
+      status: "Merge остановлен",
+      git: "tests",
+      agent:
+        "Новый тест падает. Агент сохраняет воспроизведение; изменения не переходят к поставке.",
+      label: "ViewerCannotApprove · результат",
       state: "FAIL · 1",
       tone: "failure",
-      body: "POST /api/orders/42/approve\nexpected: 403 Forbidden\nactual:   200 OK",
-      humanAt: 46000,
-      action: "Я · уточняю исправление",
+      body: "POST /api/orders/42/approve\nexpected: 403 Forbidden\nactual:   200 OK\nOrderEndpoints.cs → пропущена policy",
+      humanAt: 49000,
+      action: "Я · нахожу причину и останавливаю merge",
       human:
-        "Проверяйте policy Orders.Approve на сервере. Скрытой кнопки недостаточно. Повторите проверку всех ролей и прямого вызова API.",
+        "Воспроизвожу запрос, читаю endpoint и нахожу общую авторизацию без нужного права. Исправление вношу в код, затем проверяю остальные роли.",
+      caption:
+        "Мой негативный тест обнаруживает 200 вместо 403. Останавливаю merge, воспроизвожу запрос и нахожу пропущенную policy в endpoint. Дальше сам исправляю код.",
     },
     {
-      at: 49500,
+      at: 55000,
+      mode: "editor",
       thread: "tests",
-      status: "Исправление",
+      status: "Моё исправление",
       git: "fix",
       agent:
-        "Добавляю policy на endpoint и регрессионный тест прямого запроса. Manager сохраняет право подтверждения, Viewer получает 403.",
-      label: "OrderEndpoints.cs · diff",
-      state: "Исправлено",
+        "Агент обновляет связанные проверки и документацию прав. Мой diff остаётся точкой контроля.",
+      label: "OrderEndpoints.cs · моя правка",
+      state: "Редактирую",
       tone: "neutral",
-      body: '− .RequireAuthorization();\n+ .RequireAuthorization("Orders.Approve");\n+ ViewerCannotApprove() → 403',
-      humanAt: 50700,
-      action: "Я · ревью исправления",
+      before:
+        "- .RequireAuthorization();\n// Аутентификация есть, нужное право не проверяется.",
+      body: "- .RequireAuthorization();\n+ .RequireAuthorization(OrderPolicies.Approve);\n// Viewer → 403; Manager → разрешено.",
+      editAt: 56600,
+      humanAt: 55000,
+      action: "Я · исправляю серверную policy",
       human:
-        "Policy стоит на серверном endpoint. Решение принято; теперь повторите весь набор тестов, включая положительный сценарий Manager.",
+        "Ставлю OrderPolicies.Approve на endpoint. Просматриваю связанные изменения агента и сохраняю регрессионный тест прямого запроса.",
+      caption:
+        "Я вношу исправление в endpoint и просматриваю связанные правки агента. Сервер проверяет общее право OrderPolicies.Approve; регрессионный тест остаётся в проекте.",
     },
     {
-      at: 53200,
+      at: 59500,
+      mode: "editor",
       thread: "tests",
       status: "Повторный прогон",
       git: "fix",
       agent:
-        "Повторяю весь набор после исправления. Проверяю запрет для Viewer и разрешение для Manager, затем браузерный сценарий заказа.",
-      label: "Повторная проверка",
+        "Агент повторяет весь набор проверок после моей правки, включая сценарии Manager, Viewer, интеграции и миграцию.",
+      label: "Проверки после моего diff",
       state: "RUNNING",
       tone: "neutral",
       body: "✓ unit           148 / 148\n✓ integration     36 / 36\n… e2e             11 / 12",
-      humanAt: 53200,
-      action: "Я · жду завершения проверок",
+      humanAt: 59500,
+      action: "Я · проверяю регрессию и связанные изменения",
       human:
-        "Переход к поставке — после полного прогона. Исправление доступа не должно сломать рабочие сценарии остальных ролей.",
+        "Читаю diff и отчёт целиком. Сопоставляю результаты с моими кейсами и проверяю, что исправление не изменило разрешённые действия.",
+      caption:
+        "После моей правки идёт полный повтор unit, integration и e2e. Я читаю diff, сверяю отчёт с критериями и проверяю соседние сценарии — разрешённые действия должны сохраниться.",
     },
     {
-      at: 55300,
+      at: 63000,
+      mode: "editor",
       thread: "tests",
-      status: "Проверки пройдены",
+      status: "Моё ревью закрыто",
       git: "fix",
       agent:
-        "Повторный прогон завершён. Проверка прав на сервере и браузерные сценарии проходят. Дальше — упаковка и тестовый контур.",
+        "Повторный прогон завершён. Дальнейшие действия выполняются по workflow, который настраивает разработчик.",
       label: "Регрессия после исправления",
       state: "PASS",
       tone: "success",
       body: "✓ unit           148 / 148\n✓ integration     36 / 36\n✓ e2e             12 / 12",
-      humanAt: 55700,
-      action: "Я · принимаю исправление",
+      humanAt: 63000,
+      action: "Я · принимаю проверенный diff",
       human:
-        "Проверки и diff просмотрены. Разрешаю сборку образа для staging; готовность production проверим отдельно.",
-    },
-    {
-      at: 57000,
-      thread: "delivery",
-      status: "Упаковка",
-      git: "docker",
-      agent:
-        "Готовлю multi-stage Dockerfile: сборка и публикация .NET 10, затем runtime-образ. Конфигурация окружения и секреты передаются отдельно.",
-      label: "Dockerfile · .NET 10",
-      state: "Образ",
-      tone: "neutral",
-      body: "sdk:10.0 → dotnet publish\naspnet:10.0 → Pulse.Api.dll\nnon-root · порт 8080 · конфигурация извне",
-      humanAt: 58300,
-      action: "Я · проверяю запуск",
-      human:
-        "Секреты не включаем в образ. Проверьте запуск без root, health endpoints и единый образ для staging и production.",
-    },
-    {
-      at: 60000,
-      thread: "delivery",
-      status: "Манифесты",
-      git: "kubernetes",
-      agent:
-        "Добавляю Deployment, Service, Ingress и HPA. Настраиваю readiness/liveness, requests/limits и завершение запросов при обновлении.",
-      label: "deployment.yaml · Kubernetes",
-      state: "Ревью",
-      tone: "neutral",
-      body: "replicas: 2 · rolling update\nreadiness: /health/ready\nHPA: CPU 60% · min 2 / max 6",
-      humanAt: 61300,
-      action: "Я · согласую инфраструктуру",
-      human:
-        "Лимиты и probes согласованы. Перед production — проверка миграций, резервных копий и плана отката. Сначала нагрузка на staging.",
-    },
-    {
-      at: 63200,
-      thread: "delivery",
-      status: "CI/CD",
-      git: "pipeline",
-      agent:
-        "CI/CD собирает код, повторяет тесты и публикует образ в registry. Тестовый контур обновляется автоматически; production ожидает подтверждения.",
-      label: ".github/workflows/ci.yml",
-      state: "STAGING ✓",
-      tone: "success",
-      body: "✓ build → unit / integration / e2e\n✓ image → registry → staging\n○ production → ручное подтверждение",
-      humanAt: 63200,
-      action: "Я · контролирую выпуск",
-      human:
-        "Тестовый контур готов. Проверяем нагрузку и наблюдаемость; публикацию production подтверждаю после приёмки.",
+        "Проверил код, отчёт и обновление документации прав. Закрываю замечания ревью и разрешаю merge в тестовую ветку.",
+      caption:
+        "Повторные проверки проходят. Я принимаю diff после чтения кода, отчёта и документации. Дальше сам настраиваю поставку и проверяю тестовый контур; production требует отдельного подтверждения.",
     },
     {
       at: 65000,
-      thread: "scaling",
-      status: "Нагрузочный прогон",
+      mode: "editor",
+      thread: "delivery",
+      status: "Настраиваю CI/CD",
       git: "pipeline",
       agent:
-        "Проверяю совместную работу Web и мобильных клиентов, балансировку трафика, события SignalR и масштабирование по метрикам CPU.",
-      label: "Нагрузочный контур",
-      state: "НАБЛЮДЕНИЕ",
+        "Агент дополняет шаги сборки в заданном мной workflow. Порядок jobs и условия выпуска определяет разработчик.",
+      label: ".github/workflows/ci.yml · мой diff",
+      state: "Зависимости jobs",
       tone: "neutral",
-      body: "Web + Smartphone → L7 Ingress\n2 → 4 реплики ASP.NET Core API\nOpenTelemetry · логи · метрики",
+      before:
+        "- deploy:\n-   needs: [build]\n// Тесты и проверка миграции не блокируют выпуск.",
+      body: "+ image:\n+   needs: [unit, integration, e2e]\n+ deploy:\n+   needs: [image, migration-check]\n+   environment: staging",
+      editAt: 66700,
       humanAt: 65000,
-      action: "Я · оцениваю поведение",
+      action: "Я · связываю jobs и блокирую ранний deploy",
       human:
-        "Смотрю задержки, ошибки и события при росте нагрузки. Масштабирование приложения не заменяет проверку запросов к базе.",
+        "Настраиваю обязательные проверки, порядок сборки образа и поставки. Проверяю Dockerfile, health probes и совместимость миграции.",
+      caption:
+        "Сам редактирую CI/CD: без тестов и проверки миграции deploy недоступен. Проверяю образ Docker, probes и конфигурацию Kubernetes.",
     },
     {
-      at: 80000,
+      at: 69000,
+      mode: "editor",
+      thread: "delivery",
+      status: "Настройки репозитория",
+      git: "environment",
+      agent:
+        "Workflow ссылается на production environment. Защита среды и секреты настраиваются разработчиком в репозитории.",
+      label: "Settings / Environments / production",
+      state: "Моя настройка",
+      tone: "neutral",
+      body: "✓ Required reviewers → разработчик\n✓ Deployment branches → master\n✓ Secrets → отдельные для среды\nKubernetes: requests CPU 500m · HPA target 60%",
+      humanAt: 69000,
+      action: "Я · защищаю окружение и доступы",
+      human:
+        "Включаю подтверждение выпуска в Settings, ограничиваю ветки и секреты среды. Сверяю ресурсные лимиты и параметры HPA с тестовым профилем.",
+    },
+    {
+      at: 73500,
+      mode: "editor",
+      thread: "delivery",
+      status: "Проверка runbook",
+      git: "runbook",
+      agent:
+        "Автоматизация выполняет утверждённый workflow на staging. Production остаётся за подтверждением разработчика.",
+      label: "runbook.md · выпуск и откат",
+      state: "Дополняю документацию",
+      tone: "neutral",
+      body: "1. Backup → проверка восстановления\n2. SQL review → миграция на копии БД\n3. Staging → smoke + contract tests\n4. Rollback: образ + совместимая схема\n5. Production: моё подтверждение",
+      humanAt: 73500,
+      action: "Я · проверяю миграцию и описываю откат",
+      human:
+        "Уточняю порядок выпуска, проверку резервной копии и совместимость схемы при откате образа. Сверяю runbook с реальными шагами pipeline.",
+      caption:
+        "До выпуска дополняю документацию: резервная копия, миграция, smoke-проверки и откат. Проверяю, что runbook соответствует настроенному pipeline.",
+    },
+    {
+      at: 78000,
+      mode: "editor",
+      thread: "scaling",
+      status: "Мой нагрузочный профиль",
+      git: "environment",
+      agent:
+        "Инструмент нагрузки генерирует фиксированный профиль запросов. Масштабирование оценивается по метрикам и настройкам HPA.",
+      label: "load-profile.md · staging",
+      state: "Условный пример",
+      tone: "neutral",
+      body: "Web + Phone → L7 Ingress → .NET API\nHPA: target CPU 60% от requests 500m\n2 × 78% / 60% → ceil(2.6) = 3 реплики\nНагрузка удерживается 3 мин · время сжато",
+      humanAt: 78000,
+      action: "Я · задаю нагрузку и проверяю метрики",
+      human:
+        "Фиксирую смесь запросов, ресурсы pod и длительность прогона. Сверяю CPU, задержки и ошибки, затем оцениваю решение HPA.",
+    },
+    {
+      at: 93000,
+      mode: "editor",
       thread: "mobile",
-      status: "Проверка клиентов",
+      status: "Сверка клиентов",
       git: "mobile",
       agent:
-        "Web и мобильный клиент используют общий OpenAPI-контракт. SignalR обновляет статусы; после переподключения клиент перечитывает состояние через API.",
-      label: "Совместный сценарий",
+        "Агент обновляет клиент по общему OpenAPI-контракту и добавляет сценарий переподключения.",
+      label: "Контракт Web / Phone · ревью",
       state: "Проверено",
       tone: "success",
-      body: "Web: заказ создан → API\nSmartphone: OrderUpdated → новый статус\nReconnect → перечитать актуальные данные",
-      humanAt: 81600,
-      action: "Я · уточняю поведение клиента",
+      body: "Web: заказ создан → API\nPhone: OrderUpdated → новый статус\nReconnect → перечитать данные из API",
+      humanAt: 93000,
+      action: "Я · проверяю клиент и документацию API",
       human:
-        "При потере связи покажите статус соединения. После восстановления синхронизируйте данные: события не заменяют источник истины в API.",
+        "Прохожу сценарий потери связи и восстановления. Проверяю, что клиент перечитывает актуальные данные и не создаёт дубликаты.",
     },
     {
-      at: 84200,
+      at: 97200,
+      mode: "editor",
       thread: "architecture",
-      status: "Приёмка итерации",
-      git: "pipeline",
+      status: "Моя приёмка итерации",
+      git: "runbook",
       agent:
-        "Итерация собрана: модули, права, контракты клиентов, контейнеры и CI/CD. Решения и проверки сохранены в темах; открытые задачи видны отдельно.",
-      label: "Критерии приёмки · итерация",
-      state: "Ревью",
+        "Результаты собраны для приёмки. Незакрытые задачи остаются в отдельных темах проекта.",
+      label: "release-checklist.md · мои отметки",
+      state: "Сверено",
       tone: "success",
-      body: "✓ API, RBAC и сценарии ERP\n✓ исправление → повторные тесты\n✓ staging, нагрузка и телеметрия",
-      humanAt: 84900,
-      action: "Я · принимаю результат итерации",
+      body: "✓ Правила, diff и мои исправления\n✓ Миграция, контракты и регрессия\n✓ CI/CD, настройки среды и runbook\n✓ Нагрузка и пользовательские сценарии",
+      humanAt: 97200,
+      action: "Я · сверяю результат с критериями",
       human:
-        "Критерии сверены. Теперь прохожу интерфейс как пользователь. Интеграции и оповещения ведём отдельными задачами следующей итерации.",
+        "Закрываю только проверенные замечания. Решения, мои правки и инструкции сохранены в репозитории; дальше прохожу ERP как пользователь.",
     },
     {
       at: PRODUCT_START,
+      mode: "editor",
       thread: "architecture",
-      status: "Демо готово",
-      git: "pipeline",
+      status: "Пользовательская проверка",
+      git: "runbook",
       agent:
-        "Итерация готова к пользовательской проверке. Результат — общий итог требований, ревью, исправлений, тестов и настройки инфраструктуры.",
+        "Агенты ускорили реализацию и проверки в рамках общего проекта. Решения и приёмка оставались за разработчиком.",
       label: "История работы",
       state: "Проверено",
       tone: "success",
-      body: "9 тем · решения и ревью\nFAIL → fix → PASS\nDocker · Kubernetes · CI/CD",
+      body: "Правила → мои правки → работа агентов\nМиграции → интеграции → регрессия\nCI/CD → runbook → моя приёмка",
       humanAt: PRODUCT_START,
       action: "Я · проверяю рабочие сценарии",
       human:
         "Открываю разделы ERP и сверяю поведение с требованиями. Направление, архитектура и качество остаются под моим контролем.",
     },
   ];
-  // Manual reduced-motion playback must also expose fixes and rechecks.
+  // Every important edit is reachable without animation and restored on rewind.
   const checkpoints = [
     ...new Set([
       ...chapters.map((chapter) => chapter.inspect),
-      27900,
-      31800,
-      51500,
-      54100,
-      56200,
-      58800,
-      64100,
-      71600,
-      76200,
-      85700,
+      23500,
+      31200,
+      35000,
+      48000,
+      57500,
+      61000,
+      64000,
+      67500,
+      75500,
+      85500,
+      90500,
+      98500,
     ]),
   ].sort((a, b) => a - b);
 
@@ -672,13 +805,24 @@
   let visibleProduct = false;
   let activeScene = -1;
   let activeGit = "";
+  let activeArtifact = "";
 
   function setText(element, text) {
     if (element.textContent !== text) element.textContent = text;
   }
-  function paintGit(name) {
-    if (activeGit === name) return;
-    activeGit = name;
+  function codeLines(lines) {
+    return lines.map((line) => {
+      const row = document.createElement("span");
+      row.textContent = line || " ";
+      row.classList.toggle("ad-line-added", line.startsWith("+"));
+      row.classList.toggle("ad-line-removed", line.startsWith("-"));
+      return row;
+    });
+  }
+  function paintGit(name, before) {
+    const key = `${name}:${before ?? ""}`;
+    if (activeGit === key) return;
+    activeGit = key;
     const git = gitSets[name];
     setText(find("git-count"), git.count);
     find("files").replaceChildren(
@@ -693,7 +837,7 @@
       }),
     );
     find("diff").replaceChildren(
-      ...git.diff.map((line) => {
+      ...(before ? before.split("\n").slice(0, 4) : git.diff).map((line) => {
         const row = document.createElement("span");
         row.textContent = line;
         row.classList.toggle("ad-diff-removed", line.startsWith("-"));
@@ -707,17 +851,17 @@
       scenes.findLastIndex((scene) => time >= scene.at),
     );
     const scene = scenes[index];
+    const editor = scene.mode === "editor" && time >= scene.at;
+    const edited = !scene.before || time >= scene.editAt;
+    demo.classList.toggle("ad-developer-mode", editor);
     if (activeScene !== index) {
       activeScene = index;
       setText(find("thread-title"), threadNames[scene.thread]);
       setText(find("agent-text"), scene.agent);
       setText(find("artifact-label"), scene.label);
-      setText(find("artifact-state"), scene.state);
-      setText(find("artifact-body"), scene.body);
       find("artifact").dataset.tone = scene.tone;
       setText(find("human-action"), scene.action);
       setText(find("human-text"), scene.human);
-      paintGit(scene.git);
       threads.forEach((thread) =>
         thread.classList.toggle(
           "ad-main-chat",
@@ -728,17 +872,19 @@
         scene.thread === "delivery" || scene.thread === "scaling";
       setText(
         find("worker-ui"),
-        time >= 42000 ? "Blazor · сценарии готовы" : "Blazor · компоненты",
+        time >= 46000 ? "Blazor · правки по ревью" : "Blazor · по правилам",
       );
       setText(
         find("worker-api"),
-        scene.git === "fix" ? "RBAC · исправление" : "ASP.NET Core · API",
+        scene.git === "fix"
+          ? "RBAC · по моему diff"
+          : "API · контракты модулей",
       );
       setText(
         find("worker-ops"),
         delivery
-          ? "Docker · K8s · CI/CD"
-          : time >= 55300
+          ? "CI/CD · по моему workflow"
+          : time >= 63000
             ? "Регрессия · PASS"
             : "Unit · integration · e2e",
       );
@@ -749,8 +895,28 @@
         discussion.classList.add("ad-chat-enter");
       }
     }
+    const artifactKey = `${index}:${edited}`;
+    if (activeArtifact !== artifactKey) {
+      activeArtifact = artifactKey;
+      find("artifact-body").replaceChildren(
+        ...codeLines((edited ? scene.body : scene.before).split("\n")),
+      );
+      setText(
+        find("artifact-state"),
+        scene.before && edited ? "Моя правка сохранена ✓" : scene.state,
+      );
+      setText(
+        find("editor-tab"),
+        scene.before ? "Изменения" : "Файл / проверка",
+      );
+      find("artifact").classList.toggle(
+        "ad-edit-saved",
+        Boolean(scene.before && edited),
+      );
+      paintGit(scene.git, edited ? null : scene.before);
+    }
     if (index === 0 && time >= 18000) {
-      const fraction = Math.max(0, Math.min(1, (time - 18500) / 3000));
+      const fraction = Math.max(0, Math.min(1, (time - 18100) / 1300));
       setText(
         find("agent-text"),
         scene.agent.slice(0, Math.floor(fraction * scene.agent.length)) || " ",
@@ -759,21 +925,21 @@
     setText(find("dev-status"), time >= 18000 ? scene.status : "Новая тема");
     setText(
       find("chat-state"),
-      time >= 84200
+      time >= 97200
         ? "✓ Ревью итерации"
-        : time >= 26000
-          ? "✓ План согласован"
+        : time >= 22500
+          ? "✓ Правила в репозитории"
           : time >= 18000
             ? "Архитектурное ревью"
             : "Новая задача",
     );
     setText(
       find("tests-thread-state"),
-      time >= 55300
+      time >= 63000
         ? "✓ Повторный прогон"
-        : time >= 49500
+        : time >= 55000
           ? "Исправление · RBAC"
-          : time >= 44400
+          : time >= 49000
             ? "Ошибка доступа · FAIL"
             : "Проверки запущены",
     );
@@ -781,65 +947,75 @@
       "ad-human-visible",
       time >= scene.humanAt,
     );
+    demo.classList.toggle(
+      "ad-ui-review-visible",
+      time >= 42500 && time < 46000,
+    );
+    return scene;
   }
   function renderInfrastructure() {
-    if (time < 65000 || time >= 80000) return;
-    const rising = time >= 70000;
-    const scaling = time >= 73500;
-    const scaled = time >= 75300;
+    if (time < 78000 || time >= 93000) return;
+    const rising = time >= 82000;
+    const holding = time >= 84500;
+    const scaling = time >= 87500;
+    const scaled = time >= 89500;
+    const ramp = Math.min(1, Math.max(0, (time - 82000) / 2500));
     const infra = find("infra");
     infra.classList.toggle("ad-load-rising", rising);
     infra.classList.toggle("ad-scaling", scaling);
     infra.classList.toggle("ad-scaled", scaled);
     setText(
-      find("user-count"),
-      Math.round(
-        120 + 1080 * Math.min(1, Math.max(0, (time - 70000) / 3000)),
-      ).toLocaleString("ru-RU"),
+      find("request-rate"),
+      Math.round(500 + 1000 * ramp).toLocaleString("ru-RU"),
     );
     setText(
       find("load-label"),
       scaled
-        ? "Нагрузка распределена"
-        : rising
-          ? "Входящий трафик растёт"
-          : "Обычная нагрузка",
+        ? "Тот же профиль · CPU 52%"
+        : holding
+          ? "Нагрузку удерживаем 3 мин*"
+          : rising
+            ? "Повышаем частоту запросов"
+            : "Базовый профиль · CPU 26%",
     );
     setText(
       find("replica-count"),
-      scaled ? "4 реплики" : scaling ? "2 → 4 реплики" : "2 реплики",
+      scaled ? "3 реплики" : scaling ? "2 → 3 реплики" : "2 реплики",
     );
     setText(
       find("hpa-status"),
       scaled
-        ? "4 / 4 готовы · CPU 48%"
+        ? "3 / 3 готовы · CPU 52%"
         : scaling
-          ? "CPU > 60% → добавляем pod"
-          : rising
-            ? "CPU 78% · растёт нагрузка"
-            : "2 / 2 готовы · CPU 32%",
+          ? "ceil(2 × 78 / 60) = 3"
+          : holding
+            ? "CPU 78% · target 60%"
+            : rising
+              ? `CPU ${Math.round(26 + 52 * ramp)}% · target 60%`
+              : "2 / 2 готовы · target 60%",
     );
     setText(
       find("infra-state"),
       scaled
-        ? "Больше пользователей → больше реплик API"
+        ? "Проверяю CPU, задержки и ошибки"
         : scaling
-          ? "HPA добавляет мощность"
-          : "Наблюдаем за системой",
+          ? "HPA добавляет 1 pod API"
+          : "CPU относительно requests 500m",
     );
     setText(
       find("infra-explanation"),
       scaled
-        ? "Kubernetes добавил экземпляры API. Ingress распределяет запросы; база данных остаётся общим источником данных."
-        : rising
-          ? "Пользователей стало больше. Метрики CPU запускают HPA: добавляем контейнеры приложения, чтобы распределить работу."
-          : "Web и смартфоны обращаются к одному API. Входящий трафик распределяется между контейнерами.",
+        ? "При том же профиле CPU снизился до 52%. Проверяю задержки и ошибки. Реплик API стало три; база данных остаётся общей."
+        : scaling
+          ? "Средний CPU 78% при цели 60%: HPA рассчитывает 3 реплики. Ingress распределяет запросы между готовыми pod."
+          : holding
+            ? "Удерживаю профиль 3 минуты и наблюдаю CPU. Время теста сжато; числа показывают принцип, это не бенчмарк."
+            : "Задаю смесь синтетических запросов Web / Phone и ресурсы pod. Проверяю метрики; количество людей не служит сигналом HPA.",
     );
-    if (time >= 65000 && time < 80000)
-      infra.style.setProperty(
-        "--ad-flow",
-        motionOff ? 0.5 : (time % 1800) / 1800,
-      );
+    infra.style.setProperty(
+      "--ad-flow",
+      motionOff ? 0.5 : (time % 1800) / 1800,
+    );
   }
   function showPage(name, animate = true) {
     if (activePage === name) return;
@@ -921,15 +1097,15 @@
         ? "opening"
         : time < 18000
           ? "compose"
-          : time < 34000
+          : time < 37000
             ? "working"
-            : time < 42000
+            : time < 46000
               ? "building"
-              : time < 57000
+              : time < 65000
                 ? "verified"
-                : time < 65000
+                : time < 78000
                   ? "delivery"
-                  : time < 80000
+                  : time < 93000
                     ? "infrastructure"
                     : time < PRODUCT_START
                       ? "threads"
@@ -937,12 +1113,13 @@
                         ? "product"
                         : "finale",
     );
-    demo.classList.toggle("ad-has-tools", time >= 19800);
-    demo.classList.toggle("ad-many-threads", time >= 80000);
-    demo.classList.toggle("ad-verified", time >= 55300);
+    demo.classList.toggle("ad-has-tools", time >= 21000);
+    demo.classList.toggle("ad-many-threads", time >= 33000);
+    demo.classList.toggle("ad-verified", time >= 63000);
     demo.classList.toggle("ad-finished", time >= FINALE_START);
     const typing = time >= 6600 && time < 13600;
     demo.classList.toggle("ad-is-typing", typing);
+    demo.classList.toggle("ad-brief-sent", time >= 18000);
     demo.classList.toggle("ad-brief-ready", time >= 13600 && time < 18000);
     setText(
       find("prompt"),
@@ -957,16 +1134,16 @@
               ) || " "
             : "Опишите задачу…",
     );
-    renderWork();
+    const scene = renderWork();
     renderInfrastructure();
     setText(
       find("detail"),
-      time >= 75300 && time < 80000
-        ? "Нагрузка выросла со 120 до 1 200 пользователей. HPA увеличил число реплик API с двух до четырёх; Ingress распределяет запросы. Логи и метрики помогают проверить результат. Значения условные."
-        : time >= 49500 && time < 55300
-          ? "После ревью агент добавляет серверную policy Orders.Approve. Повторно проверяем запрет для Viewer, разрешение для Manager и весь набор unit, integration и e2e."
-          : time >= 55300 && time < 57000
-            ? "Повторные проверки проходят. Я просматриваю исправление и разрешаю сборку образа для тестового контура. Успешные тесты — этап работы, дальше проверяем поставку и нагрузку."
+      time >= 89500 && time < 93000
+        ? "Условный нагрузочный профиль: 500 → 1 500 запросов/с. После выдержки CPU 78% при цели HPA 60% даёт 2 → 3 реплики; затем CPU 52%. Время сжато. Проверяю также задержки и ошибки."
+        : time >= 84500 && time < 89500
+          ? "Удерживаю синтетический профиль 3 минуты и наблюдаю CPU относительно requests 500m. HPA рассчитывает ceil(2 × 78 / 60) = 3. Число пользователей не определяет число реплик; время наблюдения сжато."
+          : time >= 18000 && time < 78000
+            ? (scene.caption ?? chapters[chapter].detail)
             : chapters[chapter].detail,
     );
     find("empty").style.opacity = time < 2600 || time >= 6000 ? "0" : "1";
@@ -985,11 +1162,11 @@
     });
     setText(
       find("build-label"),
-      time >= 39000
+      time >= 41900
         ? "Рабочая область"
-        : time >= 37700
+        : time >= 40600
           ? "Навигация и аккаунт"
-          : time >= 36400
+          : time >= 39300
             ? "Нижняя панель"
             : "Шапка интерфейса",
     );
@@ -1038,7 +1215,7 @@
           ? "Вы изучаете пример приложения. Нажмите «Продолжить», чтобы вернуться к презентации."
           : playing && (!inView || document.hidden)
             ? "Презентация на паузе, пока окно вне экрана. Продолжится с того же места."
-            : "1 мин 52 с · этапы можно выбирать в любой момент. Сценарий, код, проверки и данные ERP — демонстрационные.",
+            : "2 мин 5 с · этапы можно выбирать в любой момент. Сценарий, код, проверки и данные ERP — демонстрационные.",
     );
     setText(
       find("stage-note"),

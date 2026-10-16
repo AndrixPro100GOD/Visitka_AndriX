@@ -2809,7 +2809,8 @@
   padding-bottom: 12px;
   border-bottom: 1px solid #ffffff08;
 }
-.ad-has-tools .ad-composer {
+.ad-has-tools .ad-composer,
+.ad-brief-sent .ad-composer {
   display: none;
 }
 .ad-many-threads .ad-chat {
@@ -3870,6 +3871,299 @@
   }
   .ad-team-note {
     display: none;
+  }
+}
+/* The developer works in files; the orchestrator becomes a supporting status. */
+.ad-review-author {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #c6dda7;
+  font-size: 10px;
+  line-height: 1.5;
+}
+.ad-review-author .ad-avatar {
+  width: 23px;
+  height: 23px;
+  font-size: 7px;
+}
+.ad-artifact .ad-editor-toolbar {
+  display: none;
+}
+.ad-artifact pre > span,
+.ad-ui-review pre > span {
+  display: block;
+  min-height: 1em;
+  padding-inline: 5px;
+  border-left: 2px solid transparent;
+}
+.ad-artifact pre .ad-line-added,
+.ad-ui-review .ad-line-added {
+  color: #c3dc9e;
+  background: #a9d47809;
+  border-left-color: #a9d47866;
+}
+.ad-artifact pre .ad-line-removed,
+.ad-ui-review .ad-line-removed {
+  color: #d5a59a;
+  background: #cf948509;
+  border-left-color: #cf94854d;
+}
+.ad-developer-mode .ad-context-note {
+  display: none;
+}
+.ad-developer-mode .ad-messages {
+  padding-top: 14px;
+}
+.ad-developer-mode .ad-discussion {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+.ad-developer-mode .ad-human-review {
+  order: 0;
+  margin: 0;
+  padding: 0 0 0 10px;
+  border: 0;
+  border-left: 2px solid #b9d99166;
+  border-radius: 0;
+  background: transparent;
+}
+.ad-developer-mode .ad-human-review p {
+  color: #bcc8b2;
+  font-size: 11px;
+  line-height: 1.65;
+  margin-top: 7px;
+}
+.ad-developer-mode .ad-artifact {
+  order: 1;
+  margin: 0;
+  padding: 0;
+  background: #101512;
+  overflow: hidden;
+}
+.ad-developer-mode .ad-artifact > div:first-child {
+  padding: 10px;
+  border-bottom: 1px solid #ffffff0b;
+  background: #20271f;
+  align-items: start;
+  line-height: 1.5;
+  font-size: 10px;
+}
+.ad-developer-mode .ad-artifact i {
+  white-space: normal;
+  text-align: right;
+  flex-shrink: 0;
+  max-width: 42%;
+  font-size: 8px;
+}
+.ad-developer-mode .ad-artifact .ad-editor-toolbar {
+  display: flex;
+  padding: 6px 10px;
+  color: #7f917c;
+  font-size: 8px;
+}
+.ad-editor-toolbar b {
+  font-weight: 500;
+  color: #b8cba5;
+}
+.ad-developer-mode .ad-artifact pre {
+  margin: 0;
+  padding: 9px 6px 12px;
+  font-size: 10px;
+  line-height: 1.9;
+}
+.ad-edit-saved {
+  border-color: #b4d68a42;
+}
+.ad-developer-mode .ad-agent-message {
+  order: 2;
+  margin: 0;
+  padding-top: 10px;
+  border-top: 1px solid #89b8cb1c;
+}
+.ad-developer-mode .ad-agent-heading strong {
+  font-size: 9px;
+  color: #a6bcc9;
+}
+.ad-developer-mode .ad-agent-mark {
+  font-size: 14px;
+  color: #8fb7ca;
+}
+.ad-developer-mode .ad-agent-message > p {
+  margin: 5px 0 0;
+  min-height: 0;
+  font-size: 9px;
+  line-height: 1.65;
+  color: #93a5ab;
+}
+.ad-ui-review {
+  display: none;
+  position: absolute;
+  left: 28%;
+  right: 25px;
+  bottom: 55px;
+  max-width: 390px;
+  padding: 14px;
+  background: #1b241fee;
+  border: 1px solid #abc78755;
+  border-radius: 9px;
+  box-shadow: 0 15px 40px #14201926;
+  opacity: 0;
+  transform: translateY(10px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s var(--ease);
+}
+.ad-enhanced [data-phase="building"] .ad-ui-review {
+  display: block;
+}
+.ad-ui-review-visible [data-phase="building"] .ad-ui-review {
+  opacity: 1;
+  transform: none;
+}
+.ad-ui-review .ad-review-author > span:last-child {
+  margin-left: auto;
+  font-size: 8px;
+  color: #8fa782;
+}
+.ad-ui-review pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font:
+    10px/1.8 Consolas,
+    monospace;
+  margin-block: 10px;
+}
+.ad-ui-review p {
+  color: #acbaa3;
+  font-size: 10px;
+  line-height: 1.6;
+}
+.ad-load-footnote {
+  margin-top: 10px;
+  color: #96a88a;
+  font-size: 8px;
+  line-height: 1.6;
+}
+@media (min-width: 1200px) {
+  .ad-developer-mode .ad-human-review p {
+    font-size: 12px;
+  }
+  .ad-developer-mode .ad-artifact pre {
+    font-size: 11px;
+  }
+  .ad-developer-mode .ad-agent-message > p {
+    font-size: 10px;
+  }
+}
+@media (max-width: 800px) {
+  .ad-developer-mode .ad-discussion {
+    gap: 10px;
+  }
+  .ad-developer-mode .ad-human-review p {
+    font-size: 9px;
+  }
+  .ad-developer-mode .ad-artifact > div:first-child {
+    padding: 8px;
+    font-size: 8px;
+  }
+  .ad-developer-mode .ad-artifact i {
+    font-size: 6px;
+  }
+  .ad-developer-mode .ad-artifact pre {
+    font-size: 8px;
+  }
+  .ad-developer-mode .ad-agent-message > p {
+    font-size: 8px;
+  }
+  .ad-review-author {
+    font-size: 9px;
+  }
+}
+@media (max-width: 600px) {
+  .ad-developer-mode .ad-messages {
+    padding-top: 9px;
+  }
+  .ad-developer-mode .ad-discussion {
+    gap: 8px;
+  }
+  .ad-developer-mode .ad-human-review {
+    padding-left: 7px;
+  }
+  .ad-developer-mode .ad-human-review p {
+    font-size: 8px;
+    line-height: 1.5;
+    margin-top: 5px;
+  }
+  .ad-review-author {
+    gap: 5px;
+    font-size: 8px;
+  }
+  .ad-review-author .ad-avatar {
+    width: 18px;
+    height: 18px;
+    font-size: 6px;
+  }
+  .ad-developer-mode .ad-artifact > div:first-child {
+    padding: 6px;
+    font-size: 7px;
+  }
+  .ad-developer-mode .ad-artifact .ad-editor-toolbar {
+    padding: 4px 6px;
+    font-size: 6px;
+  }
+  .ad-developer-mode .ad-artifact pre {
+    padding: 6px 3px 8px;
+    font-size: 7px;
+    line-height: 1.65;
+  }
+  .ad-developer-mode .ad-agent-message {
+    padding-top: 6px;
+  }
+  .ad-developer-mode .ad-agent-heading strong {
+    font-size: 7px;
+  }
+  .ad-developer-mode .ad-agent-message > p {
+    font-size: 7px;
+    line-height: 1.5;
+  }
+  .ad-ui-review {
+    left: 14px;
+    right: 14px;
+    bottom: 51px;
+    max-width: none;
+    padding: 10px;
+  }
+  .ad-ui-review pre {
+    font-size: 8px;
+    margin-block: 7px;
+  }
+  .ad-ui-review p {
+    font-size: 8px;
+  }
+  .ad-ui-review .ad-review-author > span:last-child {
+    font-size: 6px;
+  }
+  .ad-load-footnote {
+    font-size: 7px;
+    margin-top: 7px;
+  }
+  .ad-infra-content {
+    padding-top: 12px;
+  }
+  .ad-infra .ad-observability {
+    margin-top: 12px;
+    padding-top: 8px;
+  }
+  .ad-traffic-meter,
+  .ad-infra-map {
+    margin-top: 10px;
+  }
+}
+@media (max-width: 370px) {
+  .ad-stage {
+    height: 620px;
   }
 }
 .motion-off .ai-demo *,
