@@ -33,10 +33,10 @@
     />
     <link rel="stylesheet" href="./index.css?v=20261009-5" />
     <link rel="stylesheet" href="./tms-demo.css?v=20261009-2" />
-    <link rel="stylesheet" href="./ai-demo.css?v=20261016-3" />
+    <link rel="stylesheet" href="./ai-demo.css?v=20261016-4" />
     <script src="./js/site.js?v=20261009-5" defer></script>
     <script src="./js/tms-demo.js?v=20261009-2" defer></script>
-    <script src="./js/ai-demo.js?v=20261016-3" defer></script>
+    <script src="./js/ai-demo.js?v=20261016-4" defer></script>
   </head>
   <body id="top">
     <a class="skip-link" href="#main">Перейти к содержимому</a>
@@ -643,7 +643,7 @@
                       <div
                         class="ad-chat"
                         data-ad-thread="warehouse"
-                        data-ad-reveal="29000"
+                        data-ad-reveal="37000"
                       >
                         <span class="ad-chat-dot"></span
                         ><span
@@ -665,7 +665,7 @@
                       <div
                         class="ad-chat"
                         data-ad-thread="tests"
-                        data-ad-reveal="46000"
+                        data-ad-reveal="60000"
                       >
                         <span class="ad-chat-dot"></span
                         ><span
@@ -678,7 +678,7 @@
                       <div
                         class="ad-chat"
                         data-ad-thread="delivery"
-                        data-ad-reveal="65000"
+                        data-ad-reveal="46000"
                       >
                         <span class="ad-chat-dot"></span
                         ><span
@@ -689,7 +689,7 @@
                       <div
                         class="ad-chat"
                         data-ad-thread="scaling"
-                        data-ad-reveal="78000"
+                        data-ad-reveal="86000"
                       >
                         <span class="ad-chat-dot"></span
                         ><span
@@ -700,7 +700,7 @@
                       <div
                         class="ad-chat"
                         data-ad-thread="mobile"
-                        data-ad-reveal="93000"
+                        data-ad-reveal="101000"
                       >
                         <span class="ad-chat-dot"></span
                         ><span
@@ -711,7 +711,7 @@
                       <div
                         class="ad-chat"
                         data-ad-thread="observability"
-                        data-ad-reveal="95500"
+                        data-ad-reveal="103500"
                       >
                         <span class="ad-chat-dot"></span
                         ><span
@@ -778,6 +778,63 @@
                           </div>
                           <pre data-ad="artifact-body">
 Заказы · Склад · Доступы</pre>
+                        </div>
+                        <div
+                          class="ad-review-report"
+                          data-ad="review-report"
+                          data-review="open"
+                        >
+                          <div class="ad-report-bar">
+                            <span>◫ HTML · review.html</span
+                            ><span>Отчёт в чате</span>
+                          </div>
+                          <div class="ad-report-content">
+                            <div class="ad-report-title">
+                              <div>
+                                <small>Модуль заказов · ревью изменений</small>
+                                <h5>Проверяю, что изменилось</h5>
+                              </div>
+                              <span data-ad="report-badge"
+                                >Нужна доработка</span
+                              >
+                            </div>
+                            <div class="ad-report-rules">
+                              <span>AGENTS.md</span><span>.editorconfig</span
+                              ><span>UI-тексты → Resources</span>
+                            </div>
+                            <div class="ad-report-compare">
+                              <div>
+                                <small>Было · ответ при нехватке</small
+                                ><strong>409 · «Ошибка»</strong>
+                                <p>Причина и доступный остаток не переданы.</p>
+                              </div>
+                              <div>
+                                <small data-ad="report-after-label"
+                                  >Предлагаю · ожидаемый контракт</small
+                                ><strong>stock.insufficient</strong>
+                                <p>
+                                  409 · available: 0<br />Текст — из Resources.
+                                </p>
+                              </div>
+                            </div>
+                            <div class="ad-report-checks">
+                              <span
+                                >Контракт API
+                                <b data-ad="report-contract">На ревью</b></span
+                              ><span>Правила и формат <b>✓ Проверены</b></span
+                              ><span
+                                >Тест ответа
+                                <b data-ad="report-test">Ожидаю diff</b></span
+                              >
+                            </div>
+                            <div class="ad-report-comment">
+                              <span class="ad-avatar">АК</span>
+                              <p data-ad="report-comment">
+                                Сверяю отчёт с Git-diff. Проверяю контракт,
+                                ресурсы текстов и тесты перед приёмкой.
+                              </p>
+                            </div>
+                          </div>
                         </div>
                         <div
                           class="ad-sent ad-human-review"
@@ -1087,18 +1144,6 @@
                     </footer>
                   </div>
                 </div>
-                <div class="ad-ui-review" aria-hidden="true">
-                  <div class="ad-review-author">
-                    <span class="ad-avatar">АК</span>
-                    <strong>Я · правлю Orders.razor</strong>
-                    <span>Мой diff</span>
-                  </div>
-                  <pre><span class="ad-line-removed">- &lt;button&gt;Approve&lt;/button&gt;</span><span class="ad-line-added">+ &lt;button disabled="@(!CanApprove)"&gt;</span><span class="ad-line-added">+   @Labels.Orders.Approve</span><span class="ad-line-added">+ &lt;/button&gt;</span></pre>
-                  <p>
-                    Проверяю роли и сценарий, правлю компонент и ресурсы. Следом
-                    — проверка доступа через API.
-                  </p>
-                </div>
                 <div
                   class="ad-build-tag"
                   data-ad="build-tag"
@@ -1106,6 +1151,375 @@
                 >
                   <span>Промежуточная сборка · моё ревью</span
                   ><span data-ad="build-label">Шапка интерфейса</span>
+                </div>
+              </div>
+
+              <div
+                class="ad-engineering ad-window"
+                data-ad="engineering"
+                aria-hidden="true"
+                inert
+              >
+                <div class="ad-dev-titlebar">
+                  <span class="ad-window-dots"><i></i><i></i><i></i></span>
+                  <span class="ad-dev-brand" data-ad="engineering-brand"
+                    >Проверка миграции</span
+                  >
+                  <span class="ad-dev-project"
+                    >Пульс ERP <span>/</span>
+                    <span data-ad="engineering-location">Копия БД</span></span
+                  >
+                </div>
+                <div class="ad-engineering-body">
+                  <div
+                    class="ad-migration-lab"
+                    data-ad="migration-panel"
+                    hidden
+                  >
+                    <div class="ad-engineering-heading">
+                      <div>
+                        <small
+                          >EF Core · PostgreSQL · обезличенная копия БД</small
+                        >
+                        <h4>Сохраняю данные при изменении схемы</h4>
+                      </div>
+                      <span data-ad="migration-status">SQL review</span>
+                    </div>
+                    <div class="ad-migration-steps">
+                      <span>01 · Проверяю SQL</span
+                      ><span>02 · Применяю на копии</span
+                      ><span>03 · Сверяю данные</span>
+                    </div>
+                    <div class="ad-migration-tables">
+                      <div>
+                        <div class="ad-data-heading">
+                          <strong>До миграции</strong
+                          ><span>orders · 3 примера</span>
+                        </div>
+                        <table>
+                          <thead>
+                            <tr>
+                              <th>Заказ</th>
+                              <th>Сумма, ₽</th>
+                              <th>Статус</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>#1042</td>
+                              <td>48 500</td>
+                              <td>Оплачен</td>
+                            </tr>
+                            <tr>
+                              <td>#1043</td>
+                              <td>126 000</td>
+                              <td>В работе</td>
+                            </tr>
+                            <tr>
+                              <td>#1044</td>
+                              <td>32 800</td>
+                              <td>Отгружен</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="ad-migration-after">
+                        <div class="ad-data-heading">
+                          <strong>После миграции</strong
+                          ><span class="ad-new-column">+ external_ref</span>
+                        </div>
+                        <table>
+                          <thead>
+                            <tr>
+                              <th>Заказ</th>
+                              <th>Сумма, ₽</th>
+                              <th>Статус</th>
+                              <th>ref</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>#1042</td>
+                              <td>48 500</td>
+                              <td>Оплачен</td>
+                              <td>NULL</td>
+                            </tr>
+                            <tr>
+                              <td>#1043</td>
+                              <td>126 000</td>
+                              <td>В работе</td>
+                              <td>NULL</td>
+                            </tr>
+                            <tr>
+                              <td>#1044</td>
+                              <td>32 800</td>
+                              <td>Отгружен</td>
+                              <td>NULL</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <div class="ad-migration-sql">
+                      <span>20261016_AddExternalRef.sql · мой SQL review</span>
+                      <pre>
+ALTER TABLE orders
+  ADD COLUMN external_ref text NULL;</pre>
+                    </div>
+                    <div class="ad-migration-evidence">
+                      <div>
+                        <small>Количество заказов</small
+                        ><strong data-ad="migration-count">2 184 → …</strong>
+                      </div>
+                      <div>
+                        <small>Сверка сумм и статусов</small
+                        ><strong data-ad="migration-match"
+                          >Ожидаю запуск</strong
+                        >
+                      </div>
+                      <div class="ad-old-order">
+                        <small>Заказ #1042 · новая версия API</small
+                        ><strong data-ad="migration-order"
+                          >Проверю после миграции</strong
+                        >
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="ad-pipeline-config"
+                    data-ad="pipeline-panel"
+                    hidden
+                  >
+                    <div class="ad-engineering-heading">
+                      <div>
+                        <small>.github/workflows/release.yml</small>
+                        <h4>Настраиваю путь изменения до выпуска</h4>
+                      </div>
+                      <span>Конфигурация</span>
+                    </div>
+                    <div class="ad-pipeline-graph">
+                      <div>
+                        <i>01</i><strong>Проверки</strong
+                        ><small>unit · integration · e2e</small>
+                      </div>
+                      <div>
+                        <i>02</i><strong>Образ Docker</strong
+                        ><small>Версия = commit SHA</small>
+                      </div>
+                      <div>
+                        <i>03</i><strong>Staging</strong
+                        ><small>Migration check · smoke</small>
+                      </div>
+                      <div>
+                        <i>04</i><strong>Моё подтверждение</strong
+                        ><small>Protected environment</small>
+                      </div>
+                      <div>
+                        <i>05</i><strong>Production</strong
+                        ><small>Rollout · readiness</small>
+                      </div>
+                    </div>
+                    <div class="ad-pipeline-settings">
+                      <div class="ad-workflow-source">
+                        <div class="ad-data-heading">
+                          <strong>Зависимости jobs</strong><span>YAML</span>
+                        </div>
+                        <pre>
+image:
+  needs: [unit, integration, e2e]
+staging:
+  needs: [image, migration-check]
+production:
+  needs: [staging]
+  environment: production</pre>
+                      </div>
+                      <div class="ad-environment-settings">
+                        <div class="ad-data-heading">
+                          <strong>Settings / Environments</strong
+                          ><span>production</span>
+                        </div>
+                        <div>
+                          <span
+                            >Required reviewers<small
+                              >Моё подтверждение перед выпуском</small
+                            ></span
+                          ><b class="ad-setting-toggle"></b>
+                        </div>
+                        <div>
+                          <span
+                            >Deployment branches<small
+                              >Разрешённая ветка</small
+                            ></span
+                          ><b>master</b>
+                        </div>
+                        <div>
+                          <span
+                            >Environment secrets<small
+                              >Отдельные доступы среды</small
+                            ></span
+                          ><b>●●●●</b>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="ad-pipeline-runbook">
+                      <span>runbook.md</span
+                      ><strong>Backup → SQL review → smoke → rollback</strong
+                      ><b data-ad="pipeline-ready">Сверяю настройки</b>
+                    </div>
+                  </div>
+
+                  <div class="ad-release-lab" data-ad="release-panel" hidden>
+                    <div class="ad-release-workspace">
+                      <div class="ad-test-editor">
+                        <div class="ad-data-heading">
+                          <strong>ReservationTests.cs</strong
+                          ><span>Мой интеграционный тест</span>
+                        </div>
+                        <pre><span>[Fact]</span><span>public async Task CannotReserveTwice()</span><span>{</span><span>  await SeedStock("SKU-42", available: 1);</span><span>  await Reserve("order-A", "SKU-42");</span><span>  var second = await Reserve("order-B", "SKU-42");</span><span class="ad-line-added">  Assert.Equal(HttpStatusCode.Conflict,</span><span class="ad-line-added">    second.StatusCode);</span><span>}</span></pre>
+                        <div class="ad-test-expectation">
+                          Остаток 1 → первый резерв ✓ → второй запрос 409
+                        </div>
+                      </div>
+                      <div class="ad-git-commit">
+                        <small>Source control</small>
+                        <h4>Проверяю staged diff</h4>
+                        <div><span>M</span> ReservationTests.cs</div>
+                        <div><span>M</span> release.yml</div>
+                        <p>test: prevent a second stock reservation</p>
+                        <span class="ad-commit-button" data-ad="commit-label"
+                          >Просматриваю изменения</span
+                        >
+                        <pre data-ad="commit-command">$ git diff --staged</pre>
+                        <small
+                          >Ветка feature/reservation → workflow по push</small
+                        >
+                      </div>
+                    </div>
+                    <div class="ad-release-actions">
+                      <div class="ad-actions-repo">
+                        <span>◉ Пульс / erp</span>
+                        <div>
+                          <span>Code</span><strong>Actions</strong
+                          ><span>Environments</span>
+                        </div>
+                        <span>Условный проект</span>
+                      </div>
+                      <div class="ad-actions-run">
+                        <div>
+                          <small data-ad="actions-trigger"
+                            >release.yml · push · feature/reservation</small
+                          >
+                          <h4 data-ad="actions-title">
+                            Reservation checks #184
+                          </h4>
+                          <span data-ad="actions-commit"
+                            >a41c9e2 · test: prevent a second reservation</span
+                          >
+                        </div>
+                        <b data-ad="actions-status">In progress</b>
+                      </div>
+                      <div class="ad-actions-grid">
+                        <div class="ad-actions-jobs">
+                          <div data-ad-job="unit">
+                            <i>○</i><span>Unit tests<small>.NET 10</small></span
+                            ><b>Queued</b>
+                          </div>
+                          <div data-ad-job="integration">
+                            <i>○</i
+                            ><span
+                              >Integration<small>PostgreSQL · API</small></span
+                            ><b>Queued</b>
+                          </div>
+                          <div data-ad-job="e2e">
+                            <i>○</i><span>E2E<small>Blazor · Web</small></span
+                            ><b>Queued</b>
+                          </div>
+                          <div data-ad-job="image">
+                            <i>○</i
+                            ><span
+                              >Build image<small
+                                >Docker · commit SHA</small
+                              ></span
+                            ><b>Queued</b>
+                          </div>
+                          <div data-ad-job="staging">
+                            <i>○</i
+                            ><span
+                              >Staging<small
+                                >Migration check · smoke</small
+                              ></span
+                            ><b>Queued</b>
+                          </div>
+                          <div data-ad-job="production">
+                            <i>○</i
+                            ><span
+                              >Production<small
+                                >Protected environment</small
+                              ></span
+                            ><b>Queued</b>
+                          </div>
+                        </div>
+                        <div class="ad-actions-detail">
+                          <div class="ad-actions-log">
+                            <div class="ad-data-heading">
+                              <strong data-ad="actions-log-title"
+                                >Integration · live log</strong
+                              ><span data-ad="actions-run-id">run #184</span>
+                            </div>
+                            <pre data-ad="actions-log"></pre>
+                          </div>
+                          <div class="ad-actions-fix">
+                            <small>Моя правка · StockRepository.cs</small>
+                            <pre>
+UPDATE stock
+SET available = available - @qty
+WHERE sku = @sku
+  AND available >= @qty;</pre>
+                            <p>
+                              Ноль изменённых строк → 409.<br />Проверка и
+                              списание — одной операцией.
+                            </p>
+                          </div>
+                          <div class="ad-deploy-approval">
+                            <span class="ad-avatar">АК</span>
+                            <div>
+                              <strong>Review deployments</strong
+                              ><small>Проверяю staging, образ и rollback</small>
+                            </div>
+                            <b data-ad="deployment-approval"
+                              >Ожидается мой review</b
+                            >
+                          </div>
+                          <div class="ad-release-version">
+                            <div>
+                              <span>✓ Выпуск проверен</span
+                              ><strong>Пульс ERP <em>v0.8.4</em></strong
+                              ><small>commit b72d8f0 · smoke passed</small>
+                            </div>
+                            <div class="ad-version-preview">
+                              <aside>п<br />▦<br />▤<br />◷</aside>
+                              <div>
+                                <small>Обзор бизнеса</small
+                                ><strong>Заказы <b>148</b></strong
+                                ><span>✓ Новая версия доступна</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="ad-engineer-note">
+                  <span class="ad-avatar">АК</span>
+                  <div>
+                    <strong data-ad="engineering-action"
+                      >Я · проверяю изменения</strong
+                    >
+                    <p data-ad="engineering-human"></p>
+                  </div>
+                  <span>Мой контроль</span>
                 </div>
               </div>
 
@@ -1124,7 +1538,7 @@
                 <div class="ad-infra-content">
                   <div class="ad-infra-heading">
                     <span>Я задаю профиль и проверяю метрики</span>
-                    <h4>Нагрузочный тест.<br /><em>Измеряем запас.</em></h4>
+                    <h4>Нагрузочный тест.<br /><em>Проверяю запас.</em></h4>
                     <p data-ad="infra-explanation">
                       Синтетические запросы Web / Phone проходят через общий
                       API. Решение HPA зависит от метрик и настроек ресурсов.
@@ -1256,7 +1670,7 @@
                     Результат решений, проверок и итераций
                   </h4>
                   <p data-ad="detail">
-                    Человек определяет требования, архитектуру и качество.
+                    Определяю требования, архитектуру и критерии качества.
                     Агенты ускоряют реализацию, тесты и инфраструктуру. В этом
                     условном ERP можно переключать разделы.
                   </p>
@@ -1281,7 +1695,7 @@
                   ↺
                 </button>
                 <span class="ad-time mono"
-                  ><span data-ad="elapsed">00:00</span> / 02:05</span
+                  ><span data-ad="elapsed">00:00</span> / 02:13</span
                 >
               </div>
             </div>
@@ -1303,8 +1717,8 @@
           </p>
           <div class="ad-finale" data-ad="finale">
             <p>
-              Человек направляет.<br />Агенты ускоряют.<br /><span
-                >Качество — под контролем.</span
+              Задаю направление.<br />Агенты ускоряют.<br /><span
+                >Проверяю качество.</span
               >
             </p>
             <div>

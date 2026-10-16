@@ -10,9 +10,9 @@
       elements.set(name, demo.querySelector(`[data-ad="${name}"]`));
     return elements.get(name);
   };
-  const TOTAL = 125000;
-  const PRODUCT_START = 100000;
-  const FINALE_START = 121000;
+  const TOTAL = 133000;
+  const PRODUCT_START = 108000;
+  const FINALE_START = 129000;
   const prompt = [
     "Разработать ERP: .NET 10, ASP.NET Core API, Blazor WebAssembly.",
     "1. Архитектура: модульный монолит; заказы, склад, аналитика. Контракты OpenAPI, интеграции с учётной системой.",
@@ -43,76 +43,76 @@
     {
       start: 18000,
       inspect: 27500,
-      label: "Правила и код",
-      title: "Я задаю правила и редактирую код",
+      label: "Ревью и правила",
+      title: "Проверяю изменения агентов и задаю правила",
       detail:
-        "Фиксирую границы модулей и общий стиль в правилах проекта. Исправляю строковые литералы в diff, проверяю SQL миграции и контракт интеграции. Агенты продолжают по этим правилам.",
+        "Открываю HTML-отчёт прямо в чате: сравниваю поведение до и после изменений, проверяю замечания. Фиксирую соглашения в AGENTS.md, настройки форматирования и правила для литералов и ресурсов.",
     },
     {
       start: 37000,
       inspect: 44000,
-      label: "Проверка UI",
-      title: "Я проверяю интерфейс и правлю компоненты",
+      label: "Миграция",
+      title: "Проверяю миграцию на копии данных",
       detail:
-        "Открываю промежуточную сборку, проверяю роли и сценарий заказа. Правлю состояние кнопки и ресурсы локализации в Razor-компоненте. Затем проверяю права отдельно на API.",
+        "Просматриваю SQL, применяю миграцию к обезличенной копии БД и сравниваю заказы до и после. Сверяю количество, суммы и статусы, открываю старый заказ в новой версии.",
     },
     {
       start: 46000,
-      inspect: 52000,
-      label: "Проверки",
-      title: "Я дописываю тесты, нахожу причину и исправляю",
+      inspect: 54000,
+      label: "Pipeline",
+      title: "Настраиваю порядок поставки и защиту окружений",
       detail:
-        "Добавляю негативный тест прямого запроса к API. Получаю 200 вместо 403, останавливаю merge и нахожу пропущенную policy. Вношу правку, затем проверяю diff, повторный прогон и регрессию.",
+        "Связываю тесты, сборку образа и staging в workflow. В настройках production включаю подтверждение, ограничиваю ветки и секреты среды. Сверяю инструкцию выпуска и отката.",
     },
     {
-      start: 65000,
-      inspect: 71000,
-      label: "CI/CD и выпуск",
-      title: "Я настраиваю поставку и условия выпуска",
+      start: 60000,
+      inspect: 68500,
+      label: "Тесты → релиз",
+      title: "Пишу тест, фиксирую код и проверяю выпуск в Actions",
       detail:
-        "Редактирую workflow, задаю зависимости jobs и защиту production в настройках репозитория. Проверяю Docker, миграции и секреты, дополняю runbook откатом. Автоматизация выполняет согласованный порядок.",
+        "Добавляю проверку повторного резервирования и отправляю коммит. В Actions читаю ошибку, исправляю код и отправляю новый коммит. Проверяю новый прогон и staging, затем подтверждаю публикацию версии.",
     },
     {
-      start: 78000,
-      inspect: 81000,
+      start: 86000,
+      inspect: 89000,
       label: "Нагрузка",
       title: "Масштабирование проверяю нагрузочным тестом",
       detail:
         "Web и Phone работают через общий API и L7 Ingress. Я задаю профиль синтетических запросов и сверяю CPU с настроенным HPA. Число посетителей само по себе не определяет потребность в репликах.",
     },
     {
-      start: 93000,
-      inspect: 96600,
+      start: 101000,
+      inspect: 104600,
       label: "Итерации",
-      title: "Большая ERP — множество связанных задач",
+      title: "Сверяю результат нескольких итераций",
       detail:
         "Проверяю мобильный клиент и сверяю интеграцию с общим контрактом. В темах сохранены правила, мои исправления, миграции и документация. Сопоставляю результат с критериями приёмки.",
     },
     {
       start: PRODUCT_START,
-      inspect: 103000,
+      inspect: 111000,
       label: "ERP",
-      title: "Результат решений, проверок и итераций",
+      title: "Прохожу рабочие сценарии ERP",
       detail:
-        "Теперь можно пройти рабочие сценарии ERP. Позади остаются темы, ревью, исправления и проверки. Разделы демонстрационного приложения доступны и вручную.",
+        "Открываю разделы ERP и проверяю поведение после выпуска. Позади остаются темы, отчёты ревью, миграция, коммиты и проверки. Разделы демонстрационного приложения можно переключать вручную.",
     },
     {
       start: FINALE_START,
       inspect: TOTAL,
       label: "Итог",
-      title: "Человек направляет. Агенты ускоряют.",
+      title: "Задаю направление. Проверяю качество.",
       detail:
         "Я определяю требования, контролирую архитектуру и качество, принимаю результат. Агенты ускоряют реализацию, тесты и инфраструктуру — время уходит на полезную работу.",
     },
   ];
   const tour = [
-    { at: 101400, page: "dashboard" },
-    { at: 103900, page: "shop" },
-    { at: 106800, page: "analytics" },
-    { at: 109700, page: "bids" },
-    { at: 112600, page: "team" },
-    { at: 115500, page: "account" },
-    { at: 118400, page: "dashboard" },
+    { at: 109400, page: "dashboard" },
+    { at: 111900, page: "shop" },
+    { at: 114800, page: "analytics" },
+    { at: 117700, page: "bids" },
+    { at: 120600, page: "team" },
+    { at: 123500, page: "account" },
+    { at: 126400, page: "dashboard" },
   ];
   const pageNames = {
     dashboard: "Обзор",
@@ -125,6 +125,37 @@
 
   // These are illustrative artifacts from the ERP example, not this site's code or test results.
   const gitSets = {
+    review: {
+      count: "+46  −12",
+      files: [
+        ["C#", "OrderEndpoints.cs", "M"],
+        ["RES", "Labels.resx", "M"],
+        ["API", "erp.openapi.yaml", "M"],
+        ["HTML", "review.html", "+1"],
+      ],
+      diff: [
+        '- { message: "Ошибка" }',
+        '+ { code: "stock.insufficient",',
+        "+   available: 0 }",
+        "+ UI → Labels.StockUnavailable",
+      ],
+    },
+    reservation: {
+      count: "+32  −9",
+      files: [
+        ["C#", "StockRepository.cs", "M"],
+        ["C#", "ReservationTests.cs", "M"],
+        ["API", "erp.openapi.yaml", "M"],
+        ["MD", "release-notes.md", "M"],
+      ],
+      diff: [
+        "+ UPDATE stock",
+        "+ SET available = available - @qty",
+        "+ WHERE sku = @sku",
+        "+   AND available >= @qty;",
+        "+ # affectedRows == 0 → 409",
+      ],
+    },
     rules: {
       count: "+42  −8",
       files: [
@@ -140,33 +171,19 @@
         "+ Контракт → тест + документация",
       ],
     },
-    literals: {
-      count: "+28  −16",
-      files: [
-        ["C#", "OrderPolicies.cs", "+6"],
-        ["C#", "OrderQueries.cs", "M"],
-        ["RZR", "Orders.razor", "M"],
-        ["RES", "Labels.resx", "+8"],
-      ],
-      diff: [
-        '- .RequireAuthorization("Orders.Read");',
-        "+ .RequireAuthorization(",
-        "+   OrderPolicies.Read);",
-      ],
-    },
     migrations: {
       count: "+62  −4",
       files: [
-        ["SQL", "stock-migration.sql", "M"],
-        ["C#", "StockMigration.cs", "+24"],
+        ["SQL", "AddExternalRef.sql", "M"],
+        ["C#", "AddExternalRef.cs", "+24"],
         ["C#", "MigrationTests.cs", "+18"],
         ["MD", "migration-plan.md", "+16"],
       ],
       diff: [
-        "- ALTER TABLE stock",
-        "-   DROP COLUMN legacy_qty;",
-        "+ ALTER TABLE stock",
-        "+   ADD reserved int DEFAULT 0;",
+        "+ ALTER TABLE orders",
+        "+   ADD COLUMN external_ref",
+        "+   text NULL;",
+        "+ # сверка старых заказов",
       ],
     },
     integration: {
@@ -184,47 +201,16 @@
         "+ contractVersion: v1",
       ],
     },
-    ui: {
-      count: "+38  −14",
-      files: [
-        ["RZR", "Orders.razor", "M"],
-        ["RES", "Labels.resx", "+8"],
-        ["CSS", "Orders.razor.css", "M"],
-        ["E2E", "order-ui.spec.ts", "+16"],
-      ],
-      diff: [
-        "- <button>Approve</button>",
-        '+ <button disabled="@(!CanApprove)">',
-        "+   @Labels.Orders.Approve",
-        "+ </button>",
-      ],
-    },
     tests: {
       count: "+54  −6",
       files: [
-        ["C#", "AccessTests.cs", "+18"],
-        ["C#", "ContractTests.cs", "+14"],
-        ["C#", "MigrationTests.cs", "+12"],
-        ["E2E", "orders.spec.ts", "+10"],
+        ["C#", "ReservationTests.cs", "+18"],
+        ["YML", "release.yml", "M"],
       ],
       diff: [
         "+ Assert.Equal(",
-        "+   HttpStatusCode.Forbidden,",
-        "+   response.StatusCode);",
-      ],
-    },
-    fix: {
-      count: "+60  −8",
-      files: [
-        ["C#", "OrderEndpoints.cs", "M"],
-        ["C#", "OrderPolicies.cs", "M"],
-        ["C#", "AccessTests.cs", "+18"],
-        ["MD", "access-rules.md", "+6"],
-      ],
-      diff: [
-        "- .RequireAuthorization();",
-        "+ .RequireAuthorization(",
-        "+   OrderPolicies.Approve);",
+        "+   HttpStatusCode.Conflict,",
+        "+   second.StatusCode);",
       ],
     },
     pipeline: {
@@ -308,359 +294,366 @@
       status: "Черновик плана",
       git: "rules",
       agent:
-        "Черновик архитектуры готов. До реализации нужны ваши решения по границам модулей, контрактам и правилам общего репозитория.",
+        "Подготовил черновик. До реализации нужны ваши решения по границам модулей и общим соглашениям.",
       label: "ADR-001 · архитектурный черновик",
       state: "На рассмотрении",
-      tone: "neutral",
-      body: "ASP.NET Core → модули → PostgreSQL\nBlazor + Phone → общий контракт API\nРешения и ограничения фиксируются в репозитории",
+      body: "ASP.NET Core → модули → PostgreSQL\nBlazor + Phone → общий API\nРешения и ограничения → в репозиторий",
       humanAt: 19500,
       action: "Я · сопоставляю план с требованиями",
       human:
-        "Выбираю границы модулей и правила совместной работы. Дальше работаю с файлами, diff и проверками.",
+        "Выбираю границы модулей и критерии приёмки. Дальше проверяю изменения и отчёты в отдельных темах.",
     },
     {
       at: 21000,
-      mode: "editor",
+      mode: "report",
       thread: "architecture",
-      status: "Мой редактор",
+      status: "Мои правила",
       git: "rules",
       agent:
-        "Агенты читают правила репозитория; изменения проверяются форматтером и архитектурными тестами.",
-      label: "AGENTS.md · общие правила",
-      state: "Редактирую",
-      tone: "neutral",
-      before:
-        "# Правила проекта\nГраницы модулей и стиль ещё не зафиксированы.",
-      body: "# Правила проекта\n+ Модули общаются через контракты.\n+ Policy → OrderPolicies; UI-тексты → Resources.\n+ Деньги → decimal; миграции → SQL review.\n+ Изменение контракта → тест + документация.",
-      editAt: 22500,
-      humanAt: 21000,
-      action: "Я · фиксирую правила проекта",
+        "Собрал HTML-отчёт по изменениям. Замечания привязаны к файлам и правилам репозитория.",
+      action: "Я · задаю правила и открываю отчёт",
       human:
-        "Записываю единые соглашения в AGENTS.md и .editorconfig. Закрепляю границы модулей архитектурными тестами.",
+        "Фиксирую соглашения в AGENTS.md и .editorconfig: форматирование, строковые литералы, ресурсы текстов и тесты контрактов.",
       caption:
-        "Разработчик создаёт правила общего репозитория: границы модулей, именование, ресурсы текстов, миграции и обязательные проверки. Агенты работают в этих рамках.",
+        "Задаю правила общего репозитория. Открываю HTML-отчёт внутри чата: здесь сравниваю поведение, замечания и результаты проверок, а рядом просматриваю Git-diff.",
     },
     {
       at: 25000,
-      mode: "editor",
+      mode: "report",
       thread: "orders",
-      status: "Моя правка diff",
-      git: "literals",
+      status: "Моё ревью",
+      git: "review",
       agent:
-        "По моей правке агенты обновляют остальные вызовы policy и связанные тесты. Итоговый diff я проверяю снова.",
-      label: "OrderQueries.cs · diff",
-      state: "Ревью литералов",
-      tone: "neutral",
-      before:
-        '- .RequireAuthorization("Orders.Read");\n// Строка повторяется в нескольких модулях.',
-      body: '- .RequireAuthorization("Orders.Read");\n+ .RequireAuthorization(OrderPolicies.Read);\n// Определение — в OrderPolicies.cs:\n+ public const string Read = "Orders.Read";',
-      editAt: 26600,
-      humanAt: 25000,
-      action: "Я · исправляю строковые литералы",
+        "В отчёте выделен ответ API при нехватке товара. Остальные замечания сгруппированы по файлам.",
+      action: "Я · проверяю поведение и оставляю замечание",
       human:
-        "Выношу имя policy в общий контракт. Тексты кнопок переношу в Resources, проверяю типы сумм и согласованность именования.",
+        "В ответе 409 вижу только «Ошибка». Прошу сохранить код stock.insufficient и доступный остаток; текст интерфейса — в Resources.",
       caption:
-        "В diff агента нахожу повторяющиеся строки. Сам меняю код: имя права хранится в общем контракте, тексты — в ресурсах. Проверяю связанные вызовы и тесты.",
+        "В отчёте сравниваю ответ API и понятность сообщения. Оставляю замечание к diff: стабильный код ошибки, данные остатка и локализованный текст должны согласоваться.",
     },
     {
-      at: 29000,
-      mode: "editor",
-      thread: "warehouse",
-      status: "SQL review",
-      git: "migrations",
+      at: 30000,
+      mode: "report",
+      thread: "orders",
+      status: "Проверяю доработку",
+      git: "review",
       agent:
-        "Агент подготавливает backfill и тест миграции по исправленному мной плану. Разрушительное изменение отложено.",
-      label: "stock-migration.sql · проверка",
-      state: "Риск потери данных",
-      tone: "neutral",
-      before:
-        "- ALTER TABLE stock DROP COLUMN legacy_qty;\n// Старые данные и клиенты ещё используют колонку.",
-      body: "- ALTER TABLE stock DROP COLUMN legacy_qty;\n+ ALTER TABLE stock ADD reserved int DEFAULT 0;\n-- Backfill на копии БД → сверка остатков.\n-- Переключение чтения → удаление позже.",
-      editAt: 30600,
-      humanAt: 29000,
-      action: "Я · исправляю план миграции",
+        "Обновил контракт ответа, ресурсы интерфейса и проверку схемы. Отчёт связан с новым diff.",
+      action: "Я · сверяю доработку с замечанием",
       human:
-        "Отклоняю раннее удаление колонки. Проверяю SQL на копии данных, планирую обратимую поставку и сверку остатков после переноса.",
+        "Повторно читаю diff и проверяю контракт ответа. Закрываю замечание после сверки кода, ресурсов и отчёта.",
       caption:
-        "Разработчик замечает потерю совместимости в миграции агента. Меняет план, проверяет SQL и данные на копии базы, задаёт порядок переноса и отката.",
+        "Сверяю новый diff с моим замечанием и закрываю его после проверки. В отчёте остаются сравнение «было → стало» и история решений.",
     },
     {
       at: 33000,
-      mode: "editor",
+      mode: "report",
       thread: "integrations",
-      status: "Проверка контракта",
+      status: "Контракт и документация",
       git: "integration",
       agent:
-        "Агент приводит клиент и contract-тесты к сверенной спецификации интеграции.",
-      label: "integration.md · учётная система",
-      state: "Моя сверка",
-      tone: "neutral",
-      body: "OpenAPI v1 → клиент учётной системы\nПовтор события → тот же orderId\nTimeout → retry с backoff\nИзменение схемы → contract test + документация",
-      humanAt: 33000,
-      action: "Я · сверяю интеграцию и документацию",
+        "Добавил описание stock.insufficient в OpenAPI и документацию клиентской интеграции.",
+      action: "Я · сверяю общий контракт",
       human:
-        "Проверяю реальный контракт и ответы тестового контура. Добавляю случай повторной доставки и описываю обработку ошибок.",
-      caption:
-        "Сверяю интеграцию с внешней системой: контракт, повторную доставку и ошибки. Дописываю проверочные случаи и документацию, затем принимаю изменения клиента.",
+        "Проверяю, что Web и Phone получают одинаковый код ошибки, а изменение отражено в OpenAPI и документации.",
     },
     {
       at: 37000,
-      mode: "editor",
-      thread: "orders",
-      status: "Проверяю UI",
-      git: "ui",
-      agent:
-        "Агент обновляет компоненты по общим правилам; я проверяю промежуточный интерфейс и вношу правки в Razor.",
-      label: "Orders.razor · мой diff",
-      state: "Проверка ролей",
-      tone: "neutral",
-      body: '- <button>Approve</button>\n+ <button disabled="@(!CanApprove)">\n+   @Labels.Orders.Approve\n+ </button>',
-      humanAt: 37000,
-      action: "Я · проверяю сценарий и правлю UI",
+      panel: "migration",
+      thread: "warehouse",
+      status: "Копия базы данных",
+      git: "migrations",
+      action: "Я · просматриваю SQL миграции",
       human:
-        "Прохожу заказ под разными ролями. Исправляю состояние действия и локализацию; серверные права проверяю следующим тестом.",
+        "Добавляю nullable external_ref для интеграции. Проверяю совместимость схемы и применяю миграцию к обезличенной копии БД.",
+      caption:
+        "Просматриваю SQL и проверяю добавление external_ref: старые заказы должны остаться доступными. Перед запуском сверяю резервную копию и совместимость схемы.",
+    },
+    {
+      at: 40500,
+      panel: "migration",
+      thread: "warehouse",
+      status: "Миграция на копии БД",
+      git: "migrations",
+      action: "Я · применяю миграцию и сравниваю данные",
+      human:
+        "Сверяю количество заказов, суммы и статусы до и после изменения. Значения старых полей должны совпасть.",
+      caption:
+        "Применяю миграцию к копии БД. Сравниваю 2 184 заказа до и после: количество, суммы и статусы должны сохраниться. В таблицах показаны три примера.",
+    },
+    {
+      at: 43500,
+      panel: "migration",
+      thread: "warehouse",
+      status: "Данные сверены",
+      git: "migrations",
+      action: "Я · открываю старый заказ в новой версии",
+      human:
+        "Проверяю заказ #1042 через обновлённое API. Сохраняю отчёт сверки и результат проверки совместимости.",
+      caption:
+        "Сверка проходит: количество и суммы совпадают, старые заказы открываются через обновлённое API. Сохраняю отчёт миграции для следующего этапа поставки.",
     },
     {
       at: 46000,
-      mode: "editor",
-      thread: "tests",
-      status: "Мои тест-кейсы",
-      git: "tests",
-      agent:
-        "Агент запускает дополненный мной набор unit, integration и e2e и собирает результаты.",
-      label: "AccessTests.cs · негативные случаи",
-      state: "Добавляю тест",
-      tone: "neutral",
-      body: '+ var response = await viewer.PostAsync(\n+   "/api/orders/42/approve", null);\n+ Assert.Equal(HttpStatusCode.Forbidden,\n+   response.StatusCode);',
-      humanAt: 46000,
-      action: "Я · дописываю недостающие проверки",
-      human:
-        "Добавляю прямой вызов API под Viewer: скрытая кнопка не проверяет серверную защиту. Сверяю покрытие с контрактами и миграцией.",
-      caption:
-        "Сам дописываю тест прямого POST к API под Viewer: ожидаю 403. Отдельно проверяю Manager, повтор события и сохранность данных при миграции.",
-    },
-    {
-      at: 49000,
-      mode: "editor",
-      thread: "tests",
-      status: "Merge остановлен",
-      git: "tests",
-      agent:
-        "Новый тест падает. Агент сохраняет воспроизведение; изменения не переходят к поставке.",
-      label: "ViewerCannotApprove · результат",
-      state: "FAIL · 1",
-      tone: "failure",
-      body: "POST /api/orders/42/approve\nexpected: 403 Forbidden\nactual:   200 OK\nOrderEndpoints.cs → пропущена policy",
-      humanAt: 49000,
-      action: "Я · нахожу причину и останавливаю merge",
-      human:
-        "Воспроизвожу запрос, читаю endpoint и нахожу общую авторизацию без нужного права. Исправление вношу в код, затем проверяю остальные роли.",
-      caption:
-        "Мой негативный тест обнаруживает 200 вместо 403. Останавливаю merge, воспроизвожу запрос и нахожу пропущенную policy в endpoint. Дальше сам исправляю код.",
-    },
-    {
-      at: 55000,
-      mode: "editor",
-      thread: "tests",
-      status: "Моё исправление",
-      git: "fix",
-      agent:
-        "Агент обновляет связанные проверки и документацию прав. Мой diff остаётся точкой контроля.",
-      label: "OrderEndpoints.cs · моя правка",
-      state: "Редактирую",
-      tone: "neutral",
-      before:
-        "- .RequireAuthorization();\n// Аутентификация есть, нужное право не проверяется.",
-      body: "- .RequireAuthorization();\n+ .RequireAuthorization(OrderPolicies.Approve);\n// Viewer → 403; Manager → разрешено.",
-      editAt: 56600,
-      humanAt: 55000,
-      action: "Я · исправляю серверную policy",
-      human:
-        "Ставлю OrderPolicies.Approve на endpoint. Просматриваю связанные изменения агента и сохраняю регрессионный тест прямого запроса.",
-      caption:
-        "Я вношу исправление в endpoint и просматриваю связанные правки агента. Сервер проверяет общее право OrderPolicies.Approve; регрессионный тест остаётся в проекте.",
-    },
-    {
-      at: 59500,
-      mode: "editor",
-      thread: "tests",
-      status: "Повторный прогон",
-      git: "fix",
-      agent:
-        "Агент повторяет весь набор проверок после моей правки, включая сценарии Manager, Viewer, интеграции и миграцию.",
-      label: "Проверки после моего diff",
-      state: "RUNNING",
-      tone: "neutral",
-      body: "✓ unit           148 / 148\n✓ integration     36 / 36\n… e2e             11 / 12",
-      humanAt: 59500,
-      action: "Я · проверяю регрессию и связанные изменения",
-      human:
-        "Читаю diff и отчёт целиком. Сопоставляю результаты с моими кейсами и проверяю, что исправление не изменило разрешённые действия.",
-      caption:
-        "После моей правки идёт полный повтор unit, integration и e2e. Я читаю diff, сверяю отчёт с критериями и проверяю соседние сценарии — разрешённые действия должны сохраниться.",
-    },
-    {
-      at: 63000,
-      mode: "editor",
-      thread: "tests",
-      status: "Моё ревью закрыто",
-      git: "fix",
-      agent:
-        "Повторный прогон завершён. Дальнейшие действия выполняются по workflow, который настраивает разработчик.",
-      label: "Регрессия после исправления",
-      state: "PASS",
-      tone: "success",
-      body: "✓ unit           148 / 148\n✓ integration     36 / 36\n✓ e2e             12 / 12",
-      humanAt: 63000,
-      action: "Я · принимаю проверенный diff",
-      human:
-        "Проверил код, отчёт и обновление документации прав. Закрываю замечания ревью и разрешаю merge в тестовую ветку.",
-      caption:
-        "Повторные проверки проходят. Я принимаю diff после чтения кода, отчёта и документации. Дальше сам настраиваю поставку и проверяю тестовый контур; production требует отдельного подтверждения.",
-    },
-    {
-      at: 65000,
-      mode: "editor",
+      panel: "pipeline",
       thread: "delivery",
-      status: "Настраиваю CI/CD",
+      status: "Настройка workflow",
       git: "pipeline",
-      agent:
-        "Агент дополняет шаги сборки в заданном мной workflow. Порядок jobs и условия выпуска определяет разработчик.",
-      label: ".github/workflows/ci.yml · мой diff",
-      state: "Зависимости jobs",
-      tone: "neutral",
-      before:
-        "- deploy:\n-   needs: [build]\n// Тесты и проверка миграции не блокируют выпуск.",
-      body: "+ image:\n+   needs: [unit, integration, e2e]\n+ deploy:\n+   needs: [image, migration-check]\n+   environment: staging",
-      editAt: 66700,
-      humanAt: 65000,
-      action: "Я · связываю jobs и блокирую ранний deploy",
+      action: "Я · задаю зависимости jobs",
       human:
-        "Настраиваю обязательные проверки, порядок сборки образа и поставки. Проверяю Dockerfile, health probes и совместимость миграции.",
+        "Связываю unit, integration, e2e, сборку образа и staging. Проверка миграции обязательна до поставки.",
       caption:
-        "Сам редактирую CI/CD: без тестов и проверки миграции deploy недоступен. Проверяю образ Docker, probes и конфигурацию Kubernetes.",
+        "Настраиваю workflow: обязательные проверки → образ Docker → staging. Сверяю зависимости jobs и проверку миграции до поставки.",
     },
     {
-      at: 69000,
-      mode: "editor",
+      at: 51000,
+      panel: "pipeline",
       thread: "delivery",
-      status: "Настройки репозитория",
+      status: "Защита production",
       git: "environment",
-      agent:
-        "Workflow ссылается на production environment. Защита среды и секреты настраиваются разработчиком в репозитории.",
-      label: "Settings / Environments / production",
-      state: "Моя настройка",
-      tone: "neutral",
-      body: "✓ Required reviewers → разработчик\n✓ Deployment branches → master\n✓ Secrets → отдельные для среды\nKubernetes: requests CPU 500m · HPA target 60%",
-      humanAt: 69000,
-      action: "Я · защищаю окружение и доступы",
+      action: "Я · настраиваю окружения",
       human:
-        "Включаю подтверждение выпуска в Settings, ограничиваю ветки и секреты среды. Сверяю ресурсные лимиты и параметры HPA с тестовым профилем.",
-    },
-    {
-      at: 73500,
-      mode: "editor",
-      thread: "delivery",
-      status: "Проверка runbook",
-      git: "runbook",
-      agent:
-        "Автоматизация выполняет утверждённый workflow на staging. Production остаётся за подтверждением разработчика.",
-      label: "runbook.md · выпуск и откат",
-      state: "Дополняю документацию",
-      tone: "neutral",
-      body: "1. Backup → проверка восстановления\n2. SQL review → миграция на копии БД\n3. Staging → smoke + contract tests\n4. Rollback: образ + совместимая схема\n5. Production: моё подтверждение",
-      humanAt: 73500,
-      action: "Я · проверяю миграцию и описываю откат",
-      human:
-        "Уточняю порядок выпуска, проверку резервной копии и совместимость схемы при откате образа. Сверяю runbook с реальными шагами pipeline.",
+        "В Settings / Environments включаю моё подтверждение production, ограничение ветки и отдельные секреты среды.",
       caption:
-        "До выпуска дополняю документацию: резервная копия, миграция, smoke-проверки и откат. Проверяю, что runbook соответствует настроенному pipeline.",
+        "В настройках репозитория защищаю production: задаю подтверждение выпуска, разрешённую ветку и секреты окружения. Проверяю, что workflow ссылается на нужную среду.",
     },
     {
-      at: 78000,
-      mode: "editor",
+      at: 55500,
+      panel: "pipeline",
+      thread: "delivery",
+      status: "Проверка порядка выпуска",
+      git: "runbook",
+      action: "Я · сверяю workflow с runbook",
+      human:
+        "Проверяю backup, SQL review, smoke-проверки и откат на совместимую схему. Сохраняю конфигурацию перед запуском.",
+      caption:
+        "Сверяю схему поставки с инструкцией: резервная копия, проверка SQL, staging, smoke и откат. Подтверждаю настройки; дальше фиксирую тесты и запускаю workflow коммитом.",
+    },
+    {
+      at: 60000,
+      panel: "release",
+      thread: "tests",
+      status: "Пишу интеграционный тест",
+      git: "tests",
+      action: "Я · добавляю сценарий второго резервирования",
+      human:
+        "Задаю остаток 1, резервирую его первым заказом и ожидаю 409 для второго. Проверяю поведение через API.",
+      caption:
+        "Сам дописываю интеграционный тест: при остатке 1 только один заказ получает резерв. Для второго ожидаю 409 и stock.insufficient. Затем фиксирую тест в Git.",
+    },
+    {
+      at: 63800,
+      panel: "release",
+      thread: "tests",
+      status: "Commit → push",
+      git: "tests",
+      action: "Я · фиксирую тест и отправляю коммит",
+      human:
+        "Просматриваю staged diff, создаю коммит и отправляю ветку. Push запускает workflow для конкретной версии кода.",
+      caption:
+        "Просматриваю staged diff и отправляю коммит a41c9e2 с тестом. GitHub Actions запускает run #184 на этом коммите; по нему можно проверить состав кода и результаты.",
+    },
+    {
+      at: 66300,
+      panel: "release",
+      thread: "tests",
+      status: "Actions · run #184",
+      git: "tests",
+      action: "Я · открываю прогон в Actions",
+      human:
+        "Слежу за jobs и читаю лог интеграционных тестов. Образ и поставка зависят от их результата.",
+    },
+    {
+      at: 68200,
+      panel: "release",
+      thread: "tests",
+      status: "Integration · FAIL",
+      git: "tests",
+      tone: "failure",
+      action: "Я · читаю ошибку и останавливаю выпуск",
+      human:
+        "Второй заказ получил 200 вместо 409. Открываю резервирование: списание не проверяет доступный остаток.",
+      caption:
+        "В Actions вижу падение моего теста: второй заказ получает 200 вместо 409. Поставка заблокирована. Нахожу списание без проверки остатка и готовлю исправление.",
+    },
+    {
+      at: 70700,
+      panel: "release",
+      thread: "orders",
+      status: "Моя правка · резервирование",
+      git: "reservation",
+      action: "Я · защищаю списание остатка",
+      human:
+        "Объединяю проверку остатка и списание в одну операцию. Ноль изменённых строк означает 409; тест остаётся в регрессии.",
+      caption:
+        "Исправляю резервирование: условное UPDATE проверяет available и уменьшает остаток одной операцией. При нуле изменённых строк возвращаю 409. Просматриваю связанные изменения и сохраняю тест.",
+    },
+    {
+      at: 73000,
+      panel: "release",
+      thread: "orders",
+      status: "Новый commit → новый run",
+      git: "reservation",
+      action: "Я · принимаю исправление и объединяю в master",
+      human:
+        "Проверяю diff и объединяю тест с исправлением в master. Коммит b72d8f0 запускает отдельный run #185.",
+      caption:
+        "После ревью объединяю тест и исправление в master. Новый коммит b72d8f0 запускает run #185: проверяется исправленный код, затем собирается новый образ.",
+    },
+    {
+      at: 74500,
+      panel: "release",
+      thread: "delivery",
+      status: "Actions · run #185",
+      git: "reservation",
+      action: "Я · сверяю повторные проверки",
+      human:
+        "Проверяю unit, integration, e2e и миграцию на новом коммите. Читаю отчёт перед переходом к staging.",
+      caption:
+        "На новом коммите проверяю полный прогон unit, integration, e2e и миграции. После успешных jobs workflow собирает образ с привязкой к b72d8f0.",
+    },
+    {
+      at: 77300,
+      panel: "release",
+      thread: "delivery",
+      status: "Проверяю staging",
+      git: "runbook",
+      action: "Я · проверяю сборку на staging",
+      human:
+        "Сверяю версию образа, открываю заказ и проверяю резервирование. Читаю smoke-отчёт и результаты миграции.",
+      caption:
+        "Открываю сборку на staging, проверяю старые заказы и повторное резервирование. Сверяю smoke-отчёт, миграцию и версию образа перед подтверждением production.",
+    },
+    {
+      at: 79800,
+      panel: "release",
+      thread: "delivery",
+      status: "Ожидается моё подтверждение",
+      git: "runbook",
+      action: "Я · подтверждаю проверенный выпуск",
+      human:
+        "Сверяю commit, образ и инструкцию отката. Подтверждаю production в защищённом окружении.",
+      caption:
+        "После проверки staging сверяю commit b72d8f0, образ и инструкцию отката. Подтверждаю deployment в production через защищённое окружение.",
+    },
+    {
+      at: 81500,
+      panel: "release",
+      thread: "delivery",
+      status: "Публикация новой версии",
+      git: "runbook",
+      action: "Я · наблюдаю за публикацией",
+      human:
+        "Проверяю готовность pod, smoke-проверку и версию приложения после rollout.",
+      caption:
+        "Наблюдаю за rollout: проверяю readiness новых pod, smoke-проверку и версию приложения. Сохраняю связь выпуска с коммитом и результатами Actions.",
+    },
+    {
+      at: 84000,
+      panel: "release",
+      thread: "delivery",
+      status: "Версия v0.8.4 опубликована",
+      git: "runbook",
+      tone: "success",
+      action: "Я · проверяю опубликованную версию",
+      human:
+        "Сверяю v0.8.4 с коммитом b72d8f0 и открываю приложение после выпуска.",
+      caption:
+        "Проверяю опубликованную v0.8.4: commit b72d8f0, готовность приложения и smoke-отчёт совпадают. Дальше проверяю систему нагрузкой.",
+    },
+    {
+      at: 86000,
       thread: "scaling",
       status: "Мой нагрузочный профиль",
       git: "environment",
       agent:
-        "Инструмент нагрузки генерирует фиксированный профиль запросов. Масштабирование оценивается по метрикам и настройкам HPA.",
+        "Инструмент нагрузки генерирует заданный профиль. HPA использует метрики CPU и настройки ресурсов.",
       label: "load-profile.md · staging",
       state: "Условный пример",
-      tone: "neutral",
-      body: "Web + Phone → L7 Ingress → .NET API\nHPA: target CPU 60% от requests 500m\n2 × 78% / 60% → ceil(2.6) = 3 реплики\nНагрузка удерживается 3 мин · время сжато",
-      humanAt: 78000,
+      body: "Web + Phone → L7 Ingress → .NET API\nHPA: target CPU 60% от requests 500m\nceil(2 × 78 / 60) = 3 реплики\nПрофиль: 3 мин · время сжато",
       action: "Я · задаю нагрузку и проверяю метрики",
       human:
-        "Фиксирую смесь запросов, ресурсы pod и длительность прогона. Сверяю CPU, задержки и ошибки, затем оцениваю решение HPA.",
+        "Фиксирую смесь запросов и ресурсы pod. Сверяю CPU, задержки и ошибки, затем оцениваю решение HPA.",
     },
     {
-      at: 93000,
-      mode: "editor",
+      at: 101000,
       thread: "mobile",
       status: "Сверка клиентов",
       git: "mobile",
-      agent:
-        "Агент обновляет клиент по общему OpenAPI-контракту и добавляет сценарий переподключения.",
+      agent: "Обновил клиент по OpenAPI и добавил сценарий переподключения.",
       label: "Контракт Web / Phone · ревью",
       state: "Проверено",
       tone: "success",
       body: "Web: заказ создан → API\nPhone: OrderUpdated → новый статус\nReconnect → перечитать данные из API",
-      humanAt: 93000,
       action: "Я · проверяю клиент и документацию API",
       human:
-        "Прохожу сценарий потери связи и восстановления. Проверяю, что клиент перечитывает актуальные данные и не создаёт дубликаты.",
+        "Прохожу сценарий потери связи и восстановления. Проверяю актуальность данных и отсутствие дубликатов.",
     },
     {
-      at: 97200,
-      mode: "editor",
+      at: 105200,
       thread: "architecture",
       status: "Моя приёмка итерации",
       git: "runbook",
       agent:
-        "Результаты собраны для приёмки. Незакрытые задачи остаются в отдельных темах проекта.",
+        "Собрал отчёты для приёмки. Открытые задачи сохранены в отдельных темах.",
       label: "release-checklist.md · мои отметки",
       state: "Сверено",
       tone: "success",
-      body: "✓ Правила, diff и мои исправления\n✓ Миграция, контракты и регрессия\n✓ CI/CD, настройки среды и runbook\n✓ Нагрузка и пользовательские сценарии",
-      humanAt: 97200,
+      body: "✓ Правила, HTML-ревью и доработки\n✓ Миграция и сохранность данных\n✓ Тесты, коммиты и Actions\n✓ Staging, выпуск и нагрузка",
       action: "Я · сверяю результат с критериями",
       human:
-        "Закрываю только проверенные замечания. Решения, мои правки и инструкции сохранены в репозитории; дальше прохожу ERP как пользователь.",
+        "Закрываю проверенные замечания. Решения, отчёты и инструкция выпуска сохранены; дальше прохожу ERP как пользователь.",
     },
     {
       at: PRODUCT_START,
-      mode: "editor",
       thread: "architecture",
       status: "Пользовательская проверка",
       git: "runbook",
       agent:
-        "Агенты ускорили реализацию и проверки в рамках общего проекта. Решения и приёмка оставались за разработчиком.",
+        "Реализация и проверки завершены в рамках утверждённых правил и ревью.",
       label: "История работы",
       state: "Проверено",
       tone: "success",
-      body: "Правила → мои правки → работа агентов\nМиграции → интеграции → регрессия\nCI/CD → runbook → моя приёмка",
-      humanAt: PRODUCT_START,
+      body: "Правила → HTML-отчёт → моё ревью\nМиграция → тест → исправление\nGit → Actions → моя приёмка",
       action: "Я · проверяю рабочие сценарии",
       human:
-        "Открываю разделы ERP и сверяю поведение с требованиями. Направление, архитектура и качество остаются под моим контролем.",
+        "Открываю разделы ERP и сверяю поведение с требованиями. Контролирую архитектуру и качество после выпуска.",
     },
-  ];
-  // Every important edit is reachable without animation and restored on rewind.
+  ].map((scene) => ({
+    mode: "editor",
+    tone: "neutral",
+    agent: "",
+    label: "",
+    state: "",
+    body: "",
+    humanAt: scene.at,
+    ...scene,
+  }));
+
+  // Every consequential state is reachable with reduced motion and restored on rewind.
   const checkpoints = [
     ...new Set([
       ...chapters.map((chapter) => chapter.inspect),
-      23500,
-      31200,
+      22500,
+      31000,
       35000,
+      39000,
+      42000,
       48000,
       57500,
-      61000,
-      64000,
+      61500,
+      65000,
       67500,
+      71500,
+      73500,
       75500,
-      85500,
-      90500,
+      78500,
+      80500,
+      82500,
+      85000,
+      93500,
       98500,
+      106500,
     ]),
   ].sort((a, b) => a - b);
 
@@ -851,9 +844,10 @@
       scenes.findLastIndex((scene) => time >= scene.at),
     );
     const scene = scenes[index];
-    const editor = scene.mode === "editor" && time >= scene.at;
+    const editor = scene.mode !== "chat" && time >= scene.at;
     const edited = !scene.before || time >= scene.editAt;
     demo.classList.toggle("ad-developer-mode", editor);
+    demo.classList.toggle("ad-report-mode", scene.mode === "report");
     if (activeScene !== index) {
       activeScene = index;
       setText(find("thread-title"), threadNames[scene.thread]);
@@ -870,21 +864,18 @@
       );
       const delivery =
         scene.thread === "delivery" || scene.thread === "scaling";
-      setText(
-        find("worker-ui"),
-        time >= 46000 ? "Blazor · правки по ревью" : "Blazor · по правилам",
-      );
+      setText(find("worker-ui"), "Blazor · контракт и ресурсы");
       setText(
         find("worker-api"),
-        scene.git === "fix"
-          ? "RBAC · по моему diff"
+        scene.git === "reservation"
+          ? "Резервирование · мой diff"
           : "API · контракты модулей",
       );
       setText(
         find("worker-ops"),
         delivery
           ? "CI/CD · по моему workflow"
-          : time >= 63000
+          : time >= 76500
             ? "Регрессия · PASS"
             : "Unit · integration · e2e",
       );
@@ -925,7 +916,7 @@
     setText(find("dev-status"), time >= 18000 ? scene.status : "Новая тема");
     setText(
       find("chat-state"),
-      time >= 97200
+      time >= 105200
         ? "✓ Ревью итерации"
         : time >= 22500
           ? "✓ Правила в репозитории"
@@ -935,31 +926,314 @@
     );
     setText(
       find("tests-thread-state"),
-      time >= 63000
+      time >= 76500
         ? "✓ Повторный прогон"
-        : time >= 55000
-          ? "Исправление · RBAC"
-          : time >= 49000
-            ? "Ошибка доступа · FAIL"
+        : time >= 73000
+          ? "Новый commit · повтор"
+          : time >= 68200
+            ? "Резервирование · FAIL"
             : "Проверки запущены",
     );
     find("human-review").classList.toggle(
       "ad-human-visible",
       time >= scene.humanAt,
     );
-    demo.classList.toggle(
-      "ad-ui-review-visible",
-      time >= 42500 && time < 46000,
-    );
+    renderReport();
+    renderEngineering(scene);
     return scene;
   }
+  let reportState = "";
+  let engineeringState = "";
+  const releaseJobs = [...demo.querySelectorAll("[data-ad-job]")];
+
+  function renderReport() {
+    if (time < 21000 || time >= 37000) return;
+    const state =
+      time < 25000 ? "rules" : time < 30000 ? "finding" : "reviewed";
+    if (reportState === state) return;
+    reportState = state;
+    find("review-report").dataset.review = state;
+    const reviewed = state === "reviewed";
+    setText(find("report-badge"), reviewed ? "Принято ✓" : "На ревью");
+    setText(find("report-contract"), reviewed ? "✓ Сверен" : "На ревью");
+    setText(
+      find("report-after-label"),
+      reviewed
+        ? "Стало · проверенный контракт"
+        : "Предлагаю · ожидаемый контракт",
+    );
+    setText(
+      find("report-test"),
+      reviewed ? "✓ Diff проверен" : "Ожидаю доработку",
+    );
+    setText(
+      find("report-comment"),
+      reviewed
+        ? "Повторно сверяю контракт, Resources и тест с новым diff. Закрываю замечание."
+        : state === "finding"
+          ? "Оставляю замечание: сохраняю код ошибки и available; текст интерфейса — в Resources."
+          : "Сверяю HTML-отчёт с Git-diff и правилами проекта. Приёмку выполняю после проверки.",
+    );
+  }
+
+  function renderEngineering(scene) {
+    if (!scene.panel) return;
+    const panel = scene.panel;
+    let state =
+      panel === "migration"
+        ? time < 40500
+          ? "review"
+          : time < 42500
+            ? "running"
+            : time < 43500
+              ? "matched"
+              : "verified"
+        : panel === "pipeline"
+          ? time < 51000
+            ? "jobs"
+            : time < 55500
+              ? "environment"
+              : "ready"
+          : time < 63800
+            ? "test"
+            : time < 66300
+              ? "commit"
+              : time < 68200
+                ? "running"
+                : time < 70700
+                  ? "failed"
+                  : time < 73000
+                    ? "fix"
+                    : time < 74500
+                      ? "pushed"
+                      : time < 77300
+                        ? "verify"
+                        : time < 79800
+                          ? "staging"
+                          : time < 81500
+                            ? "approval"
+                            : time < 84000
+                              ? "deploy"
+                              : "published";
+    if (panel === "release") {
+      demo
+        .querySelectorAll(".ad-test-editor pre > span")
+        .forEach((line, index) =>
+          line.classList.toggle("ad-line-visible", time >= 60000 + index * 150),
+        );
+    }
+    const key =
+      panel +
+      ":" +
+      state +
+      ":" +
+      scene.at +
+      ":" +
+      (time >= 76000) +
+      ":" +
+      (time >= 67500);
+    if (engineeringState === key) return;
+    engineeringState = key;
+    const engineering = find("engineering");
+    engineering.dataset.panel = panel;
+    engineering.dataset.state = state;
+    ["migration", "pipeline", "release"].forEach((name) => {
+      find(name + "-panel").hidden = name !== panel;
+    });
+    setText(
+      find("engineering-brand"),
+      {
+        migration: "Проверка миграции",
+        pipeline: "Workflow · настройки поставки",
+        release: "Git → Actions → выпуск",
+      }[panel],
+    );
+    setText(
+      find("engineering-location"),
+      panel === "migration"
+        ? "Копия БД"
+        : panel === "pipeline"
+          ? "release.yml"
+          : "v0.8.4",
+    );
+    setText(find("engineering-action"), scene.action);
+    setText(find("engineering-human"), scene.human);
+    if (panel === "migration") {
+      const matched = time >= 42500;
+      setText(find("migration-count"), matched ? "2 184 → 2 184" : "2 184 → …");
+      setText(
+        find("migration-status"),
+        {
+          review: "Мой SQL review",
+          running: "Применяю на копии…",
+          matched: "Сверка пройдена ✓",
+          verified: "Проверяю старый заказ ✓",
+        }[state],
+      );
+      setText(
+        find("migration-match"),
+        matched
+          ? "Суммы и статусы совпали ✓"
+          : time >= 40500
+            ? "Сверяю…"
+            : "Ожидаю запуск",
+      );
+      setText(
+        find("migration-order"),
+        time >= 43500 ? "Открывается · 48 500 ₽ ✓" : "Проверю после миграции",
+      );
+      return;
+    }
+    if (panel === "pipeline") {
+      setText(
+        find("pipeline-ready"),
+        state === "ready"
+          ? "Настройки сохранены ✓"
+          : state === "environment"
+            ? "Защищаю production"
+            : "Связываю jobs",
+      );
+      return;
+    }
+    const nextRun = time >= 73000;
+    const failed = !nextRun && time >= 68200;
+    setText(
+      find("commit-label"),
+      time >= 63800 ? "Commit & push ✓" : "Просматриваю изменения",
+    );
+    setText(
+      find("commit-command"),
+      time >= 63800
+        ? '$ git commit -m "test: second reservation"\n[feature/reservation a41c9e2]\n$ git push origin feature/reservation'
+        : "$ git diff --staged\n+ ReservationTests.cs\n+ release.yml",
+    );
+    setText(
+      find("actions-title"),
+      nextRun ? "Release v0.8.4 #185" : "Reservation checks #184",
+    );
+    setText(
+      find("actions-trigger"),
+      nextRun
+        ? "release.yml · push · master"
+        : "release.yml · push · feature/reservation",
+    );
+    setText(
+      find("actions-commit"),
+      nextRun
+        ? "b72d8f0 · fix: guard stock reservation"
+        : "a41c9e2 · test: prevent a second reservation",
+    );
+    setText(
+      find("actions-status"),
+      failed
+        ? "Failure"
+        : state === "published"
+          ? "Success"
+          : state === "approval"
+            ? "Waiting for review"
+            : "In progress",
+    );
+    find("actions-status").dataset.result = failed
+      ? "failed"
+      : state === "published"
+        ? "success"
+        : "running";
+    setText(
+      find("actions-run-id"),
+      nextRun ? "run #185 · b72d8f0" : "run #184 · a41c9e2",
+    );
+    const statuses = !nextRun
+      ? {
+          unit: time >= 67500 ? "success" : "running",
+          integration: failed ? "failed" : "running",
+          e2e: time >= 67500 ? "success" : "running",
+          image: failed ? "skipped" : "queued",
+          staging: failed ? "skipped" : "queued",
+          production: failed ? "skipped" : "queued",
+        }
+      : {
+          unit: time >= 74500 ? "success" : "running",
+          integration:
+            time >= 76000 ? "success" : time >= 74500 ? "running" : "queued",
+          e2e: time >= 76000 ? "success" : time >= 74500 ? "running" : "queued",
+          image:
+            time >= 77300 ? "success" : time >= 76000 ? "running" : "queued",
+          staging:
+            time >= 79800 ? "success" : time >= 77300 ? "running" : "queued",
+          production:
+            time >= 84000
+              ? "success"
+              : time >= 81500
+                ? "running"
+                : time >= 79800
+                  ? "waiting"
+                  : "queued",
+        };
+    const names = {
+      success: "Passed",
+      running: "Running",
+      failed: "Failed",
+      queued: "Queued",
+      skipped: "Skipped",
+      waiting: "Review",
+    };
+    const symbols = {
+      success: "✓",
+      running: "◌",
+      failed: "×",
+      queued: "○",
+      skipped: "−",
+      waiting: "◇",
+    };
+    releaseJobs.forEach((job) => {
+      const status = statuses[job.dataset.adJob];
+      job.dataset.status = status;
+      setText(job.querySelector("i"), symbols[status]);
+      setText(job.querySelector("b"), names[status]);
+    });
+    setText(
+      find("deployment-approval"),
+      time >= 81500 ? "Мной подтверждено ✓" : "Подтверждаю после staging",
+    );
+    setText(
+      find("actions-log-title"),
+      failed
+        ? "Integration · ошибка теста"
+        : time >= 84000
+          ? "Production · проверка версии"
+          : time >= 81500
+            ? "Production · rollout"
+            : time >= 79800
+              ? "Production · protected environment"
+              : time >= 77300
+                ? "Staging · smoke"
+                : "Checks · live log",
+    );
+    const log = failed
+      ? "FAIL CannotReserveTwice\nexpected: 409 Conflict\nactual:   200 OK\n\nImage / deploy: skipped\nОткрываю StockRepository.cs"
+      : time >= 84000
+        ? "✓ rollout complete\n✓ /health/ready → 200\n✓ smoke passed\nversion: v0.8.4\ncommit: b72d8f0"
+        : time >= 81500
+          ? "✓ environment approved by АК\n→ rollout image:b72d8f0\n→ readiness probes\n→ smoke production"
+          : time >= 79800
+            ? "✓ staging smoke passed\n✓ migration check passed\nimage: b72d8f0\n\nWaiting for environment review"
+            : time >= 77300
+              ? "✓ image:b72d8f0 published\n→ deploy staging\n✓ orders preserved\n→ reservation smoke checks"
+              : time >= 76000
+                ? "✓ unit          148 / 148\n✓ integration    36 / 36\n✓ e2e            12 / 12\n✓ migration check\n→ build Docker image:b72d8f0"
+                : nextRun
+                  ? "push → master @ b72d8f0\n→ новый run #185\n→ dotnet test\n→ integration + e2e\n→ migration check"
+                  : "checkout a41c9e2\n→ dotnet test\n✓ unit checks\n→ CannotReserveTwice\n→ проверяю отчёт";
+    setText(find("actions-log"), log);
+  }
+
   function renderInfrastructure() {
-    if (time < 78000 || time >= 93000) return;
-    const rising = time >= 82000;
-    const holding = time >= 84500;
-    const scaling = time >= 87500;
-    const scaled = time >= 89500;
-    const ramp = Math.min(1, Math.max(0, (time - 82000) / 2500));
+    if (time < 86000 || time >= 101000) return;
+    const rising = time >= 90000;
+    const holding = time >= 92500;
+    const scaling = time >= 95500;
+    const scaled = time >= 97500;
+    const ramp = Math.min(1, Math.max(0, (time - 90000) / 2500));
     const infra = find("infra");
     infra.classList.toggle("ad-load-rising", rising);
     infra.classList.toggle("ad-scaling", scaling);
@@ -973,9 +1247,9 @@
       scaled
         ? "Тот же профиль · CPU 52%"
         : holding
-          ? "Нагрузку удерживаем 3 мин*"
+          ? "Удерживаю нагрузку 3 мин*"
           : rising
-            ? "Повышаем частоту запросов"
+            ? "Повышаю частоту запросов"
             : "Базовый профиль · CPU 26%",
     );
     setText(
@@ -1100,12 +1374,12 @@
           : time < 37000
             ? "working"
             : time < 46000
-              ? "building"
-              : time < 65000
-                ? "verified"
-                : time < 78000
-                  ? "delivery"
-                  : time < 93000
+              ? "migration"
+              : time < 60000
+                ? "pipeline"
+                : time < 86000
+                  ? "release"
+                  : time < 101000
                     ? "infrastructure"
                     : time < PRODUCT_START
                       ? "threads"
@@ -1115,7 +1389,7 @@
     );
     demo.classList.toggle("ad-has-tools", time >= 21000);
     demo.classList.toggle("ad-many-threads", time >= 33000);
-    demo.classList.toggle("ad-verified", time >= 63000);
+    demo.classList.toggle("ad-verified", time >= 76500);
     demo.classList.toggle("ad-finished", time >= FINALE_START);
     const typing = time >= 6600 && time < 13600;
     demo.classList.toggle("ad-is-typing", typing);
@@ -1138,12 +1412,12 @@
     renderInfrastructure();
     setText(
       find("detail"),
-      time >= 89500 && time < 93000
+      time >= 97500 && time < 101000
         ? "Условный нагрузочный профиль: 500 → 1 500 запросов/с. После выдержки CPU 78% при цели HPA 60% даёт 2 → 3 реплики; затем CPU 52%. Время сжато. Проверяю также задержки и ошибки."
-        : time >= 84500 && time < 89500
+        : time >= 92500 && time < 97500
           ? "Удерживаю синтетический профиль 3 минуты и наблюдаю CPU относительно requests 500m. HPA рассчитывает ceil(2 × 78 / 60) = 3. Число пользователей не определяет число реплик; время наблюдения сжато."
-          : time >= 18000 && time < 78000
-            ? (scene.caption ?? chapters[chapter].detail)
+          : time >= 18000 && time < 86000
+            ? (scene.caption ?? scene.human ?? chapters[chapter].detail)
             : chapters[chapter].detail,
     );
     find("empty").style.opacity = time < 2600 || time >= 6000 ? "0" : "1";
@@ -1215,7 +1489,7 @@
           ? "Вы изучаете пример приложения. Нажмите «Продолжить», чтобы вернуться к презентации."
           : playing && (!inView || document.hidden)
             ? "Презентация на паузе, пока окно вне экрана. Продолжится с того же места."
-            : "2 мин 5 с · этапы можно выбирать в любой момент. Сценарий, код, проверки и данные ERP — демонстрационные.",
+            : "2 мин 13 с · этапы можно выбирать в любой момент. Сценарий, код, проверки и данные ERP — демонстрационные.",
     );
     setText(
       find("stage-note"),
