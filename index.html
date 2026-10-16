@@ -33,10 +33,10 @@
     />
     <link rel="stylesheet" href="./index.css?v=20261009-5" />
     <link rel="stylesheet" href="./tms-demo.css?v=20261009-2" />
-    <link rel="stylesheet" href="./ai-demo.css?v=20261016-4" />
+    <link rel="stylesheet" href="./ai-demo.css?v=20261016-5" />
     <script src="./js/site.js?v=20261009-5" defer></script>
     <script src="./js/tms-demo.js?v=20261009-2" defer></script>
-    <script src="./js/ai-demo.js?v=20261016-4" defer></script>
+    <script src="./js/ai-demo.js?v=20261016-5" defer></script>
   </head>
   <body id="top">
     <a class="skip-link" href="#main">Перейти к содержимому</a>
@@ -1376,7 +1376,7 @@ production:
                           <strong>ReservationTests.cs</strong
                           ><span>Мой интеграционный тест</span>
                         </div>
-                        <pre><span>[Fact]</span><span>public async Task CannotReserveTwice()</span><span>{</span><span>  await SeedStock("SKU-42", available: 1);</span><span>  await Reserve("order-A", "SKU-42");</span><span>  var second = await Reserve("order-B", "SKU-42");</span><span class="ad-line-added">  Assert.Equal(HttpStatusCode.Conflict,</span><span class="ad-line-added">    second.StatusCode);</span><span>}</span></pre>
+                        <pre><span>[Fact]</span><span>public async Task CannotReserveTwice()</span><span>{</span><span>  await SeedStock("SKU-42", available: 1);</span><span>  var first = await Reserve("order-A", "SKU-42");</span><span class="ad-line-added">  first.EnsureSuccessStatusCode();</span><span>  var second = await Reserve("order-B", "SKU-42");</span><span class="ad-line-added">  Assert.Equal(HttpStatusCode.Conflict,</span><span class="ad-line-added">    second.StatusCode);</span><span>}</span></pre>
                         <div class="ad-test-expectation">
                           Остаток 1 → первый резерв ✓ → второй запрос 409
                         </div>
